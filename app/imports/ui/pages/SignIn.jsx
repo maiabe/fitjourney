@@ -6,6 +6,18 @@ import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 
+const fonts = {
+  fontFamily: 'Poppins',
+};
+
+const cardVisual = {
+  backgroundColor: '#F8F8F8',
+  border: 'none',
+  borderRadius: 0,
+  paddingTop: 5,
+  paddingBottom: 5,
+};
+
 const SignIn = () => {
   const [error, setError] = useState('');
   const [redirect, setRedirect] = useState(false);
@@ -30,25 +42,23 @@ const SignIn = () => {
     return (<Navigate to="/" />);
   }
   return (
-    <Container id="signin-page" className="py-3">
-      <Row className="justify-content-center">
+    <Container id="signin-page">
+      <Row className="justify-content-center align-items-center" style={{ minHeight: '77vh' }}>
         <Col xs={5}>
-          <Col className="text-center">
-            <h2>Login to your account</h2>
-          </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-            <Card>
+            <Card style={cardVisual}>
               <Card.Body>
+                <Col className="text-center">
+                  <h2 style={fonts}>LOGIN</h2>
+                </Col>
                 <TextField id="signin-form-email" name="email" placeholder="E-mail address" />
                 <TextField id="signin-form-password" name="password" placeholder="Password" type="password" />
                 <ErrorsField />
                 <SubmitField id="signin-form-submit" />
               </Card.Body>
+              <p style={{ textAlign: 'center' }}>New to Envision Lahaina? <Link to="/signup">Sign Up</Link></p>
             </Card>
           </AutoForm>
-          <Alert variant="light">
-            <Link to="/signup">Click here to Register</Link>
-          </Alert>
           {error === '' ? (
             ''
           ) : (

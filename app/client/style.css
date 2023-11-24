@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Crimson+Pro|Poppins");
 
 .white-text-dropdown .dropdown-toggle {
   color: white !important;
@@ -6,4 +7,8 @@
 
 .landing-white-background img {
   margin-bottom: 50px;
+}
+
+* {
+  font-family: 'Poppins', serif;
 }

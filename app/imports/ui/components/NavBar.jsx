@@ -16,7 +16,7 @@ const NavBar = () => {
     <Navbar expand="lg" style={menuStyle} className={navbarClassName}>
       <Container>
         <Navbar.Brand as={NavLink} to="/" className="align-items-center">
-          <span style={{ fontWeight: 800, fontSize: '24px', color: 'white' }}>Envision Lahaina</span>
+          <span style={{ fontWeight: 800, fontSize: '24px', color: 'white', fontFamily: 'Poppins' }}>ENVISION LAHAINA</span>
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse>
@@ -54,7 +54,7 @@ const NavBar = () => {
 
           <Nav className="justify-content-end">
             {currentUser === '' ? (
-              <NavDropdown title="Login" className="white-text-dropdown">
+              <NavDropdown title="LOGIN" className="white-text-dropdown">
                 <NavDropdown.Item as={NavLink} to="/signin">
                   <PersonFill />
                   Sign
