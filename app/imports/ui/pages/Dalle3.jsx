@@ -63,12 +63,12 @@ const Dalle3 = () => {
           <Button style={{ borderColor: 'black', margin: 10, color: 'black', background: 'white' }} onClick={generateImage} disabled={isLoading}>Generate</Button>
           {isLoading && <LoadingSpinner />}
           <h3>Image</h3>
-          <Col className="d-flex justify-content-center messages text-center p-4">
+          <Col className="messages text-center p-4">
             {messages.map((message, index) => {
               if (message.imageUrl) {
                 return (
                   <div key={index} style={imageFrameStyle}>
-                    <Image width={700} height={700} src={message.imageUrl} alt="Generated from AI" />
+                    <Image width={700} src={message.imageUrl} alt="Generated from AI" />
                   </div>
                 );
               }
