@@ -25,7 +25,6 @@ const AddModCard = () => {
   const submit = (data) => {
     const { image, ...modCardData } = data;
     modCardData.address = currentAddress;
-
     // eslint-disable-next-line no-shadow
     const insertModCard = (modCardData) => {
       ModCards.collection.insert(modCardData, (error) => {
@@ -33,29 +32,37 @@ const AddModCard = () => {
           swal('Error', error.message, 'error');
         } else {
           swal('Success', 'ModCard added successfully', 'success');
-          fRef.reset();
+          if (fRef) {
+            fRef.reset();
+          }
         }
       });
     };
+    Meteor.call('textCheck', modCardData.detail, (error) => {
+      if (error) {
+        console.error(error);
+        swal('Error', 'Inappropriate Content in Detail.', 'error');
+        return;
+      }
+      if (imageFile) {
+        const reader = new FileReader();
+        reader.onloadend = function () {
+          const fileData = reader.result;
 
-    if (imageFile) {
-      const reader = new FileReader();
-      reader.onloadend = function () {
-        const fileData = reader.result;
-
-        Meteor.call('uploadImage', fileData, (error, imageUrl) => {
-          if (error) {
-            swal('Error', 'Failed to upload image.', 'error');
-          } else {
-            modCardData.image = imageUrl;
-            insertModCard(modCardData);
-          }
-        });
-      };
-      reader.readAsDataURL(imageFile);
-    } else {
-      insertModCard(modCardData);
-    }
+          Meteor.call('uploadImage', fileData, (err, imageUrl) => {
+            if (err) {
+              swal('Error', 'Failed to upload image.', 'error');
+            } else {
+              modCardData.image = imageUrl;
+              insertModCard(modCardData);
+            }
+          });
+        };
+        reader.readAsDataURL(imageFile);
+      } else {
+        insertModCard(modCardData);
+      }
+    });
   };
 
   return (

@@ -23,6 +23,7 @@ const AddPost = () => {
     postData.createdAt = new Date();
     postData.owner = user ? user.username : 'Anonymous';
 
+    // Insert post function
     // eslint-disable-next-line no-shadow
     const insertPost = (postData) => {
       Posts.collection.insert(postData, (error) => {
@@ -30,29 +31,44 @@ const AddPost = () => {
           swal('Error', error.message, 'error');
         } else {
           swal('Success', 'Post added successfully', 'success');
-          fRef.reset();
+          if (fRef) {
+            fRef.reset();
+          }
         }
       });
     };
 
-    if (imageFile) {
-      const reader = new FileReader();
-      reader.onloadend = function () {
-        const fileData = reader.result;
+    Meteor.call('textCheck', postData.title, (error) => {
+      if (error) {
+        console.error(error);
+        swal('Error', 'Inappropriate Content in Title.', 'error');
+        return;
+      }
+      Meteor.call('textCheck', postData.contents, (error1) => {
+        if (error1) {
+          swal('Error', 'Inappropriate Content in Post.', 'error');
+          return;
+        }
+        if (imageFile) {
+          const reader = new FileReader();
+          reader.onloadend = function () {
+            const fileData = reader.result;
 
-        Meteor.call('uploadImage', fileData, (error, imageUrl) => {
-          if (error) {
-            swal('Error', 'Failed to upload image.', 'error');
-          } else {
-            postData.image = imageUrl;
-            insertPost(postData);
-          }
-        });
-      };
-      reader.readAsDataURL(imageFile);
-    } else {
-      insertPost(postData);
-    }
+            Meteor.call('uploadImage', fileData, (error2, imageUrl) => {
+              if (error2) {
+                swal('Error', 'Failed to upload image.', 'error');
+              } else {
+                postData.image = imageUrl;
+                insertPost(postData);
+              }
+            });
+          };
+          reader.readAsDataURL(imageFile);
+        } else {
+          insertPost(postData);
+        }
+      });
+    });
   };
 
   return (
@@ -60,7 +76,7 @@ const AddPost = () => {
       <Row className="justify-content-center">
         <Col xs={6}>
           <Col className="text-center"><h2>Add Post</h2></Col>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={submit}>
+          <AutoForm ref={(ref) => { fRef = ref; }} schema={bridge} onSubmit={submit}>
             <Card>
               <Card.Body>
                 <TextField name="title" />

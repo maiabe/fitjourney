@@ -1,0 +1,266 @@
+{
+  "defaultAccounts": [
+    { "email": "admin@foo.com",
+      "username": "admin",
+      "password": "changeme", "role": "admin" }
+  ],
+  "defaultModCards": [
+    { "type": "Single Family Home",
+      "image": "https://cdn.decoist.com/wp-content/uploads/2020/08/Traditional-home-given-a-modren-update-with-a-picture-perfect-facade-that-is-a-showstopper-39755.jpg",
+      "cost": "$525k-$600K",
+      "detail": "A single-family house offers numerous benefits that cater to a wide range of lifestyles and preferences. One of the primary advantages is privacy. Unlike multi-family living situations, a single-family home typically provides more space between neighbors, offering a greater sense of solitude and personal space. These homes often come with their own yards, giving families a private outdoor area for recreation, gardening, or relaxation. Homeowners also have more freedom to customize and remodel their homes to suit their tastes and needs, from interior design to landscaping, without the constraints often found in shared housing complexes. Additionally, single-family homes can be a valuable investment, often appreciating in value over time, and provide a stable, long-term living environment for families seeking a sense of community and belonging in their neighborhood.",
+      "address": "12 Ala Moana St, Lahaina, HI 96761, USA",
+      "createdAt": "2023-10-03T00:00:00Z",
+      "owner": "admin"
+    },
+    { "type": "Multi Family Home",
+      "image": "https://cdn.onekindesign.com/wp-content/uploads/2021/11/Multi-Generational-Family-Home-Kelly-Stone-Architects-01-1-Kindesign.jpg",
+      "cost": "$850k-$950K",
+      "detail": "Multi-family houses, such as duplexes or apartment complexes, offer unique advantages that can be appealing to both investors and residents. For property owners, multi-family units can be a more efficient investment compared to single-family homes, as they provide multiple rental income streams from a single property, potentially offering higher returns and better risk distribution. For residents, these properties often come with lower rent costs compared to single-family homes, making them a more affordable housing option, particularly in urban areas. They also offer a sense of community, as residents live in close proximity and often share common areas. This can create a strong sense of neighborhood camaraderie. Additionally, multi-family housing can be more environmentally efficient due to shared resources and infrastructure. These properties often provide convenient access to urban amenities and public transportation, making them an ideal choice for those who prefer a more communal and cost-effective living arrangement.",
+      "address": "12 Ala Moana St, Lahaina, HI 96761, USA",
+      "createdAt": "2023-10-03T00:00:00Z",
+      "owner": "admin"
+    },
+    { "type": "Condo",
+      "image": "https://assets.site-static.com/userFiles/2109/image/park_lane/ParkLaneMainImage.png",
+      "cost": "$150k-$215k",
+      "detail": "Condominiums, or condos, offer a unique blend of convenience, community, and cost-effectiveness that make them an attractive option for many homebuyers. One of the primary advantages of condo living is the maintenance aspect. Homeowners don’t have to worry about exterior maintenance such as lawn care, roof repairs, or painting, as these are typically covered by the condo association, allowing for a more carefree lifestyle. Additionally, condos often come with amenities like pools, fitness centers, and community spaces that would be costly in a standalone home. This communal living aspect fosters a sense of community and can be great for socializing. Condos are usually more affordable than single-family homes, making them an excellent entry point into homeownership for first-time buyers or a smart downsize for those looking to reduce their living space and responsibilities. Their often-central locations provide easy access to urban amenities like shopping, dining, and entertainment, enhancing the overall living experience.",
+      "address": "12 Ala Moana St, Lahaina, HI 96761, USA",
+      "createdAt": "2023-10-03T00:00:00Z",
+      "owner": "admin"
+    },
+    { "type": "Restaurant",
+      "image": "https://image.cnbcfm.com/api/v1/image/106885224-1621429503610-Panera_NextGen_Exterior_Front.jpg?v=1621429538&w=740&h=416&ffmt=webp&vtcrop=y",
+      "cost": "$280K-300K",
+      "detail": "Panera Bread stands out as a unique player in the fast-casual dining sector, renowned for its cozy atmosphere and a focus on healthier, quality food options. Their menu, which includes a variety of soups, salads, sandwiches, and freshly baked goods, caters to a wide range of dietary preferences, including vegetarian and gluten-sensitive options. Panera emphasizes fresh ingredients and transparency in their menu, making it a preferred choice for those seeking nutritious meals. Additionally, the restaurant's commitment to sustainability and community involvement, such as donating unsold baked goods to local charities, enhances its appeal to socially conscious consumers. The combination of a relaxed environment, free Wi-Fi, and an assortment of food and drink options makes Panera Bread a versatile spot for casual meetings, remote work, or a quick, healthy meal.",
+      "address": "12 Ala Moana St, Lahaina, HI 96761, USA",
+      "createdAt": "2023-10-03T00:00:00Z",
+      "owner": "admin"
+    }
+  ],
+  "defaultSurveys": [
+    { "contents": "Do you agree with allowing toursit entering Maui to boost up economy?",
+      "option1": "Agree",
+      "option2": "Disagree",
+      "createdAt": "2023-10-03T00:00:00Z",
+      "owner": "admin@foo.com" },
+    { "contents": "Should Lahaina prioritize modern development to boost tourism and the local economy?",
+      "option1": "Yes",
+      "option2": "No",
+      "createdAt": "2023-10-03T00:00:00Z",
+      "owner": "admin@foo.com" },
+    { "contents": "Should Lahaina impose stricter regulations on short-term vacation rentals to protect local housing markets?",
+      "option1": "Yes",
+      "option2": "No",
+      "createdAt": "2023-10-03T00:00:00Z",
+      "owner": "admin@foo.com" },
+    { "contents": "Should Lahaina limit infrastructure expansion to maintain the town's historic charm and reduce environmental impact?",
+      "option1": "Yes",
+      "option2": "No",
+      "createdAt": "2023-10-03T00:00:00Z",
+      "owner": "admin@foo.com" },
+    { "contents": "Should Lahaina enforce regulations to ensure cultural activities and representations are authentic and respectful?",
+      "option1": "Yes",
+      "option2": "No",
+      "createdAt": "2023-10-03T00:00:00Z",
+      "owner": "admin@foo.com" }
+  ],
+  "defaultPosts": [
+    { "title": "post #1",
+      "contents": "Testing",
+      "image": "https://www.etestware.com/wp-content/uploads/2020/12/shutterstock_515285995-1200x580.jpg",
+      "createdAt": "2023-11-04T00:00:00Z",
+      "owner": "admin@foo.com"
+    },
+    { "title": "post #2",
+      "contents": "Testing",
+      "image": "https://www.etestware.com/wp-content/uploads/2020/12/shutterstock_515285995-1200x580.jpg",
+      "createdAt": "2023-11-04T00:00:00Z",
+      "owner": "admin@foo.com"
+    },
+    { "title": "post #3",
+      "contents": "Testing",
+      "image": "https://www.etestware.com/wp-content/uploads/2020/12/shutterstock_515285995-1200x580.jpg",
+      "createdAt": "2023-11-04T00:00:00Z",
+      "owner": "admin@foo.com"
+    },
+    { "title": "mix it up at 4",
+      "contents": "Testing",
+      "image": "https://www.etestware.com/wp-content/uploads/2020/12/shutterstock_515285995-1200x580.jpg",
+      "createdAt": "2023-11-04T00:00:00Z",
+      "owner": "admin@foo.com"
+    },
+    { "title": "post #5",
+      "contents": "Testing",
+      "image": "https://www.etestware.com/wp-content/uploads/2020/12/shutterstock_515285995-1200x580.jpg",
+      "createdAt": "2023-11-04T00:00:00Z",
+      "owner": "admin@foo.com"
+    },
+    { "title": "mix it up at 6",
+      "contents": "Testing",
+      "image": "https://www.etestware.com/wp-content/uploads/2020/12/shutterstock_515285995-1200x580.jpg",
+      "createdAt": "2023-11-04T00:00:00Z",
+      "owner": "admin@foo.com"
+    },
+    { "title": "post #7",
+      "contents": "Testing",
+      "image": "https://www.etestware.com/wp-content/uploads/2020/12/shutterstock_515285995-1200x580.jpg",
+      "createdAt": "2023-11-04T00:00:00Z",
+      "owner": "admin@foo.com"
+    },
+    { "title": "post #8",
+      "contents": "Testing",
+      "image": "https://www.etestware.com/wp-content/uploads/2020/12/shutterstock_515285995-1200x580.jpg",
+      "createdAt": "2023-11-04T00:00:00Z",
+      "owner": "admin@foo.com"
+    },
+    { "title": "mix it up at 9",
+      "contents": "Testing",
+      "image": "https://www.etestware.com/wp-content/uploads/2020/12/shutterstock_515285995-1200x580.jpg",
+      "createdAt": "2023-11-04T00:00:00Z",
+      "owner": "admin@foo.com"
+    },
+    { "title": "post #10",
+      "contents": "Testing",
+      "image": "https://www.etestware.com/wp-content/uploads/2020/12/shutterstock_515285995-1200x580.jpg",
+      "createdAt": "2023-11-04T00:00:00Z",
+      "owner": "admin@foo.com"
+    },
+    { "title": "post #11",
+      "contents": "Testing",
+      "image": "https://www.etestware.com/wp-content/uploads/2020/12/shutterstock_515285995-1200x580.jpg",
+      "createdAt": "2023-11-04T00:00:00Z",
+      "owner": "admin@foo.com"
+    }
+  ],
+  "defaultProfiles": [
+    {
+      "firstName": "Zhuocheng",
+      "lastName": "Gan",
+      "location": "Mililani, HI",
+      "image": "https://github.com/zhuochenggan.png",
+      "bio": "I am a Senior student of Information and Computer Sciences at the University of Hawaii, interest are Software Development and Artificial Intelligence. I also love playing basketball and Kawhi Leonard is my favorite player",
+      "owner": "admin@foo.com"
+    },
+    {
+      "firstName": "Philip",
+      "lastName": "Johnson",
+      "location": "Honolulu, HI",
+      "image": "https://github.com/philipmjohnson.png",
+      "bio": "I am a Professor of Information and Computer Sciences at the University of Hawaii, Director of the Collaborative Software Development Laboratory, and the CEO of OpenPowerQuality.com.",
+      "owner": "Philip@foo.com"
+    },
+    {
+      "firstName": "Henri",
+      "lastName": "Casanova",
+      "location": "Honolulu, HI",
+      "image": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4",
+      "bio": "I am originally from France. I maintain a list of reports from my surf sessions. I have proof that I ran the Hana relay with an actual Team.",
+      "owner": "Henri@foo.com"
+    },
+    {
+      "firstName": "Kim",
+      "lastName": "Binsted",
+      "location": "Honolulu, HI",
+      "image": "https://www.ics.hawaii.edu/wp-content/uploads/2013/08/kim_binsted-square-300x300.jpg",
+      "bio": "Kim Binsted received her BSc in Physics at McGill (1991), and her PhD in Artificial Intelligence from the University of Edinburgh (1996). Her thesis topic was the computational modeling and generation of punning riddles, and her program, JAPE (Joke Analysis and Production Engine), generated puns such as \"What do you call a Martian who drinks beer? An ale-ien!\".",
+      "owner": "Kim@foo.com"
+    },
+    {
+      "firstName": "Kawhi",
+      "lastName": "Leonard",
+      "location": "Los Angeles, CA",
+      "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/202695.png?imwidth=1040&imheight=760",
+      "bio": "Played two seasons at San Diego State University (2009-11). Averaged 14.1 points, 10.2 rebounds, 2.2 assists and 31.9 minutes in 70 career games. Shot .449 (377-840) from the floor, .250 (41-164) from three-point range and .744 (195-262) at the foul line. Recorded 40 career double-doubles - second most in school history behind only Michael Cage (61). Left San Diego State ranked second all-time in rebounds per game (10.2) and seventh in total rebounds (716). As a sophomore, posted averages of 15.5 points, 10.6 rebounds and 32.6 minutes in 36 appearances ... Led the Aztecs to a school-record 34 wins and an appearance in the NCAA Sweet 16. Named a Second Team All-American by the Associated Press. Was a finalist for both the Wooden Award and Naismith Award. Earned All-MWC First Team, All- MWC Defensive Team and MWC All-Tournament Team accolades. As a freshman, averaged 12.7 points, 9.9 rebounds and 31.3 minutes in 34 games. Named MWC Freshman on the Year and MWC Tournament MVP. Received All-MWC First Team honours. One of only four freshmen in the country to lead his team in both scoring and rebounding.",
+      "owner": "Kawhi@foo.com"
+    },
+    {
+      "firstName": "Russel",
+      "lastName": "Westbrook",
+      "location": "Los Angeles, CA",
+      "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/201566.png?imwidth=1040&imheight=760",
+      "bio": "2016-17 NBA Most Valuable Player ... Helped lead the United States to a gold medals at the 2012 London Olympics and a gold medal at the 2010 FIBA World Cup in Turkey ... Member of the NBA’s 75th Anniversary Team ... Nine-time All-NBA honoree (First Team in 2016 & 2017; Second Team in 2010-13, 2015 & 2018; Third Team in 2019 & 2020) ... Nine-time NBA All-Star, including two times as a starter, averaging 21.6 points, 5.2 rebounds, 3.8 assists and 1.4 steals in 22.4 minutes ... Two-time All-Star Game MVP (2015 & 2016) ... Has been selected Western Conference Player of the Month eight times and has been named Western Conference Player of the Week 19 times ... Named Eastern Conference Player of the Month once and Eastern Conference Player of the Week once ... Named Western Conference Rookie of the Month twice ... Two-time scoring champion (2015 & 2017) and three-time assists champion (2018, 2019 & 2021) ... 2009 All-Rookie First Team selection ... Has appeared in 1,021 games (1,004 starts) for the Thunder, Rockets, Wizards and Lakers ... Owns career averages of 22.8 points, 7.4 rebounds, 8.4 assists and 1.7 steals in 34.7 minutes ... One of only two players in NBA history to average a triple-double for an entire season, having done so in 2017, 2018, 2019 and 2021",
+      "owner": "Russel@foo.com"
+    },
+    {
+      "firstName": "Paul",
+      "lastName": "George",
+      "location": "Los Angeles, CA",
+      "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/202331.png?imwidth=1040&imheight=760",
+      "bio": "Favorite sports teams outside of basketball are Oklahoma State athletics and the Dallas Cowboys. Lists “Coach Carter” as his favorite movie and “Friends” as his favorite TV show. Favorite music artist is Drake and favorite actor is Will Smith. If he wasn’t playing basketball he would be a trainer or run track.",
+      "owner": "Paul@foo.com"
+    },
+    {
+      "firstName": "James",
+      "lastName": "Harden",
+      "location": "Los Angeles, CA",
+      "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/201935.png?imwidth=1040&imheight=760",
+      "bio": "James Harden was the third overall pick by Oklahoma City in the 2009 NBA Draft. In his third and final season with the Thunder in 2011-12, he helped OKC reach the Finals and was named NBA Sixth Man of the Year. The Rockets acquired Harden via trade on 10/27/12 and he has since made eight straight All-Star appearances while leading Houston to the playoffs each year, including the Conference Finals twice. Harden was named MVP in 2017-18 and finished top-three in voting in each of the past four seasons. He has earned All-NBA First Team six times and Third Team once. Harden averaged at least 34.0 points, 7.0 assists, and 6.0 rebounds in each of the past two seasons; no other player has done so once in NBA history. Entering 2020-21, he averaged 25.2 points, 6.3 assists, 5.3 rebounds, and 1.6 steals in 833 career games with 620 starts.",
+      "owner": "James@foo.com"
+    },
+    {
+      "firstName": "Brandon",
+      "lastName": "Boston Jr",
+      "location": "Los Angeles, CA",
+      "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630527.png?imwidth=1040&imheight=760",
+      "bio": "I am a player for la clipper",
+      "owner": "Brandon@foo.com"
+    },
+    {
+      "firstName": "Bone",
+      "lastName": "Hyland",
+      "location": "Los Angeles, CA",
+      "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630538.png?imwidth=1040&imheight=760",
+      "bio": "I am a player for la clipper",
+      "owner": "Bone@foo.com"
+    },
+    {
+      "firstName": "Mason",
+      "lastName": "Plumlee",
+      "location": "Los Angeles, CA",
+      "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/203486.png",
+      "bio": "I am a player for la clipper",
+      "owner": "Mason@foo.com"
+    },
+    {
+      "firstName": "Amir",
+      "lastName": "Coffey",
+      "location": "Los Angeles, CA",
+      "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629599.png?imwidth=1040&imheight=760",
+      "bio": "I am a player for la clipper",
+      "owner": "amir@foo.com"
+    },
+    {
+      "firstName": "Terance",
+      "lastName": "Mann",
+      "location": "Los Angeles, CA",
+      "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629611.png?imwidth=1040&imheight=760",
+      "bio": "I am a player for la clipper",
+      "owner": "Terance@foo.com"
+    },
+    {
+      "firstName": "Ivica",
+      "lastName": "Zubac",
+      "location": "Los Angeles, CA",
+      "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1627826.png?imwidth=1040&imheight=760",
+      "bio": "I am a player for la clipper",
+      "owner": "Ivica@foo.com"
+    },
+    {
+      "firstName": "Norman",
+      "lastName": "Powell",
+      "location": "Los Angeles, CA",
+      "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1626181.png?imwidth=1040&imheight=760",
+      "bio": "I am a player for la clipper",
+      "owner": "Norman@foo.com"
+    },
+    {
+      "firstName": "Pj",
+      "lastName": "Tucker",
+      "location": "Los Angeles, CA",
+      "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/200782.png?imwidth=1040&imheight=760",
+      "bio": "I am a player for la clipper",
+      "owner": "Pj@foo.com"
+    }
+  ]
+}

@@ -6,6 +6,8 @@ import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { Meteor } from 'meteor/meteor';
+import swal from 'sweetalert';
 
 const SignUp = () => {
   const [error, setError] = useState('');
@@ -20,13 +22,21 @@ const SignUp = () => {
 
   const submit = (doc) => {
     const { email, username, password } = doc;
-    Accounts.createUser({ email, username: username, password }, (err) => {
-      if (err) {
-        setError(err.reason);
-      } else {
-        setError('');
-        setRedirectToRef(true);
+    // eslint-disable-next-line no-shadow
+    Meteor.call('textCheck', username, (error) => {
+      if (error) {
+        console.error(error);
+        swal('Error', 'Inappropriate Content in Username.', 'error');
+        return;
       }
+      Accounts.createUser({ email, username, password }, (err) => {
+        if (err) {
+          setError(err.reason);
+        } else {
+          setError('');
+          setRedirectToRef(true);
+        }
+      });
     });
   };
 

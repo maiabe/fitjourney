@@ -11,13 +11,35 @@ const bridge = new SimpleSchema2Bridge(Surveys.schema);
 const AddSurvey = () => {
   const submit = (data, formRef) => {
     const { contents, createdAt, option1, option2, owner } = data;
-    Surveys.collection.insert({ contents, createdAt, option1, option2, owner }, (error) => {
-      if (error) {
-        swal('Error', error.message, 'error');
-      } else {
-        swal('Success', 'Survey added successfully', 'success');
-        formRef.reset();
+    const insertSurvey = () => {
+      Surveys.collection.insert({ contents, createdAt, option1, option2, owner }, (error) => {
+        if (error) {
+          swal('Error', error.message, 'error');
+        } else {
+          swal('Success', 'Survey added successfully', 'success');
+          formRef.reset();
+        }
+      });
+    };
+    Meteor.call('textCheck', contents, (errorContents) => {
+      if (errorContents) {
+        swal('Error', 'Inappropriate Content in Survey Contents.', 'error');
+        return;
       }
+      Meteor.call('textCheck', option1, (error1) => {
+        if (error1) {
+          swal('Error', 'Inappropriate Content in Option 1.', 'error');
+          return;
+        }
+        Meteor.call('textCheck', option2, (error2) => {
+          if (error2) {
+            swal('Error', 'Inappropriate Content in Option 2.', 'error');
+            return;
+          }
+          // If all text checks pass, insert the survey
+          insertSurvey();
+        });
+      });
     });
   };
 

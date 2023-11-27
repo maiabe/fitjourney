@@ -34,7 +34,6 @@ const EditProfile = () => {
   const submit = (data) => {
     const { firstName, lastName, location, bio } = data;
     const profileData = { firstName, lastName, location, bio };
-
     // eslint-disable-next-line no-shadow
     const updateProfile = (profileData) => {
       Profiles.collection.update(_id, { $set: profileData }, (error) => {
@@ -46,26 +45,32 @@ const EditProfile = () => {
         }
       });
     };
+    Meteor.call('textCheck', bio, (error) => {
+      if (error) {
+        console.error(error);
+        swal('Error', 'Inappropriate Content in Bio.', 'error');
+        return;
+      }
+      if (imageFile) {
+        const reader = new FileReader();
+        reader.onloadend = function () {
+          const fileData = reader.result;
 
-    if (imageFile) {
-      const reader = new FileReader();
-      reader.onloadend = function () {
-        const fileData = reader.result;
-
-        Meteor.call('uploadImage', fileData, (error, imageUrl) => {
-          if (error) {
-            console.error('Image upload error:', error);
-            swal('Error', 'Failed to upload image.', 'error');
-          } else {
-            profileData.image = imageUrl;
-            updateProfile(profileData);
-          }
-        });
-      };
-      reader.readAsDataURL(imageFile);
-    } else {
-      updateProfile(profileData);
-    }
+          Meteor.call('uploadImage', fileData, (err, imageUrl) => {
+            if (err) {
+              console.error('Image upload error:', err);
+              swal('Error', 'Failed to upload image.', 'error');
+            } else {
+              profileData.image = imageUrl;
+              updateProfile(profileData);
+            }
+          });
+        };
+        reader.readAsDataURL(imageFile);
+      } else {
+        updateProfile(profileData);
+      }
+    });
   };
 
   const deleteProfile = () => {

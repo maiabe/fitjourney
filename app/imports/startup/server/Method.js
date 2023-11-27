@@ -2,6 +2,12 @@ import { Meteor } from 'meteor/meteor';
 import { HTTP } from 'meteor/http';
 import cloudinary from 'cloudinary';
 
+cloudinary.config({
+  cloud_name: 'APIKEY',
+  api_key: 'APIKEY',
+  api_secret: 'APIKEY',
+});
+
 Meteor.methods({
   // eslint-disable-next-line meteor/audit-argument-checks
   async generateImage(prompt) {
@@ -9,7 +15,7 @@ Meteor.methods({
       const response = await HTTP.call('POST', 'https://api.openai.com/v1/images/generations', {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${'your key'}`,
+          Authorization: `Bearer ${'APIKEY'}`,
         },
         data: {
           model: 'dall-e-3',
@@ -40,4 +46,28 @@ Meteor.methods({
     }
   },
 
+  // eslint-disable-next-line meteor/audit-argument-checks
+  async textCheck(text) {
+    try {
+      const response = await HTTP.call('POST', 'https://api.openai.com/v1/moderations', {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${'APIKEY'}`,
+        },
+        data: {
+          input: text,
+          model: 'text-moderation-latest',
+        },
+      });
+
+      const moderationResult = response.data.results[0];
+      if (moderationResult.flagged) {
+        throw new Meteor.Error('text-not-allowed', 'Text violates content policy');
+      }
+      return true;
+    } catch (error) {
+      console.error('Error calling OpenAI Moderation API:', error);
+      throw new Meteor.Error('moderation-api-call-failed', `Failed to call OpenAI Moderation API: ${error.message}`);
+    }
+  },
 });
