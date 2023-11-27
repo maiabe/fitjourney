@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Accordion, Image, ListGroup } from 'react-bootstrap';
 import AddComment from './AddComment';
 import Comment from './Comment';
+import DeletePost from './DeletePost';
 
 const Post = ({ post, comments, eventKey }) => (
   <Accordion.Item eventKey={eventKey}>
@@ -11,6 +12,7 @@ const Post = ({ post, comments, eventKey }) => (
       <p>{post.owner} @ {post.createdAt.toLocaleDateString('en-US')}</p>
       {post.image && <Image src={post.image} width={300} />}
       <p className="p-1">{post.contents}</p>
+      <DeletePost postId={post._id} />
       <ListGroup variant="flush">
         {comments.map((comment, index) => <Comment key={index} comment={comment} />)}
       </ListGroup>
@@ -34,6 +36,7 @@ Post.propTypes = {
     createdAt: PropTypes.instanceOf(Date),
     owner: PropTypes.string,
     _id: PropTypes.string,
+    postId: PropTypes.string,
   }).isRequired,
   eventKey: PropTypes.string.isRequired,
   comments: PropTypes.arrayOf(PropTypes.shape({
