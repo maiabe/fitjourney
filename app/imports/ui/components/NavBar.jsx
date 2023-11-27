@@ -14,9 +14,9 @@ const NavBar = () => {
   const navbarClassName = loggedIn ? 'bg-black' : 'bg-black';
   return (
     <Navbar expand="lg" style={menuStyle} className={navbarClassName}>
-      <Container>
+      <Container className="m-2">
         <Navbar.Brand as={NavLink} to="/" className="align-items-center">
-          <span style={{ fontWeight: 800, fontSize: '24px', color: 'white', fontFamily: 'Poppins' }}>Envision Lahaina </span>
+          <span style={{ fontWeight: 800, fontSize: '34px', color: 'white', fontFamily: 'Poppins' }}>Envision Lahaina </span>
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse>

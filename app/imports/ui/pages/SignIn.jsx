@@ -11,7 +11,6 @@ const cardVisual = {
   border: 'none',
 };
 
-
 const SignIn = () => {
   const [error, setError] = useState('');
   const [redirect, setRedirect] = useState(false);
