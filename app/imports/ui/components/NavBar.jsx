@@ -16,7 +16,7 @@ const NavBar = () => {
     <Navbar expand="lg" style={menuStyle} className={navbarClassName}>
       <Container>
         <Navbar.Brand as={NavLink} to="/" className="align-items-center">
-          <span style={{ fontWeight: 800, fontSize: '24px', color: 'white', fontFamily: 'Poppins' }}>ENVISION LAHAINA</span>
+          <span style={{ fontWeight: 800, fontSize: '24px', color: 'white', fontFamily: 'Poppins' }}>Envision Lahaina </span>
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse>

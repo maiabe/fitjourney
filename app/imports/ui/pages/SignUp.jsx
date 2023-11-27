@@ -7,6 +7,11 @@ import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 
+const cardVisual = {
+  backgroundColor: 'white',
+  border: 'none',
+};
+
 const SignUp = () => {
   const [error, setError] = useState('');
   const [redirectToReferer, setRedirectToRef] = useState(false);
@@ -35,27 +40,24 @@ const SignUp = () => {
   }
   return (
     <Container id="signup-page" className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={5}>
-          <Col className="text-center">
-            <h2>Register your account</h2>
-          </Col>
+      <Row className="justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
+        <Col xs={4}>
+          <Col className="text-center" />
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-            <Card>
+            <Card style={cardVisual}>
               <Card.Body>
-                <TextField name="email" placeholder="E-mail address" />
-                <TextField name="username" placeholder="Username" />
-                <TextField name="password" placeholder="Password" type="password" />
+                <Col className="text-center">
+                  <h2>Create Account</h2>
+                </Col>
+                <TextField inputClassName="border-dark" name="email" placeholder="" />
+                <TextField inputClassName="border-dark" name="username" placeholder="" />
+                <TextField inputClassName="border-dark" name="password" placeholder="" type="password" />
                 <ErrorsField />
-                <SubmitField />
+                <SubmitField inputClassName="p-2 bg-white border-1 rounded-1 mt-1" />
               </Card.Body>
+              <p style={{ textAlign: 'center' }}>Already have an account? <Link style={{ color: 'black' }} to="/signin">Login</Link></p>
             </Card>
           </AutoForm>
-          <Alert variant="light">
-            Already have an account? Login
-            {' '}
-            <Link to="/signin">here</Link>
-          </Alert>
           {error === '' ? (
             ''
           ) : (

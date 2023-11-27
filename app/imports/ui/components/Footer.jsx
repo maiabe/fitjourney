@@ -6,7 +6,7 @@ const Footer = () => (
     <Container>
       <Row>
         <Col className="text-center" style={{ color: 'white' }}>
-          ENVISION LAHAINA
+          Envision Lahaina
           {' '}
           <br />
           By Zhuocheng(Joe) Gan
