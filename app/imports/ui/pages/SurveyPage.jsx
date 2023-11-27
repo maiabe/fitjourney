@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Carousel, Col, Form, Nav, Row, Pagination } from 'react-bootstrap';
+import { Carousel, Col, Form, Nav, Row, Pagination, Button } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
-import { PlusCircleFill } from 'react-bootstrap-icons';
+import { PlusCircleFill, TrashFill } from 'react-bootstrap-icons';
+import swal from 'sweetalert';
 import Survey from '../components/Survey';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Surveys } from '../../api/survey/survey';
@@ -27,15 +28,36 @@ const SurveyPage = () => {
     setCurrentPage(1);
   };
 
+  const handleDelete = (surveyId, owner) => {
+    if (Meteor.user().username === owner) {
+      Surveys.collection.remove(surveyId, (error) => {
+        if (error) {
+          swal('Error', error.message, 'error');
+        } else {
+          swal('Success', 'Survey deleted successfully', 'success');
+        }
+      });
+    } else {
+      swal('You are only allowed to delete your own survey(s)');
+    }
+  };
+
   const carouselItemStyle = {
     backgroundColor: 'black',
     height: '350px',
   };
 
+  const dateMinusThirty = () => {
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth();
+    currentDate.setMonth(currentMonth - 1);
+    return currentDate;
+  };
+
   const { ready, surveys } = useTracker(() => {
     const subscription = Meteor.subscribe(Surveys.userPublicationName);
     const rdy = subscription.ready();
-    const surveyItems = Surveys.collection.find({}).fetch();
+    const surveyItems = Surveys.collection.find({ createdAt: { $gt: dateMinusThirty() } }).fetch();
     return {
       surveys: surveyItems,
       ready: rdy,
@@ -64,6 +86,11 @@ const SurveyPage = () => {
         {currentSurveys.map((survey) => (
           <Carousel.Item key={survey._id} style={carouselItemStyle}>
             <Survey survey={survey} />
+            <Row className="m-auto">
+              <Button style={{ background: 'white', color: 'black' }} onClick={() => handleDelete(survey._id, survey.owner)}>
+                <TrashFill />
+              </Button>
+            </Row>
           </Carousel.Item>
         ))}
       </Carousel>
