@@ -144,7 +144,7 @@ const Model = () => {
       </Col>
       <Col md={8}>
         <LoadScript
-          googleMapsApiKey="APIKEY"
+          googleMapsApiKey="YOUR-KEY-HERE"
           libraries={['places']}
           onLoad={() => setIsMapScriptLoaded(true)}
         >

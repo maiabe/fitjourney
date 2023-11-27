@@ -23,17 +23,17 @@ const AddSurvey = () => {
     };
     Meteor.call('textCheck', contents, (errorContents) => {
       if (errorContents) {
-        swal('Error', 'Inappropriate Content in Survey Contents.', 'error');
+        swal('Error', 'Inappropriate Content in Survey Contents', 'error');
         return;
       }
       Meteor.call('textCheck', option1, (error1) => {
         if (error1) {
-          swal('Error', 'Inappropriate Content in Option 1.', 'error');
+          swal('Error', 'Inappropriate Content in Option 1', 'error');
           return;
         }
         Meteor.call('textCheck', option2, (error2) => {
           if (error2) {
-            swal('Error', 'Inappropriate Content in Option 2.', 'error');
+            swal('Error', 'Inappropriate Content in Option 2', 'error');
             return;
           }
           // If all text checks pass, insert the survey

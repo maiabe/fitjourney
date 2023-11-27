@@ -48,7 +48,7 @@ const EditProfile = () => {
     Meteor.call('textCheck', bio, (error) => {
       if (error) {
         console.error(error);
-        swal('Error', 'Inappropriate Content in Bio.', 'error');
+        swal('Error', 'Inappropriate Content in Bio', 'error');
         return;
       }
       if (imageFile) {

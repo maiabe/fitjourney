@@ -41,7 +41,7 @@ const AddModCard = () => {
     Meteor.call('textCheck', modCardData.detail, (error) => {
       if (error) {
         console.error(error);
-        swal('Error', 'Inappropriate Content in Detail.', 'error');
+        swal('Error', 'Inappropriate Content in Detail', 'error');
         return;
       }
       if (imageFile) {

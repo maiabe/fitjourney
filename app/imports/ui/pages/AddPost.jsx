@@ -41,12 +41,12 @@ const AddPost = () => {
     Meteor.call('textCheck', postData.title, (error) => {
       if (error) {
         console.error(error);
-        swal('Error', 'Inappropriate Content in Title.', 'error');
+        swal('Error', 'Inappropriate Content in Title', 'error');
         return;
       }
       Meteor.call('textCheck', postData.contents, (error1) => {
         if (error1) {
-          swal('Error', 'Inappropriate Content in Post.', 'error');
+          swal('Error', 'Inappropriate Content in Post', 'error');
           return;
         }
         if (imageFile) {

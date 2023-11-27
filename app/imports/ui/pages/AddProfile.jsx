@@ -36,7 +36,7 @@ const AddProfile = () => {
     Meteor.call('textCheck', profileData.bio, (error) => {
       if (error) {
         console.error(error);
-        swal('Error', 'Inappropriate Content in Bio.', 'error');
+        swal('Error', 'Inappropriate Content in Bio', 'error');
         return;
       }
       if (imageFile) {

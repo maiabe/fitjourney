@@ -3,9 +3,9 @@ import { HTTP } from 'meteor/http';
 import cloudinary from 'cloudinary';
 
 cloudinary.config({
-  cloud_name: 'APIKEY',
-  api_key: 'APIKEY',
-  api_secret: 'APIKEY',
+  cloud_name: 'YOUR-KEY-HERE',
+  api_key: 'YOUR-KEY-HERE',
+  api_secret: 'YOUR-KEY-HERE',
 });
 
 Meteor.methods({
@@ -15,7 +15,7 @@ Meteor.methods({
       const response = await HTTP.call('POST', 'https://api.openai.com/v1/images/generations', {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${'APIKEY'}`,
+          Authorization: `Bearer ${'YOUR-KEY-HERE'}`,
         },
         data: {
           model: 'dall-e-3',
@@ -52,7 +52,7 @@ Meteor.methods({
       const response = await HTTP.call('POST', 'https://api.openai.com/v1/moderations', {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${'APIKEY'}`,
+          Authorization: `Bearer ${'YOUR-KEY-HERE'}`,
         },
         data: {
           input: text,
