@@ -41,16 +41,3 @@ Meteor.methods({
   },
 
 });
-
-Meteor.methods({
-  'comments.remove'(commentId) {
-    // Check if the user is logged in before allowing the comment deletion
-    if (!this.userId) {
-      throw new Meteor.Error('not-authorized', 'You are not authorized to delete comments.');
-    }
-
-    // Additional validation logic can be added here, e.g., checking if the user owns the comment
-
-    Comments.remove(commentId);
-  },
-});

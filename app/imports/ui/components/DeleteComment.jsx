@@ -1,47 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line no-unused-vars
 import { Meteor } from 'meteor/meteor';
-import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, HiddenField, SubmitField } from 'uniforms-bootstrap5';
+import { Col, Container, Row } from 'react-bootstrap';
 import swal from 'sweetalert';
-import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Comments } from '../../api/comment/comment';
 
-const bridge = new SimpleSchema2Bridge(Comments.schema);
+// const bridge = new SimpleSchema2Bridge(Comments.schema);
 
-const DeleteComment = ({ postId }) => {
+const DeleteComment = ({ commentId }) => {
   // const [imageFile, setImageFile] = useState(null);
-  let fRef = null;
-  const user = Meteor.user();
-
-  const deleteComment = (data) => {
-    // eslint-disable-next-line no-shadow
-    const insertComment = (commentData) => {
-      Comments.collection.insert(commentData, (error) => {
-        if (error) {
-          swal('Error', error.message, 'error');
-        } else {
-          swal('Success', 'Comment DELETED successfully', 'success');
-          fRef.reset();
-        }
-      });
-    };
+  // eslint-disable-next-line no-shadow
+  const deleteComment = () => {
+    Comments.collection.remove({ _id: commentId }, (error) => {
+      if (error) {
+        swal('Error', error.message, 'error');
+      } else {
+        swal('Success', 'Comment DELETED successfully', 'success');
+      }
+    });
   };
 
   return (
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={10}>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={deleteComment}>
-            <Card>
-              <Card.Body>
-                <ErrorsField />
-                <SubmitField value="Delete" />
-                <HiddenField name="postId" value={postId} />
-                {user ? <HiddenField name="owner" value={user.username} /> : null}
-              </Card.Body>
-            </Card>
-          </AutoForm>
+          <button type="button" onClick={deleteComment}>Delete</button>
         </Col>
       </Row>
     </Container>
@@ -49,7 +33,7 @@ const DeleteComment = ({ postId }) => {
 };
 
 DeleteComment.propTypes = {
-  postId: PropTypes.string.isRequired,
+  commentId: PropTypes.string.isRequired,
 };
 
 export default DeleteComment;
