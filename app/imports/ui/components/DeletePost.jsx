@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row } from 'react-bootstrap';
 import swal from 'sweetalert';
-import { Comments } from '../../api/comment/comment';
+import { Posts } from '../../api/post/post';
 
-const DeleteComment = ({ commentId }) => {
+const DeletePost = ({ postId }) => {
   // const [imageFile, setImageFile] = useState(null);
   // eslint-disable-next-line no-shadow
-  const deleteComment = () => {
-    Comments.collection.remove({ _id: commentId }, (error) => {
+  const deletePost = () => {
+    Posts.collection.remove({ _id: postId }, (error) => {
       if (error) {
         swal('Error', error.message, 'error');
       } else {
@@ -23,15 +23,15 @@ const DeleteComment = ({ commentId }) => {
     <Container className="pb-3">
       <Row className="justify-content-lg-start">
         <Col>
-          <button type="button" className="btn btn-outline-info" onClick={deleteComment}>Delete Comment</button>
+          <button type="button" className="btn btn-danger" onClick={deletePost}>Delete Post</button>
         </Col>
       </Row>
     </Container>
   );
 };
 
-DeleteComment.propTypes = {
-  commentId: PropTypes.string.isRequired,
+DeletePost.propTypes = {
+  postId: PropTypes.string.isRequired,
 };
 
-export default DeleteComment;
+export default DeletePost;
