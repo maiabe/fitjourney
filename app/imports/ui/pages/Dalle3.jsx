@@ -23,12 +23,11 @@ const Dalle3 = () => {
   };
 
   const imageFrameStyle = {
-    border: '5px solid black',
     padding: '10px',
     marginBottom: '20px',
     boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)',
-    width: '500px',
-    height: '500px',
+    width: '700px',
+    height: '700px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -37,33 +36,18 @@ const Dalle3 = () => {
   };
 
   return (
-    <Container>
+    <Container style={{ width: '70%' }}>
       <Row className="justify-content-center">
         <Col className="text-center p-4">
-          <h3>Steps to Generating Image</h3>
-          <h5 className="p-3">1. Compile a prompt consist of your design ideas</h5>
-          <Image
-            src="/images/Enter-Prompt.png"
-            width={400}
-            className="image-spacing"
-            style={{
-              boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)' }}
-          />
-          <h5 className="p-5">2. Click generate and save your image by right clicking and save</h5>
-          <Image
-            src="/images/Returned-Picture.png"
-            width={300}
-            className="image-spacing"
-            style={{
-              boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)' }}
-          />
-          <h5 className="p-5">3. Now share your design and engage with each other on rebuilding your home or Lahaina!!!</h5>
-        </Col>
-        <Col className="text-center p-4">
-          <h3>Generative AI</h3>
-          <h5>Powered By Dall-E3</h5>
+          <Container className="m-5">
+            <h1 style={{ fontSize: 60, fontWeight: 'bold' }}>Envision and generate your ideas with AI.</h1>
+            <h3 style={{ marginTop: '1em', fontWeight: 'lighter', color: 'lightgray' }}>Create a prompt of your design idea and click generate. Now share your design and engage with each other on rebuilding your home or Lahaina!!!
+            </h3>
+          </Container>
+          <h5 style={{ fontSize: 15 }}>Powered By Dall-E3</h5>
           <input
             type="text"
+            placeholder="Pictures of Condo"
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
             onKeyDown={(e) => { if (e.key === 'Enter' && !isLoading) generateImage(); }}
@@ -72,9 +56,11 @@ const Dalle3 = () => {
               padding: '10px',
               fontSize: '1rem',
               margin: '10px 0',
+              borderColor: 'black',
+              borderRadius: '10px',
             }}
           />
-          <Button style={{ color: 'black', background: 'white' }} onClick={generateImage} disabled={isLoading}>Generate</Button>
+          <Button style={{ borderColor: 'black', margin: 10, color: 'black', background: 'white' }} onClick={generateImage} disabled={isLoading}>Generate</Button>
           {isLoading && <LoadingSpinner />}
           <h3>Image</h3>
           <Col className="messages text-center p-4">
@@ -82,7 +68,7 @@ const Dalle3 = () => {
               if (message.imageUrl) {
                 return (
                   <div key={index} style={imageFrameStyle}>
-                    <Image width={500} src={message.imageUrl} alt="Generated from AI" />
+                    <Image width={700} src={message.imageUrl} alt="Generated from AI" />
                   </div>
                 );
               }
