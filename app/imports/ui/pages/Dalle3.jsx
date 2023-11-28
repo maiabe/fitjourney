@@ -38,7 +38,7 @@ const Dalle3 = () => {
   return (
     <Container style={{ width: '70%' }}>
       <Row className="justify-content-center">
-        <Col className="text-center p-4">
+        <Col style={{ maxWidth: '800px' }} className="text-center p-4">
           <Container className="m-5">
             <h1 style={{ fontSize: 60, fontWeight: 'bold' }}>Envision and generate your ideas with AI.</h1>
             <h3 style={{ marginTop: '1em', fontWeight: 'lighter', color: 'lightgray' }}>Create a prompt of your design idea and click generate. Now share your design and engage with each other on rebuilding your home or Lahaina!!!
@@ -63,7 +63,7 @@ const Dalle3 = () => {
           <Button style={{ borderColor: 'black', margin: 10, color: 'black', background: 'white' }} onClick={generateImage} disabled={isLoading}>Generate</Button>
           {isLoading && <LoadingSpinner />}
           <h3>Image</h3>
-          <Col className="messages text-center p-4">
+          <Col className="overflow-hidden messages p-4">
             {messages.map((message, index) => {
               if (message.imageUrl) {
                 return (
