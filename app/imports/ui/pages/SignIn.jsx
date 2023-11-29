@@ -6,11 +6,6 @@ import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 
-const cardVisual = {
-  backgroundColor: 'white',
-  border: 'none',
-};
-
 const SignIn = () => {
   const [error, setError] = useState('');
   const [redirect, setRedirect] = useState(false);
@@ -39,7 +34,7 @@ const SignIn = () => {
       <Row className="justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
         <Col xs={4}>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-            <Card style={cardVisual}>
+            <Card style={{ backgroundColor: 'white', border: 'none' }}>
               <Card.Body>
                 <Col className="text-center">
                   <h2 style={{ fontFamily: 'Poppins' }}>Login</h2>

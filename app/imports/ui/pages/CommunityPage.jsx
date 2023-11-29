@@ -7,8 +7,8 @@ import { Profiles } from '../../api/profile/profile';
 import Profile from '../components/Profile';
 
 const CommunityPage = () => {
-  const profilesPerPage = 12;
-  const profilesPerRow = 4;
+  const profilesPerPage = 9;
+  const profilesPerRow = 3;
   const [activePage, setActivePage] = useState(1);
 
   const { ready, profiles } = useTracker(() => {
@@ -37,11 +37,11 @@ const CommunityPage = () => {
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col md={12}>
+        <Col md={10}>
           <Col className="text-center">
-            <h2 style={{ marginBottom: '30px' }}>Meet Our Community</h2>
+            <h1 style={{ marginBottom: '1em', marginTop: '1em', fontWeight: 'bold' }}>Meet Our Community.</h1>
           </Col>
-          <Row xs={1} md={2} lg={profilesPerRow} className="g-4">
+          <Row xs={1} md={2} lg={profilesPerRow} className="g-5">
             {currentProfiles.map((profile) => <Col key={profile.owner}><Profile profile={profile} /></Col>)}
           </Row>
           {pageNumbers.length > 1 && (

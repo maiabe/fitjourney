@@ -14,15 +14,15 @@ const NavBar = () => {
   const navbarClassName = loggedIn ? 'bg-black' : 'bg-black';
   return (
     <Navbar expand="lg" style={menuStyle} className={navbarClassName}>
-      <Container className="m-2">
-        <Navbar.Brand as={NavLink} to="/" className="align-items-center">
-          <span style={{ fontWeight: 800, fontSize: '34px', color: 'white', fontFamily: 'Poppins' }}>Envision Lahaina </span>
+      <Container className="m-2 py-0">
+        <Navbar.Brand as={NavLink} to="/" className="align-items-center ">
+          <span style={{ fontWeight: 800, fontSize: '34px', color: 'white', fontFamily: 'Sarina' }}>Envision Lahaina </span>
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="me-auto justify-content-start">
             {currentUser ? (
-              <NavDropdown title="Civic Engagement" className="white-text-dropdown">
+              <NavDropdown title="Civic Engagement" className="mx-4 white-text-dropdown">
                 <NavDropdown.Item as={NavLink} to="/forum">
                   <Nav.Link as={NavLink} to="/forum" key="forum" style={{ color: 'black' }}>Forum</Nav.Link>
                 </NavDropdown.Item>
@@ -54,7 +54,7 @@ const NavBar = () => {
 
           <Nav className="justify-content-end">
             {currentUser === '' ? (
-              <NavDropdown title="LOGIN" className="white-text-dropdown">
+              <NavDropdown title="Login" className="mx-1 white-text-dropdown">
                 <NavDropdown.Item as={NavLink} to="/signin">
                   <PersonFill />
                   Sign
@@ -67,7 +67,7 @@ const NavBar = () => {
                 </NavDropdown.Item>
               </NavDropdown>
             ) : (
-              <NavDropdown title={currentUser} className="white-text-dropdown">
+              <NavDropdown title={currentUser} className="mx-1 white-text-dropdown">
                 <NavDropdown.Item as={NavLink} to="/addprofile">
                   <PlusSquare />
                   {' '}

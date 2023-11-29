@@ -48,18 +48,18 @@ const AddSurvey = () => {
 
   return (
     <Container className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={6}>
+      <Row className="justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
+        <Col xs={5}>
           <Col className="text-center"><h2>Add Survey</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
-            <Card>
+            <Card style={{ backgroundColor: 'white', border: 'none' }}>
               <Card.Body>
-                <LongTextField name="contents" />
+                <LongTextField inputClassName="border-dark" name="contents" />
                 <HiddenField name="createdAt" value={new Date()} />
-                <TextField name="option1" />
-                <TextField name="option2" />
+                <TextField inputClassName="border-dark" name="option1" />
+                <TextField inputClassName="border-dark" name="option2" />
                 <ErrorsField />
-                <SubmitField value="Submit" />
+                <SubmitField inputClassName="p-2 bg-white border-1 rounded-1 mt-1" value="Submit" />
                 {user ? <HiddenField name="owner" value={user.username} /> : null}
               </Card.Body>
             </Card>

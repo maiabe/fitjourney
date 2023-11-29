@@ -62,21 +62,21 @@ const AddProfile = () => {
 
   return (
     <Container className="py-3">
-      <Row className="justify-content-center">
+      <Row className="justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
         <Col xs={5}>
           <Col className="text-center"><h2>Add Profile</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
-            <Card>
+            <Card style={{ backgroundColor: 'white', border: 'none' }}>
               <Card.Body>
-                <TextField name="firstName" />
-                <TextField name="lastName" />
-                <TextField name="location" />
+                <TextField inputClassName="border-dark" name="firstName" />
+                <TextField inputClassName="border-dark" name="lastName" />
+                <TextField inputClassName="border-dark" name="location" />
                 <div className="mb-3">
                   <FileField name="image" onChange={handleImageChange} />
                 </div>
-                <LongTextField name="bio" />
+                <LongTextField inputClassName="border-dark" name="bio" />
                 <ErrorsField />
-                <SubmitField value="Submit" />
+                <SubmitField inputClassName="p-2 bg-white border-1 rounded-1 mt-1" value="Submit" />
                 {user ? <HiddenField name="owner" value={user.username} /> : null}
               </Card.Body>
             </Card>

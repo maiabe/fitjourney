@@ -73,19 +73,19 @@ const AddPost = () => {
 
   return (
     <Container className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={6}>
+      <Row className="justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
+        <Col xs={5}>
           <Col className="text-center"><h2>Add Post</h2></Col>
           <AutoForm ref={(ref) => { fRef = ref; }} schema={bridge} onSubmit={submit}>
-            <Card>
+            <Card style={{ backgroundColor: 'white', border: 'none' }}>
               <Card.Body>
-                <TextField name="title" />
+                <TextField inputClassName="border-dark" name="title" />
                 <div className="mb-3">
                   <FileField name="image" onChange={handleImageChange} />
                 </div>
-                <LongTextField name="contents" />
+                <LongTextField inputClassName="border-dark" name="contents" />
                 <ErrorsField />
-                <SubmitField value="Submit" />
+                <SubmitField inputClassName="p-2 bg-white border-1 rounded-1 mt-1" value="Submit" />
                 <HiddenField name="createdAt" value={new Date()} />
                 {user ? <HiddenField name="owner" value={user.username} /> : null}
               </Card.Body>

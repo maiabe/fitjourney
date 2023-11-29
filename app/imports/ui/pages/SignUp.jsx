@@ -9,11 +9,6 @@ import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstra
 import { Meteor } from 'meteor/meteor';
 import swal from 'sweetalert';
 
-const cardVisual = {
-  backgroundColor: 'white',
-  border: 'none',
-};
-
 const SignUp = () => {
   const [error, setError] = useState('');
   const [redirectToReferer, setRedirectToRef] = useState(false);
@@ -54,7 +49,7 @@ const SignUp = () => {
         <Col xs={4}>
           <Col className="text-center" />
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-            <Card style={cardVisual}>
+            <Card style={{backgroundColor: 'white', border: 'none' }}>
               <Card.Body>
                 <Col className="text-center">
                   <h2>Create Account</h2>

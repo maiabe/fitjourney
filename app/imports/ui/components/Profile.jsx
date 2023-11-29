@@ -4,7 +4,7 @@ import { Card, Image, Button } from 'react-bootstrap';
 
 const Profile = ({ profile }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const maxTextLength = 100;
+  const maxTextLength = 150;
   const handleToggle = () => setIsExpanded(!isExpanded);
 
   const truncateText = (text) => {
@@ -14,16 +14,16 @@ const Profile = ({ profile }) => {
     return text;
   };
   const textContainerStyle = {
-    minHeight: '100px',
+    minHeight: '150',
   };
   return (
-    <Card className="h-100">
-      <Card.Header>
-        <Image src={profile.image} width={75} />
-        <Card.Title>{profile.firstName} {profile.lastName}</Card.Title>
-        <Card.Subtitle>{profile.location}</Card.Subtitle>
+    <Card className="h-100" style={{ backgroundColor: 'white', border: 'none' }}>
+      <Card.Header style={{ paddingBottom: '1em', backgroundColor: 'white', border: 'none' }}>
+        <Image src={profile.image} width={200} height={200} style={{ borderRadius: '50%' }} />
+        <Card.Title style={{ fontWeight: 'bold', paddingTop: '10px' }}>{profile.firstName} {profile.lastName}</Card.Title>
+        <Card.Subtitle style={{ color: 'gray' }}>{profile.location}</Card.Subtitle>
       </Card.Header>
-      <Card.Body>
+      <Card.Body className="py-1" style={{ backgroundColor: 'white' }}>
         <Card.Text style={textContainerStyle}>
           {isExpanded ? profile.bio : truncateText(profile.bio)}
         </Card.Text>
