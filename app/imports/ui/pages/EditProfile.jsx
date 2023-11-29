@@ -97,7 +97,7 @@ const EditProfile = () => {
           <Col xs={5}>
             <Col className="text-center"><h2>Edit Profile</h2></Col>
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)} model={doc}>
-              <Card style={{backgroundColor: 'white', border: 'none' }}>
+              <Card style={{ backgroundColor: 'white', border: 'none' }}>
                 <Card.Body>
                   <TextField inputClassName="border-dark" name="firstName" />
                   <TextField inputClassName="border-dark" name="lastName" />

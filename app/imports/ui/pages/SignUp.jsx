@@ -49,7 +49,7 @@ const SignUp = () => {
         <Col xs={4}>
           <Col className="text-center" />
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-            <Card style={{backgroundColor: 'white', border: 'none' }}>
+            <Card style={{ backgroundColor: 'white', border: 'none' }}>
               <Card.Body>
                 <Col className="text-center">
                   <h2>Create Account</h2>
