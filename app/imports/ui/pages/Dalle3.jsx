@@ -63,7 +63,7 @@ const Dalle3 = () => {
           <Button style={{ borderColor: 'black', margin: 10, color: 'black', background: 'white' }} onClick={generateImage} disabled={isLoading}>Generate</Button>
           {isLoading && <LoadingSpinner />}
           <h3>Image</h3>
-          <Col className="overflow-hidden messages p-4">
+          <Col className="messages p-4">
             {messages.map((message, index) => {
               if (message.imageUrl) {
                 return (

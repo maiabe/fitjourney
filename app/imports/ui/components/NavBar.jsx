@@ -15,14 +15,14 @@ const NavBar = () => {
   return (
     <Navbar expand="lg" style={menuStyle} className={navbarClassName}>
       <Container className="m-2 py-0">
-        <Navbar.Brand as={NavLink} to="/" className="align-items-center ">
-          <span style={{ fontWeight: 800, fontSize: '34px', color: 'white', fontFamily: 'Sarina' }}>Envision Lahaina </span>
+        <Navbar.Brand as={NavLink} to="/" className="align-items-center">
+          <span style={{ fontWeight: 'bold', fontSize: '32px', color: 'white', fontFamily: 'Sarina' }}>Envision Lahaina </span>
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse>
-          <Nav className="me-auto justify-content-start">
+          <Nav className="me-auto">
             {currentUser ? (
-              <NavDropdown title="Civic Engagement" className="mx-4 white-text-dropdown">
+              <NavDropdown title="Civic Engagement" style={{ marginRight: '1em' }} className="white-text-dropdown">
                 <NavDropdown.Item as={NavLink} to="/forum">
                   <Nav.Link as={NavLink} to="/forum" key="forum" style={{ color: 'black' }}>Forum</Nav.Link>
                 </NavDropdown.Item>
