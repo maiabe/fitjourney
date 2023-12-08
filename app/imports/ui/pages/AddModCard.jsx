@@ -7,6 +7,7 @@ import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { ModCards } from '../../api/modcard/modcard';
 import FileField from '../components/FileField';
+import { PageIDs } from '../utilities/ids';
 
 const bridge = new SimpleSchema2Bridge(ModCards.schema);
 
@@ -66,30 +67,32 @@ const AddModCard = () => {
   };
 
   return (
-    <Container className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={6}>
-          <Col className="text-center"><h2>Add ModCard</h2></Col>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={submit}>
-            <Card>
-              <Card.Body>
-                <TextField name="type" />
-                <div className="mb-3">
-                  <FileField name="image" onChange={handleImageChange} />
-                </div>
-                <TextField name="cost" />
-                <LongTextField name="detail" />
-                <ErrorsField />
-                <SubmitField value="Submit" />
-                <HiddenField name="createdAt" value={new Date()} />
-                <HiddenField name="address" value={currentAddress} />
-                {user ? <HiddenField name="owner" value={user.username} /> : null}
-              </Card.Body>
-            </Card>
-          </AutoForm>
-        </Col>
-      </Row>
-    </Container>
+    <div id={PageIDs.addModCard}>
+      <Container className="py-3">
+        <Row className="justify-content-center">
+          <Col xs={6}>
+            <Col className="text-center"><h2>Add ModCard</h2></Col>
+            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={submit}>
+              <Card>
+                <Card.Body>
+                  <TextField name="type" />
+                  <div className="mb-3">
+                    <FileField name="image" onChange={handleImageChange} />
+                  </div>
+                  <TextField name="cost" />
+                  <LongTextField name="detail" />
+                  <ErrorsField />
+                  <SubmitField value="Submit" />
+                  <HiddenField name="createdAt" value={new Date()} />
+                  <HiddenField name="address" value={currentAddress} />
+                  {user ? <HiddenField name="owner" value={user.username} /> : null}
+                </Card.Body>
+              </Card>
+            </AutoForm>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 };
 

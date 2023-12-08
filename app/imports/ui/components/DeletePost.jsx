@@ -5,6 +5,7 @@ import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row } from 'react-bootstrap';
 import swal from 'sweetalert';
 import { Posts } from '../../api/post/post';
+import { ComponentIDs } from '../utilities/ids';
 
 const DeletePost = ({ postId }) => {
   // const [imageFile, setImageFile] = useState(null);
@@ -20,13 +21,15 @@ const DeletePost = ({ postId }) => {
   };
 
   return (
-    <Container className="pb-3">
-      <Row className="justify-content-lg-start">
-        <Col>
-          <button type="button" className="btn btn-danger" onClick={deletePost}>Delete Post</button>
-        </Col>
-      </Row>
-    </Container>
+    <div id={ComponentIDs.deletePost}>
+      <Container className="pb-3">
+        <Row className="justify-content-lg-start">
+          <Col>
+            <button type="button" className="btn btn-danger" onClick={deletePost}>Delete Post</button>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 };
 

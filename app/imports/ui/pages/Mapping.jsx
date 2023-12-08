@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Col, Nav, Row } from 'react-bootstrap';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { PageIDs } from '../utilities/ids';
 
 const mapsData = [
   {
@@ -40,7 +41,7 @@ const Mapping = () => {
   };
 
   return (
-    <div className="p-3" style={{ width: '100%', height: '750px' }}>
+    <div id={PageIDs.mapping} className="p-3" style={{ width: '100%', height: '750px' }}>
       {isLoading ? (
         <LoadingSpinner />
       ) : (

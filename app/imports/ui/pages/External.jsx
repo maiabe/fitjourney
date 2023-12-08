@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Table, Nav, Button } from 'react-bootstrap';
+import { PageIDs } from '../utilities/ids';
 
 const data = [
   { name: 'New York Times', link: 'https://www.nytimes.com/interactive/2023/11/01/us/hawaii-maui-fire-timeline.html?smid=url-share', description: 'Graphic Demonstrating Event Happening At Lahaina' },
@@ -47,7 +48,7 @@ const External = () => {
   ));
 
   return (
-    <div>
+    <div id={PageIDs.external}>
       <Table striped="columns">
         <thead>
           <tr>

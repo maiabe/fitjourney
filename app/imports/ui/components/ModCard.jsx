@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Card, Col, ListGroup, OverlayTrigger, Popover } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import { ComponentIDs } from '../utilities/ids';
 
 const ModCard = ({ modCard, onImageClick }) => {
   const [show, setShow] = useState(false);
@@ -27,7 +28,7 @@ const ModCard = ({ modCard, onImageClick }) => {
         <ListGroup className="list-group-flush">
           <ListGroup.Item>Cost: {modCard.cost}</ListGroup.Item>
           {modCard.image && (
-            <Button style={{ background: 'white', color: 'black' }} onClick={() => onImageClick(modCard.image)}>
+            <Button id={ComponentIDs.modCard} style={{ background: 'white', color: 'black' }} onClick={() => onImageClick(modCard.image)}>
               Show Image
             </Button>
           )}

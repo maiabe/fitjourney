@@ -1,4 +1,5 @@
 import React from 'react';
+import { ComponentIDs } from '../utilities/ids';
 
 // eslint-disable-next-line react/prop-types
 const FileField = ({ onChange }) => {
@@ -8,7 +9,7 @@ const FileField = ({ onChange }) => {
     }
   };
 
-  return <input type="file" onChange={handleChange} />;
+  return <input id={ComponentIDs.fileField} type="file" onChange={handleChange} />;
 };
 
 export default FileField;

@@ -4,6 +4,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { PencilSquare, BoxArrowRight, PersonFill, PersonPlusFill, PlusSquare } from 'react-bootstrap-icons';
+import { ComponentIDs } from '../utilities/ids';
 
 const NavBar = () => {
   const { currentUser, loggedIn } = useTracker(() => ({
@@ -18,8 +19,8 @@ const NavBar = () => {
         <Navbar.Brand as={NavLink} to="/" className="align-items-center">
           <span style={{ fontWeight: 'bold', fontSize: '32px', color: 'white', fontFamily: 'Sarina' }}>Envision Lahaina </span>
         </Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse>
+        <Navbar.Toggle id={ComponentIDs.navBar} />
+        <Navbar.Collapse id={ComponentIDs.navBar}>
           <Nav className="me-auto">
             {currentUser ? (
               <NavDropdown title="Civic Engagement" style={{ marginRight: '1em' }} className="white-text-dropdown">

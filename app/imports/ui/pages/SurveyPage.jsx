@@ -7,6 +7,7 @@ import swal from 'sweetalert';
 import Survey from '../components/Survey';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Surveys } from '../../api/survey/survey';
+import { PageIDs } from '../utilities/ids';
 
 const SurveyPage = () => {
   const [index, setIndex] = useState(0);
@@ -81,7 +82,7 @@ const SurveyPage = () => {
   }
 
   return ready ? (
-    <>
+    <div id={PageIDs.surveyPage}>
       <Carousel activeIndex={index} onSelect={handleSelect}>
         {currentSurveys.map((survey) => (
           <Carousel.Item key={survey._id} style={carouselItemStyle}>
@@ -118,7 +119,7 @@ const SurveyPage = () => {
           <Pagination className="justify-content-center">{paginationItems}</Pagination>
         </Col>
       </Row>
-    </>
+    </div>
   ) : <LoadingSpinner />;
 };
 

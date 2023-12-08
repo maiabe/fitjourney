@@ -5,6 +5,7 @@ import { AutoForm, ErrorsField, HiddenField, LongTextField, SubmitField, TextFie
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Surveys } from '../../api/survey/survey';
+import { PageIDs } from '../utilities/ids';
 
 const bridge = new SimpleSchema2Bridge(Surveys.schema);
 
@@ -47,26 +48,28 @@ const AddSurvey = () => {
   const user = Meteor.user();
 
   return (
-    <Container className="py-3">
-      <Row className="justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
-        <Col xs={5}>
-          <Col className="text-center"><h2>Add Survey</h2></Col>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
-            <Card style={{ backgroundColor: 'white', border: 'none' }}>
-              <Card.Body>
-                <LongTextField inputClassName="border-dark" name="contents" />
-                <HiddenField name="createdAt" value={new Date()} />
-                <TextField inputClassName="border-dark" name="option1" />
-                <TextField inputClassName="border-dark" name="option2" />
-                <ErrorsField />
-                <SubmitField inputClassName="p-2 bg-white border-1 rounded-1 mt-1" value="Submit" />
-                {user ? <HiddenField name="owner" value={user.username} /> : null}
-              </Card.Body>
-            </Card>
-          </AutoForm>
-        </Col>
-      </Row>
-    </Container>
+    <div id={PageIDs.addSurvey}>
+      <Container className="py-3">
+        <Row className="justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
+          <Col xs={5}>
+            <Col className="text-center"><h2>Add Survey</h2></Col>
+            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
+              <Card style={{ backgroundColor: 'white', border: 'none' }}>
+                <Card.Body>
+                  <LongTextField inputClassName="border-dark" name="contents" />
+                  <HiddenField name="createdAt" value={new Date()} />
+                  <TextField inputClassName="border-dark" name="option1" />
+                  <TextField inputClassName="border-dark" name="option2" />
+                  <ErrorsField />
+                  <SubmitField inputClassName="p-2 bg-white border-1 rounded-1 mt-1" value="Submit" />
+                  {user ? <HiddenField name="owner" value={user.username} /> : null}
+                </Card.Body>
+              </Card>
+            </AutoForm>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 };
 
