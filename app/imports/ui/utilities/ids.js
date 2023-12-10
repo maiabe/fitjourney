@@ -1,10 +1,21 @@
 export const ComponentIDs = {
   // Forum Page components
+  addPost: 'addPost',
+  // AddPost Page components:
+  addPostTitle: 'addPostTitle',
+  addPostContent: 'addPostContent',
+  addPostSubmit: 'addPostSubmit',
+  // Comment on Post IDs
   addComment: 'addComment',
+  addCommentText: 'addCommentText',
+  submitComment: 'submitComment',
+  post: 'post',
   comment: 'comment',
   deleteComment: 'deleteComment',
   deletePost: 'deletePost',
+  //
   fileField: 'fileField',
+  //
   footer: 'footer',
   loadingSpinner: 'loadingSpinner',
   modCard: 'modCard',
@@ -12,6 +23,7 @@ export const ComponentIDs = {
   navBar: 'navBar',
   // If user is signed in - navbar top-right drop-down
   currentUserDropDown: 'currentUserDropDown',
+  // If there is NO user logged in.
   loginDropDown: 'loginDropDown',
   // Navbar options for profile options
   navBarSignIn: 'navBarSignIn',
@@ -36,8 +48,9 @@ export const ComponentIDs = {
   signInSubmit: 'signInSubmit',
   // Survey Page components
   profile: 'profile',
-  post: 'post',
+  // All survey component IDs
   survey: 'survey',
+  addSurvey: 'addSurvey',
 };
 
 export const PageIDs = {

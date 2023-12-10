@@ -7,7 +7,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import { Posts } from '../../api/post/post';
 import { Comments } from '../../api/comment/comment';
 import Post from '../components/Post';
-import { PageIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const Forum = () => {
   const postsPerPage = 10;
@@ -71,7 +71,7 @@ const Forum = () => {
                 </Nav.Link>
                 <Nav.Link style={{ color: 'black' }} href="/dalle3">Generate Image</Nav.Link>
                 <Nav.Link className="p-3" href="/addpost">
-                  <PlusCircleFill style={{ fontSize: '2rem', color: 'black' }} />
+                  <PlusCircleFill id={ComponentIDs.addPost} style={{ fontSize: '2rem', color: 'black' }} />
                 </Nav.Link>
               </Nav>
             </Col>

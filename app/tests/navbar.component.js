@@ -33,12 +33,24 @@ class NavBar {
   /** Pull down login menu, go to sign up page. */
   async gotoSignUpPage(testController) {
     await this.ensureLogout(testController);
-    const visible = await Selector(`#${ComponentIDs.navBar}`).visible;
-    if (!visible) {
-      await testController.click('button.navbar-toggler');
-    }
     await testController.click(`#${ComponentIDs.loginDropDown}`);
     await testController.click(`#${ComponentIDs.navBarSignUp}`);
+  }
+
+  async gotoForumPage(testController) {
+    await testController.click(`#${ComponentIDs.navBarCivicEngagementItem}`);
+    await testController.click(`#${ComponentIDs.navBarToForum}`);
+  }
+
+  /** Test that CE Forum page works */
+  async gotoSurveyPage(testController) {
+    await testController.click(`#${ComponentIDs.navBarCivicEngagementItem}`);
+    await testController.click(`#${ComponentIDs.navBarToSurvey}`);
+  }
+
+  async gotoCommunityPage(testController) {
+    await testController.click(`#${ComponentIDs.navBarCivicEngagementItem}`);
+    await testController.click(`#${ComponentIDs.navBarToCommunity}`);
   }
 }
 

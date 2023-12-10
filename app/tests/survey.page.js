@@ -1,9 +1,9 @@
 import { Selector } from 'testcafe';
 import { PageIDs } from '../imports/ui/utilities/ids';
 
-class SignoutPage {
+class SurveyPage {
   constructor() {
-    this.pageId = `#${PageIDs.signOut}`;
+    this.pageId = `#${PageIDs.surveyPage}`;
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -11,6 +11,10 @@ class SignoutPage {
   async isDisplayed(testController) {
     await testController.expect(this.pageSelector.exists).ok();
   }
+
+  /** Test that adding a post works */
+
+  /** Test that adding a comment works */
 }
 
-export const signoutPage = new SignoutPage();
+export const surveyPage = new SurveyPage();

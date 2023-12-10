@@ -6,7 +6,7 @@ import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Posts } from '../../api/post/post';
 import FileField from '../components/FileField';
-import { PageIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const bridge = new SimpleSchema2Bridge(Posts.schema);
 
@@ -81,13 +81,13 @@ const AddPost = () => {
             <AutoForm ref={(ref) => { fRef = ref; }} schema={bridge} onSubmit={submit}>
               <Card style={{ backgroundColor: 'white', border: 'none' }}>
                 <Card.Body>
-                  <TextField inputClassName="border-dark" name="title" />
+                  <TextField id={ComponentIDs.addPostTitle} inputClassName="border-dark" name="title" />
                   <div className="mb-3">
                     <FileField name="image" onChange={handleImageChange} />
                   </div>
-                  <LongTextField inputClassName="border-dark" name="contents" />
+                  <LongTextField id={ComponentIDs.addPostContent} inputClassName="border-dark" name="contents" />
                   <ErrorsField />
-                  <SubmitField inputClassName="p-2 bg-white border-1 rounded-1 mt-1" value="Submit" />
+                  <SubmitField id={ComponentIDs.addPostSubmit} inputClassName="p-2 bg-white border-1 rounded-1 mt-1" value="Submit" />
                   <HiddenField name="createdAt" value={new Date()} />
                   {user ? <HiddenField name="owner" value={user.username} /> : null}
                 </Card.Body>

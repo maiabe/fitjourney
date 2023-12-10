@@ -21,11 +21,11 @@ const DeleteComment = ({ commentId }) => {
   };
 
   return (
-    <div id={ComponentIDs.deleteComment}>
+    <div>
       <Container className="pb-3">
         <Row className="justify-content-lg-start">
           <Col>
-            <button type="button" className="btn btn-outline-info" onClick={deleteComment}>Delete Comment</button>
+            <button id={ComponentIDs.deleteComment} type="button" className="btn btn-outline-info" onClick={deleteComment}>Delete Comment</button>
           </Col>
         </Row>
       </Container>

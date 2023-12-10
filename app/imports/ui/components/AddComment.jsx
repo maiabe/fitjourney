@@ -71,9 +71,9 @@ const AddComment = ({ postId }) => {
                   <div className="mb-3">
                     <FileField name="image" onChange={handleImageChange} />
                   </div>
-                  <LongTextField name="comment" />
+                  <LongTextField id={ComponentIDs.addCommentText} name="comment" />
                   <ErrorsField />
-                  <SubmitField value="Submit" />
+                  <SubmitField id={ComponentIDs.submitComment} value="Submit" />
                   <HiddenField name="createdAt" value={new Date()} />
                   <HiddenField name="postId" value={postId} />
                   {user ? <HiddenField name="owner" value={user.username} /> : null}

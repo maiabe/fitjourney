@@ -1,9 +1,10 @@
 import { Selector } from 'testcafe';
 import { navBar } from './navbar.component';
+import { PageIDs } from '../imports/ui/utilities/ids';
 
 class SignupPage {
   constructor() {
-    this.pageId = '#signup-page';
+    this.pageId = `#${PageIDs.signUp}`;
     this.pageSelector = Selector(this.pageId);
   }
 

@@ -28,7 +28,7 @@ const NavBar = () => {
                   <Nav.Link id={ComponentIDs.navBarToForum} as={NavLink} to="/forum" key="forum" style={{ color: 'black' }}>Forum</Nav.Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to="/survey">
-                  <Nav.Link id-={ComponentIDs.navBarToSurvey} as={NavLink} to="/survey" key="survey" style={{ color: 'black' }}>Survey</Nav.Link>
+                  <Nav.Link id={ComponentIDs.navBarToSurvey} as={NavLink} to="/survey" key="survey" style={{ color: 'black' }}>Survey</Nav.Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to="/community">
                   <Nav.Link id={ComponentIDs.navBarToCommunity} as={NavLink} to="/community" key="community" style={{ color: 'black' }}>Community</Nav.Link>

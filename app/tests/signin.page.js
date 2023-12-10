@@ -18,7 +18,7 @@ class SigninPage {
     await this.isDisplayed(testController);
     await testController.typeText(`#${ComponentIDs.signInEmail}`, username);
     await testController.typeText(`#${ComponentIDs.signInPass}`, password);
-    await testController.click(`#${ComponentIDs.signInSubmit}`);
+    await testController.click(`#${ComponentIDs.signInSubmit} input.p-2.bg-white.border-1.rounded-1.mt-1`);
     await navBar.isLoggedIn(testController, username);
   }
 }

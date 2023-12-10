@@ -43,7 +43,7 @@ const SignIn = () => {
                 <TextField id={ComponentIDs.signInEmail} inputClassName="border-dark" name="email" placeholder="" />
                 <TextField id={ComponentIDs.signInPass} inputClassName="border-dark" name="password" placeholder="" type="password" />
                 <ErrorsField />
-                <SubmitField inputClassName="p-2 bg-white border-1 rounded-1 mt-1" id={ComponentIDs.signInSubmit} />
+                <SubmitField id={ComponentIDs.signInSubmit} inputClassName="p-2 bg-white border-1 rounded-1 mt-1" />
               </Card.Body>
               <p style={{ textAlign: 'center' }}>New to Envision Lahaina? <Link style={{ color: 'black' }} to="/signup">Sign Up</Link></p>
             </Card>
