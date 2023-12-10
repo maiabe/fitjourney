@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Button, Col, Container, Image, Row } from 'react-bootstrap';
 import swal from 'sweetalert';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { PageIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const Dalle3 = () => {
   const [userInput, setUserInput] = useState('');
@@ -49,6 +49,7 @@ const Dalle3 = () => {
             <h5 style={{ fontSize: 15 }}>Powered By Dall-E3</h5>
             <input
               type="text"
+              id={ComponentIDs.dalle3Text}
               placeholder="Pictures of Condo"
               value={userInput}
               onChange={(e) => setUserInput(e.target.value)}
@@ -62,7 +63,7 @@ const Dalle3 = () => {
                 borderRadius: '10px',
               }}
             />
-            <Button style={{ borderColor: 'black', margin: 10, color: 'black', background: 'white' }} onClick={generateImage} disabled={isLoading}>Generate</Button>
+            <Button id={ComponentIDs.dalle3Generate} style={{ borderColor: 'black', margin: 10, color: 'black', background: 'white' }} onClick={generateImage} disabled={isLoading}>Generate</Button>
             {isLoading && <LoadingSpinner />}
             <h3>Image</h3>
             <Col className="messages p-4">
@@ -70,7 +71,7 @@ const Dalle3 = () => {
                 if (message.imageUrl) {
                   return (
                     <div key={index} style={imageFrameStyle}>
-                      <Image width={700} src={message.imageUrl} alt="Generated from AI" />
+                      <Image id={ComponentIDs.generatedImage} width={700} src={message.imageUrl} alt="Generated from AI" />
                     </div>
                   );
                 }

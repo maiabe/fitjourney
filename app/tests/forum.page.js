@@ -19,6 +19,7 @@ class ForumPage {
     await testController.typeText(`#${ComponentIDs.addPostTitle}`, 'Hello');
     await testController.typeText(`#${ComponentIDs.addPostContent}`, 'TestCafe.');
     await testController.click(`#${ComponentIDs.addPostSubmit} input.p-2.bg-white.border-1.rounded-1.mt-1`);
+    await testController.click('button.swal-button.swal-button--confirm');
   }
 
   /** Ensure can add a comment */

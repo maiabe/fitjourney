@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Col, Nav, Row } from 'react-bootstrap';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { PageIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const mapsData = [
   {
@@ -56,6 +56,7 @@ const Mapping = () => {
           <p className="text-center"><Nav.Link href={mapsData[currentPage].url}>Link (Click To Redirect)</Nav.Link></p>
           {/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
           <iframe
+            id={ComponentIDs.iframe}
             src={mapsData[currentPage].url}
             width="100%"
             height="85%"

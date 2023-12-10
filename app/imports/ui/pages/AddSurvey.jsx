@@ -61,7 +61,7 @@ const AddSurvey = () => {
                   <TextField id={ComponentIDs.addSurveyOption1} inputClassName="border-dark" name="option1" />
                   <TextField id={ComponentIDs.addSurveyOption2} inputClassName="border-dark" name="option2" />
                   <ErrorsField />
-                  <SubmitField inputClassName="p-2 bg-white border-1 rounded-1 mt-1" value="Submit" />
+                  <SubmitField id={ComponentIDs.submitSurvey} inputClassName="p-2 bg-white border-1 rounded-1 mt-1" value="Submit" />
                   {user ? <HiddenField name="owner" value={user.username} /> : null}
                 </Card.Body>
               </Card>

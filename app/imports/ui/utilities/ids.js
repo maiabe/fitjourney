@@ -55,9 +55,14 @@ export const ComponentIDs = {
   addSurveyOption1: 'addSurveyOption1',
   addSurveyOption2: 'addSurveyOption2',
   submitSurvey: 'submitSurvey',
-  // IDs for mapping.
-  canvasContainer: 'canvasContainer',
-  fireImage: 'fireImage',
+  // IDs for Dalle3
+  dalle3Text: 'dalle3Text',
+  dalle3Generate: 'dalle3Generate',
+  generatedImage: 'generatedImage',
+  // IDs for mapping page components.
+  iframe: 'iframe',
+  // ID for external website link.
+  externalLink: 'externalLink',
 };
 
 export const PageIDs = {
