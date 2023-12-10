@@ -4,8 +4,8 @@ import cloudinary from 'cloudinary';
 
 cloudinary.config({
   cloud_name: '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',
-  api_key: 'AIzaSyAhjUj42pjiQrYx901CaaCvXzEzD6CvCoo',
-  api_secret: 'AIzaSyAhjUj42pjiQrYx901CaaCvXzEzD6CvCoo',
+  api_key: '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',
+  api_secret: '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',
 });
 
 Meteor.methods({

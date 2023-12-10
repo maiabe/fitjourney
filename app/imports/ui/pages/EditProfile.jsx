@@ -7,7 +7,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Profiles } from '../../api/profile/profile';
 import FileField from '../components/FileField';
-import { PageIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const bridge = new SimpleSchema2Bridge(Profiles.schema);
 
@@ -101,15 +101,15 @@ const EditProfile = () => {
               <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)} model={doc}>
                 <Card style={{ backgroundColor: 'white', border: 'none' }}>
                   <Card.Body>
-                    <TextField inputClassName="border-dark" name="firstName" />
-                    <TextField inputClassName="border-dark" name="lastName" />
-                    <TextField inputClassName="border-dark" name="location" />
+                    <TextField id={ComponentIDs.editFirstName} inputClassName="border-dark" name="firstName" />
+                    <TextField id={ComponentIDs.editLastName} inputClassName="border-dark" name="lastName" />
+                    <TextField id={ComponentIDs.editLocation} inputClassName="border-dark" name="location" />
                     <div className="mb-3">
                       <FileField name="image" onChange={handleImageChange} />
                     </div>
-                    <LongTextField inputClassName="border-dark" name="bio" />
+                    <LongTextField id={ComponentIDs.editBio} inputClassName="border-dark" name="bio" />
                     <ErrorsField />
-                    <SubmitField value="Submit" inputClassName="p-2 bg-white border-1 rounded-1 mt-1" />
+                    <SubmitField id={ComponentIDs.submitEdit} value="Submit" inputClassName="p-2 bg-white border-1 rounded-1 mt-1" />
                     <HiddenField name="owner" value={Meteor.user()?.username} />
                   </Card.Body>
                 </Card>

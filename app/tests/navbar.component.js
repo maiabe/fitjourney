@@ -30,6 +30,13 @@ class NavBar {
     await testController.click(`#${ComponentIDs.navBarSignOut}`);
   }
 
+  /** Go to edit profile page */
+  async gotoEdit(testController) {
+    await testController.expect(Selector(`#${ComponentIDs.currentUserDropDown}`).exists).ok();
+    await testController.click(`#${ComponentIDs.currentUserDropDown}`);
+    await testController.click(`#${ComponentIDs.navBarEditProfile}`);
+  }
+
   /** Pull down login menu, go to sign up page. */
   async gotoSignUpPage(testController) {
     await this.ensureLogout(testController);

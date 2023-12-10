@@ -10,16 +10,25 @@ import { dalle3Page } from './dalle3.page';
 import { modelPage } from './model.page';
 import { externalPage } from './external.page';
 import { signupPage } from './signup.page';
+import { editprofilePage } from './editprofile.page';
 /* global fixture:false, test:false */
 
 /** Credentials for one of the sample users defined in settings.development.json. */
-const credentials = { username: 'admin@foo.com', password: 'changeme' };
+const credentials = { username: 'john@foo.com', password: 'changeme' };
 
 fixture('meteor-application-template-react localhost test with default db')
   .page('http://localhost:3000');
 
 test('Test that landing page shows up', async (testController) => {
   await landingPage.isDisplayed(testController);
+});
+
+// ENSURE METEOR RESET
+test('Test that signup works', async (testController) => {
+  await navBar.ensureLogout(testController);
+  await navBar.gotoSignUpPage(testController);
+  await signupPage.isDisplayed(testController);
+  await signupPage.signupUser(testController);
 });
 
 test('Test that signin and signout work', async (testController) => {
@@ -30,12 +39,14 @@ test('Test that signin and signout work', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
-// ENSURE METEOR RESET
-test('Test that up works', async (testController) => {
-  await navBar.ensureLogout(testController);
-  await navBar.gotoSignUpPage(testController);
-  await signupPage.isDisplayed(testController);
-  await signupPage.signupUser(testController);
+// Tests edit profile page
+test('Test that editing account works', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.isLoggedIn(testController, credentials.username);
+  await navBar.gotoEdit(testController);
+  await editprofilePage.isDisplayed(testController);
+  await editprofilePage.editUserInformation(testController);
 });
 
 test('Test that Community page works', async (testController) => {
@@ -81,7 +92,8 @@ test('Test that Model page works', async (testController) => {
   /** Need to test actual function, idk what is supposed to happen on this page rn */
 });
 
-test('Test that Dalle3 page works', async (testController) => {
+/** REQUIRES WORKING KEY: Key is currently not working */
+test.skip('Test that Dalle3 page works', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);

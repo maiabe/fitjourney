@@ -36,6 +36,12 @@ export const ComponentIDs = {
   signupUser: 'signupUser',
   signupPass: 'signupPass',
   signupSubmit: 'signupSubmit',
+  // Edit Profile IDs
+  editFirstName: 'editFirstName',
+  editLastName: 'editLastName',
+  editLocation: 'editLocation',
+  editBio: 'editBio',
+  submitEdit: 'submitEdit',
   // Civic Engagement Dop-down Items
   navBarCivicEngagementItem: 'navBarCivicEngagementItem',
   navBarToForum: 'navBarToForum',
