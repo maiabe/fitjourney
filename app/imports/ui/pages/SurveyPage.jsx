@@ -7,7 +7,7 @@ import swal from 'sweetalert';
 import Survey from '../components/Survey';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Surveys } from '../../api/survey/survey';
-import { PageIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const SurveyPage = () => {
   const [index, setIndex] = useState(0);
@@ -112,7 +112,7 @@ const SurveyPage = () => {
       <Row className="justify-content-center">
         <Col xs={12} className="text-center p-3">
           <Nav.Link href="/addsurvey">
-            <PlusCircleFill style={{ fontSize: '2rem', color: 'black' }} />
+            <PlusCircleFill id={ComponentIDs.addSurvey} style={{ fontSize: '2rem', color: 'black' }} />
           </Nav.Link>
         </Col>
         <Col xs={12} className="p-3">

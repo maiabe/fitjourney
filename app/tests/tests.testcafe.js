@@ -41,6 +41,7 @@ test('Test that Forum page and adding post/comment works', async (testController
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.gotoForumPage(testController);
   await forumPage.isDisplayed(testController);
+  /** Needs 'inappropriate content' error to be fixed first */
   // await forumPage.gotoAddPost(testController);
   await navBar.gotoForumPage(testController);
   await forumPage.isDisplayed(testController);
@@ -57,4 +58,14 @@ test('Test that Survey page works', async (testController) => {
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.gotoSurveyPage(testController);
   await surveyPage.isDisplayed(testController);
+  /** Needs 'inappropriate content' error to be fixed first */
+  // await surveyPage.addSurvey(testController);
+});
+
+test('Test that Model page works', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.isLoggedIn(testController, credentials.username);
+  await navBar.goto(testController);
+  await communityPage.isDisplayed(testController);
 });

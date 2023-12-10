@@ -1,5 +1,5 @@
 import { Selector } from 'testcafe';
-import { PageIDs } from '../imports/ui/utilities/ids';
+import { ComponentIDs, PageIDs } from '../imports/ui/utilities/ids';
 
 class SurveyPage {
   constructor() {
@@ -13,8 +13,14 @@ class SurveyPage {
   }
 
   /** Test that adding a post works */
-
-  /** Test that adding a comment works */
+  async addSurvey(testController) {
+    await testController.click(`#${ComponentIDs.addSurvey}`);
+    await testController.typeText(`#${ComponentIDs.addSurveyContent}`, 'Chicken not bread?');
+    await testController.typeText(`#${ComponentIDs.addSurveyOption1}`, 'Chicken is not bread!');
+    await testController.typeText(`#${ComponentIDs.addSurveyOption2}`, 'She cannot breathe!');
+    await testController.click(`#${ComponentIDs.submitSurvey} input.p-2.bg-white.border-1.rounded-1.mt-1`);
+    await testController.click('button.swal-button.swal-button--confirm');
+  }
 }
 
 export const surveyPage = new SurveyPage();

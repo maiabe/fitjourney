@@ -52,6 +52,9 @@ class NavBar {
     await testController.click(`#${ComponentIDs.navBarCivicEngagementItem}`);
     await testController.click(`#${ComponentIDs.navBarToCommunity}`);
   }
+
+  /** BEGIN VISUALIZE TOOLSET SECTION */
+  async gotoMapp
 }
 
 export const navBar = new NavBar();

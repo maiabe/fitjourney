@@ -51,6 +51,13 @@ export const ComponentIDs = {
   // All survey component IDs
   survey: 'survey',
   addSurvey: 'addSurvey',
+  addSurveyContent: 'addSurveyContent',
+  addSurveyOption1: 'addSurveyOption1',
+  addSurveyOption2: 'addSurveyOption2',
+  submitSurvey: 'submitSurvey',
+  // IDs for mapping.
+  canvasContainer: 'canvasContainer',
+  fireImage: 'fireImage',
 };
 
 export const PageIDs = {
