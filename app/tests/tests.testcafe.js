@@ -9,6 +9,7 @@ import { mappingPage } from './mapping.page';
 import { dalle3Page } from './dalle3.page';
 import { modelPage } from './model.page';
 import { externalPage } from './external.page';
+import { signupPage } from './signup.page';
 /* global fixture:false, test:false */
 
 /** Credentials for one of the sample users defined in settings.development.json. */
@@ -29,6 +30,14 @@ test('Test that signin and signout work', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
+// ENSURE METEOR RESET
+test('Test that up works', async (testController) => {
+  await navBar.ensureLogout(testController);
+  await navBar.gotoSignUpPage(testController);
+  await signupPage.isDisplayed(testController);
+  await signupPage.signupUser(testController);
+});
+
 test('Test that Community page works', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
@@ -44,7 +53,6 @@ test('Test that Forum page and adding post/comment works', async (testController
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.gotoForumPage(testController);
   await forumPage.isDisplayed(testController);
-  /** Needs 'inappropriate content' error to be fixed first */
   await forumPage.gotoAddPost(testController);
   await navBar.gotoForumPage(testController);
   await forumPage.isDisplayed(testController);
@@ -61,7 +69,6 @@ test('Test that Survey page works', async (testController) => {
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.gotoSurveyPage(testController);
   await surveyPage.isDisplayed(testController);
-  /** Needs 'inappropriate contents' error to be fixed first */
   await surveyPage.addSurvey(testController);
 });
 
@@ -82,7 +89,7 @@ test('Test that Dalle3 page works', async (testController) => {
   await dalle3Page.isDisplayed(testController);
   /** Below code needs to have keys to work */
   await dalle3Page.generate(testController);
-  // await dalle3Page.isGenerated(testController);
+  await dalle3Page.isGenerated(testController);
 });
 
 test('Test that Mapping page works', async (testController) => {

@@ -8,7 +8,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import swal from 'sweetalert';
-import { PageIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const SignUp = () => {
   const [error, setError] = useState('');
@@ -56,11 +56,11 @@ const SignUp = () => {
                   <Col className="text-center">
                     <h2>Create Account</h2>
                   </Col>
-                  <TextField inputClassName="border-dark" name="email" placeholder="" />
-                  <TextField inputClassName="border-dark" name="username" placeholder="" />
-                  <TextField inputClassName="border-dark" name="password" placeholder="" type="password" />
+                  <TextField id={ComponentIDs.signupEmail} inputClassName="border-dark" name="email" placeholder="" />
+                  <TextField id={ComponentIDs.signupUser} inputClassName="border-dark" name="username" placeholder="" />
+                  <TextField id={ComponentIDs.signupPass} inputClassName="border-dark" name="password" placeholder="" type="password" />
                   <ErrorsField />
-                  <SubmitField inputClassName="p-2 bg-white border-1 rounded-1 mt-1" />
+                  <SubmitField id={ComponentIDs.signupSubmit} inputClassName="p-2 bg-white border-1 rounded-1 mt-1" />
                 </Card.Body>
                 <p style={{ textAlign: 'center' }}>Already have an account? <Link style={{ color: 'black' }} to="/signin">Login</Link></p>
               </Card>

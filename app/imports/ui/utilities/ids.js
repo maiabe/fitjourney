@@ -31,6 +31,11 @@ export const ComponentIDs = {
   navBarAddProfile: 'navBarAddProfile',
   navBarEditProfile: 'navBarEditProfile',
   navBarSignUp: 'navBarSignUp',
+  // Signup IDs
+  signupEmail: 'signupEmail',
+  signupUser: 'signupUser',
+  signupPass: 'signupPass',
+  signupSubmit: 'signupSubmit',
   // Civic Engagement Dop-down Items
   navBarCivicEngagementItem: 'navBarCivicEngagementItem',
   navBarToForum: 'navBarToForum',

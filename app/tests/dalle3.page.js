@@ -16,12 +16,14 @@ class Dalle3Page {
   async generate(testController) {
     await testController.typeText(`#${ComponentIDs.dalle3Text}`, 'Pictures of Condo');
     await testController.click(`#${ComponentIDs.dalle3Generate}`);
-    await testController.click('button.swal-button.swal-button--confirm');
   }
 
   /** Test to see new Image */
   async isGenerated(testController) {
-    await testController.expect(`#${ComponentIDs.generatedImage}`).exists.ok();
+    // Waits that image is generated.
+    await testController.wait(15000);
+    // Checks to see that an AI image is generated.
+    await testController.expect(Selector(`#${ComponentIDs.generatedImage}`).exists).ok();
   }
 }
 

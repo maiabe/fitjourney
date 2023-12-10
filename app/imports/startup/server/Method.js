@@ -3,9 +3,9 @@ import { HTTP } from 'meteor/http';
 import cloudinary from 'cloudinary';
 
 cloudinary.config({
-  cloud_name: 'YOUR-KEY-HERE',
-  api_key: 'YOUR-KEY-HERE',
-  api_secret: 'YOUR-KEY-HERE',
+  cloud_name: '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',
+  api_key: 'AIzaSyAhjUj42pjiQrYx901CaaCvXzEzD6CvCoo',
+  api_secret: 'AIzaSyAhjUj42pjiQrYx901CaaCvXzEzD6CvCoo',
 });
 
 Meteor.methods({
@@ -16,7 +16,7 @@ Meteor.methods({
         headers: {
           'Content-Type': 'application/json',
           // Authorization: `Bearer ${'YOUR-KEY-HERE'}`,
-          Authorization: `Bearer ${'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'}`,
+          Authorization: `Bearer ${'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'}`,
         },
         data: {
           model: 'dall-e-3',
@@ -53,7 +53,7 @@ Meteor.methods({
       const response = await HTTP.call('POST', 'https://api.openai.com/v1/moderations', {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${'YOUR-KEY-HERE'}`,
+          Authorization: `Bearer ${'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'}`,
         },
         data: {
           input: text,
