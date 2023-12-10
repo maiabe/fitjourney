@@ -1,4 +1,5 @@
 export const ComponentIDs = {
+  // Forum Page components
   addComment: 'addComment',
   comment: 'comment',
   deleteComment: 'deleteComment',
@@ -7,15 +8,35 @@ export const ComponentIDs = {
   footer: 'footer',
   loadingSpinner: 'loadingSpinner',
   modCard: 'modCard',
+  // Basic navbar
   navBar: 'navBar',
+  // If user is signed in - navbar top-right drop-down
   currentUserDropDown: 'currentUserDropDown',
+  loginDropDown: 'loginDropDown',
+  // Navbar options for profile options
   navBarSignIn: 'navBarSignIn',
   navBarSignOut: 'navBarSignOut',
+  navBarAddProfile: 'navBarAddProfile',
+  navBarEditProfile: 'navBarEditProfile',
   navBarSignUp: 'navBarSignUp',
+  // Civic Engagement Dop-down Items
   navBarCivicEngagementItem: 'navBarCivicEngagementItem',
+  navBarToForum: 'navBarToForum',
+  navBarToSurvey: 'navBarToSurvey',
+  navBarToCommunity: 'navBarToCommunity',
+  // Visualize Toolset Navbar Items
   navBarVisualizeToolsetItem: 'navBarVisualizeToolsetItem',
-  post: 'post',
+  navBarToModel: 'navBarToModel',
+  navBarToDalle3: 'navBarToDalle3',
+  navBarToMapping: 'navBarToMapping',
+  navBarToExternal: 'navBarToExternal',
+  // Sign-in Page components
+  signInEmail: 'signInEmail',
+  signInPass: 'signInPass',
+  signInSubmit: 'signInSubmit',
+  // Survey Page components
   profile: 'profile',
+  post: 'post',
   survey: 'survey',
 };
 

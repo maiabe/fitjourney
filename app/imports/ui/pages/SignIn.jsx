@@ -5,7 +5,7 @@ import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
-import { PageIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const SignIn = () => {
   const [error, setError] = useState('');
@@ -31,36 +31,34 @@ const SignIn = () => {
     return (<Navigate to="/" />);
   }
   return (
-    <div id={PageIDs.signIn}>
-      <Container>
-        <Row className="justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
-          <Col xs={4}>
-            <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-              <Card style={{ backgroundColor: 'white', border: 'none' }}>
-                <Card.Body>
-                  <Col className="text-center">
-                    <h2 style={{ fontFamily: 'Poppins' }}>Login</h2>
-                  </Col>
-                  <TextField inputClassName="border-dark" id="signin-form-email" name="email" placeholder="" />
-                  <TextField inputClassName="border-dark" id="signin-form-password" name="password" placeholder="" type="password" />
-                  <ErrorsField />
-                  <SubmitField id="signin-form-submit" inputClassName="p-2 bg-white border-1 rounded-1 mt-1" />
-                </Card.Body>
-                <p style={{ textAlign: 'center' }}>New to Envision Lahaina? <Link style={{ color: 'black' }} to="/signup">Sign Up</Link></p>
-              </Card>
-            </AutoForm>
-            {error === '' ? (
-              ''
-            ) : (
-              <Alert variant="danger">
-                <Alert.Heading>Login was not successful</Alert.Heading>
-                {error}
-              </Alert>
-            )}
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <Container id={PageIDs.signIn}>
+      <Row className="justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
+        <Col xs={4}>
+          <AutoForm schema={bridge} onSubmit={data => submit(data)}>
+            <Card style={{ backgroundColor: 'white', border: 'none' }}>
+              <Card.Body>
+                <Col className="text-center">
+                  <h2 style={{ fontFamily: 'Poppins' }}>Login</h2>
+                </Col>
+                <TextField id={ComponentIDs.signInEmail} inputClassName="border-dark" name="email" placeholder="" />
+                <TextField id={ComponentIDs.signInPass} inputClassName="border-dark" name="password" placeholder="" type="password" />
+                <ErrorsField />
+                <SubmitField inputClassName="p-2 bg-white border-1 rounded-1 mt-1" id={ComponentIDs.signInSubmit} />
+              </Card.Body>
+              <p style={{ textAlign: 'center' }}>New to Envision Lahaina? <Link style={{ color: 'black' }} to="/signup">Sign Up</Link></p>
+            </Card>
+          </AutoForm>
+          {error === '' ? (
+            ''
+          ) : (
+            <Alert variant="danger">
+              <Alert.Heading>Login was not successful</Alert.Heading>
+              {error}
+            </Alert>
+          )}
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
