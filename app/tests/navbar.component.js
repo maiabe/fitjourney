@@ -54,7 +54,25 @@ class NavBar {
   }
 
   /** BEGIN VISUALIZE TOOLSET SECTION */
-  async gotoMapp
+  async gotoModel(testController) {
+    await testController.click(`#${ComponentIDs.navBarVisualizeToolsetItem}`);
+    await testController.click(`#${ComponentIDs.navBarToModel}`);
+  }
+
+  async gotoDalle3(testController) {
+    await testController.click(`#${ComponentIDs.navBarVisualizeToolsetItem}`);
+    await testController.click(`#${ComponentIDs.navBarToDalle3}`);
+  }
+
+  async gotoMapping(testController) {
+    await testController.click(`#${ComponentIDs.navBarVisualizeToolsetItem}`);
+    await testController.click(`#${ComponentIDs.navBarToMapping}`);
+  }
+
+  async gotoExternal(testController) {
+    await testController.click(`#${ComponentIDs.navBarVisualizeToolsetItem}`);
+    await testController.click(`#${ComponentIDs.navBarToExternal}`);
+  }
 }
 
 export const navBar = new NavBar();
