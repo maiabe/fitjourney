@@ -8,7 +8,6 @@ import { PlusCircleFill } from 'react-bootstrap-icons';
 import { ModCards } from '../../api/modcard/modcard';
 import ModCard from '../components/ModCard';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const containerStyle = {
   width: '100%',
@@ -103,98 +102,80 @@ const Model = () => {
   const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
 
   return ready ? (
-    <div id={PageIDs.model}>
-      <Row>
-        <Col md={4} style={{ height: '350px' }}>
-          <div className="p-1" style={{ height: '100%' }}>
-            <img src={photoUrlToShow} alt="Location" style={{ width: '105%', height: '105%', objectFit: 'cover' }} />
-          </div>
-          <Accordion className="p-3" activeKey={activeAccordionKey}>
-            <Accordion.Item eventKey="0">
-              <Accordion.Header onClick={() => handleAccordionToggle('0')}>Information</Accordion.Header>
-              <Accordion.Body>
-                <p>Address: {formattedAddress}</p>
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="1">
-              <Accordion.Header id={ComponentIDs.userModButton} onClick={() => handleAccordionToggle('1')}>User Modeling</Accordion.Header>
-              <Accordion.Body>
-                <Row className="mt-3">
-                  {currentModCards.map((modcard) => (
-                    <ModCard key={modcard._id} modCard={modcard} onImageClick={handleImageClick} />
+    <Row>
+      <Col md={4} style={{ height: '350px' }}>
+        <div className="p-1" style={{ height: '100%' }}>
+          <img src={photoUrlToShow} alt="Location" style={{ width: '105%', height: '105%', objectFit: 'cover' }} />
+        </div>
+        <Accordion className="p-3" activeKey={activeAccordionKey}>
+          <Accordion.Item style={{ borderColor: 'white', marginTop: '1em' }} eventKey="0">
+            <Accordion.Header onClick={() => handleAccordionToggle('0')}>Information</Accordion.Header>
+            <Accordion.Body>
+              <p>Address: {formattedAddress}</p>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item style={{ borderColor: 'white', marginTop: '1em' }} eventKey="1">
+            <Accordion.Header onClick={() => handleAccordionToggle('1')}>User Modeling</Accordion.Header>
+            <Accordion.Body>
+              <Row className="mt-3">
+                {currentModCards.map((modcard) => (
+                  <ModCard key={modcard._id} modCard={modcard} onImageClick={handleImageClick} />
+                ))}
+              </Row>
+              <div className="d-flex justify-content-center p-3">
+                <Pagination>
+                  {Array.from({ length: Math.ceil(modcards.length / modCardsPerPage) }, (_, i) => (
+                    <Pagination.Item key={i + 1} active={i + 1 === currentPage} onClick={() => handlePageChange(i + 1)}>
+                      {i + 1}
+                    </Pagination.Item>
                   ))}
-                </Row>
-                <div className="d-flex justify-content-center p-3">
-                  <Pagination>
-                    {Array.from({ length: Math.ceil(modcards.length / modCardsPerPage) }, (_, i) => (
-                      <Pagination.Item key={i + 1} active={i + 1 === currentPage} onClick={() => handlePageChange(i + 1)}>
-                        {i + 1}
-                      </Pagination.Item>
-                    ))}
-                  </Pagination>
-                </div>
-                {formattedAddress && (
-                  <div className="d-flex justify-content-end">
-                    <Nav.Link onClick={navigateToAddModCard} style={{ textDecoration: 'none' }}>
-                      <PlusCircleFill id={ComponentIDs.userModAddButton} style={{ fontSize: '2rem', color: 'black' }} />
-                    </Nav.Link>
-                  </div>
-                )}
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
-        </Col>
-        <Col md={8}>
-          <LoadScript
-            googleMapsApiKey="YOUR-KEY-HERE"
-            libraries={['places']}
-            onLoad={() => setIsMapScriptLoaded(true)}
-          >
-            {isMapScriptLoaded && (
-              <div className="search-box-container"> {/* Search box container */}
-                <StandaloneSearchBox onLoad={onLoadSearchBox} onPlacesChanged={onPlacesChanged}>
-                  {/* eslint-disable-next-line max-len */}
-                  <input
-                    type="text"
-                    placeholder="Search for places"
-                    style={{
-                      boxSizing: 'border-box',
-                      border: '1px solid transparent',
-                      width: '100%',
-                      height: '32px',
-                      padding: '0 12px',
-                      borderRadius: '3px',
-                      boxShadow: '0 2px 6px rgba(0, 0, 0, 0.3)',
-                      fontSize: '14px',
-                      outline: 'none',
-                      textOverflow: 'ellipses',
-                    }}
-                  />
-                </StandaloneSearchBox>
+                </Pagination>
               </div>
-            )}
-            <GoogleMap
-              id={ComponentIDs.modelMap}
-              mapContainerStyle={containerStyle}
-              options={mapOptions}
-              onClick={onMapClick}
-            >
-              {selectedPlace && (
-                <InfoWindow
-                  position={infoWindowPosition}
-                  onCloseClick={() => setSelectedPlace(null)}
-                >
-                  <div>
-                    <h4>Address</h4>
-                    <p>{formattedAddress}</p>
-                  </div>
-                </InfoWindow>
+              {formattedAddress && (
+                <div className="d-flex justify-content-end">
+                  <Nav.Link onClick={navigateToAddModCard} style={{ textDecoration: 'none' }}>
+                    <PlusCircleFill style={{ fontSize: '2rem', color: 'black' }} />
+                  </Nav.Link>
+                </div>
               )}
-            </GoogleMap>
-          </LoadScript>
-        </Col>
-      </Row>
-    </div>
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+      </Col>
+      <Col md={8}>
+        <LoadScript
+          googleMapsApiKey="YOUR-KEY-HERE"
+          libraries={['places']}
+          onLoad={() => setIsMapScriptLoaded(true)}
+        >
+          {isMapScriptLoaded && (
+            <div className="search-box-container"> {/* Search box container */}
+              <StandaloneSearchBox onLoad={onLoadSearchBox} onPlacesChanged={onPlacesChanged}>
+                {/* eslint-disable-next-line max-len */}
+                <input type="text" placeholder="Search for places" style={{ boxSizing: 'border-box', border: '1px solid transparent', width: '100%', height: '32px', padding: '0 12px', borderRadius: '3px', boxShadow: '0 2px 6px rgba(0, 0, 0, 0.3)', fontSize: '14px', outline: 'none', textOverflow: 'ellipses' }} />
+              </StandaloneSearchBox>
+            </div>
+          )}
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            options={mapOptions}
+            onClick={onMapClick}
+          >
+            {selectedPlace && (
+              <InfoWindow
+                position={infoWindowPosition}
+                onCloseClick={() => setSelectedPlace(null)}
+              >
+                <div>
+                  <h4>Address</h4>
+                  <p>{formattedAddress}</p>
+                </div>
+              </InfoWindow>
+            )}
+          </GoogleMap>
+        </LoadScript>
+      </Col>
+    </Row>
   ) : <LoadingSpinner />;
 };
 

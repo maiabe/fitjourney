@@ -7,7 +7,6 @@ import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Comments } from '../../api/comment/comment';
 import FileField from './FileField';
-import { ComponentIDs } from '../utilities/ids';
 
 const bridge = new SimpleSchema2Bridge(Comments.schema);
 
@@ -61,29 +60,27 @@ const AddComment = ({ postId }) => {
   };
 
   return (
-    <div id={ComponentIDs.addComment}>
-      <Container className="py-3">
-        <Row className="justify-content-center">
-          <Col xs={10}>
-            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={submit}>
-              <Card>
-                <Card.Body>
-                  <div className="mb-3">
-                    <FileField name="image" onChange={handleImageChange} />
-                  </div>
-                  <LongTextField id={ComponentIDs.addCommentText} name="comment" />
-                  <ErrorsField />
-                  <SubmitField id={ComponentIDs.submitComment} value="Submit" />
-                  <HiddenField name="createdAt" value={new Date()} />
-                  <HiddenField name="postId" value={postId} />
-                  {user ? <HiddenField name="owner" value={user.username} /> : null}
-                </Card.Body>
-              </Card>
-            </AutoForm>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <Container className="py-3">
+      <Row className="justify-content-center">
+        <Col xs={10}>
+          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={submit}>
+            <Card>
+              <Card.Body>
+                <div className="mb-3">
+                  <FileField name="image" onChange={handleImageChange} />
+                </div>
+                <LongTextField name="comment" />
+                <ErrorsField />
+                <SubmitField inputClassName="p-2 bg-white border-1 rounded-1 mt-1" value="Submit" />
+                <HiddenField name="createdAt" value={new Date()} />
+                <HiddenField name="postId" value={postId} />
+                {user ? <HiddenField name="owner" value={user.username} /> : null}
+              </Card.Body>
+            </Card>
+          </AutoForm>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
