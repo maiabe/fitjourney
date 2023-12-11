@@ -1,56 +1,84 @@
 import { Selector } from 'testcafe';
+import { ComponentIDs } from '../imports/ui/utilities/ids';
 
 class NavBar {
 
   /** If someone is logged in, then log them out, otherwise do nothing. */
   async ensureLogout(testController) {
-    const loggedInUser = await Selector('#navbar-current-user').exists;
+    const loggedInUser = await Selector(`#${ComponentIDs.currentUserDropDown}`).exists;
     if (loggedInUser) {
-      await testController.click('#navbar-current-user');
-      await testController.click('#navbar-sign-out');
+      await testController.click(`#${ComponentIDs.currentUserDropDown}`);
+      await testController.click(`#${ComponentIDs.navBarSignOut}`);
     }
   }
 
   async gotoSignInPage(testController) {
     await this.ensureLogout(testController);
-    const visible = await Selector('#basic-navbar-nav').visible;
-    if (!visible) {
-      await testController.click('button.navbar-toggler');
-    }
-    await testController.click('#login-dropdown');
-    await testController.click('#login-dropdown-sign-in');
+    await testController.click(`#${ComponentIDs.loginDropDown}`);
+    await testController.click(`#${ComponentIDs.navBarSignIn}`);
   }
 
   /** Check that the specified user is currently logged in. */
   async isLoggedIn(testController, username) {
-    const visible = await Selector('#basic-navbar-nav').visible;
-    if (!visible) {
-      await testController.click('button.navbar-toggler');
-    }
-    const loggedInUser = Selector('#navbar-current-user').innerText;
-    await testController.expect(loggedInUser).eql(username);
+    await testController.expect(Selector(`#${ComponentIDs.currentUserDropDown}`).innerText).eql(username);
   }
 
   /** Check that someone is logged in, then click items to logout. */
   async logout(testController) {
-    const visible = await Selector('#basic-navbar-nav').visible;
-    if (!visible) {
-      await testController.click('button.navbar-toggler');
-    }
-    await testController.expect(Selector('#navbar-current-user').exists).ok();
-    await testController.click('#navbar-current-user');
-    await testController.click('#navbar-sign-out');
+    await testController.expect(Selector(`#${ComponentIDs.currentUserDropDown}`).exists).ok();
+    await testController.click(`#${ComponentIDs.currentUserDropDown}`);
+    await testController.click(`#${ComponentIDs.navBarSignOut}`);
+  }
+
+  /** Go to edit profile page */
+  async gotoEdit(testController) {
+    await testController.expect(Selector(`#${ComponentIDs.currentUserDropDown}`).exists).ok();
+    await testController.click(`#${ComponentIDs.currentUserDropDown}`);
+    await testController.click(`#${ComponentIDs.navBarEditProfile}`);
   }
 
   /** Pull down login menu, go to sign up page. */
   async gotoSignUpPage(testController) {
     await this.ensureLogout(testController);
-    const visible = await Selector('#basic-navbar-nav').visible;
-    if (!visible) {
-      await testController.click('button.navbar-toggler');
-    }
-    await testController.click('#login-dropdown');
-    await testController.click('#login-dropdown-sign-up');
+    await testController.click(`#${ComponentIDs.loginDropDown}`);
+    await testController.click(`#${ComponentIDs.navBarSignUp}`);
+  }
+
+  async gotoForumPage(testController) {
+    await testController.click(`#${ComponentIDs.navBarCivicEngagementItem}`);
+    await testController.click(`#${ComponentIDs.navBarToForum}`);
+  }
+
+  /** Test that CE Forum page works */
+  async gotoSurveyPage(testController) {
+    await testController.click(`#${ComponentIDs.navBarCivicEngagementItem}`);
+    await testController.click(`#${ComponentIDs.navBarToSurvey}`);
+  }
+
+  async gotoCommunityPage(testController) {
+    await testController.click(`#${ComponentIDs.navBarCivicEngagementItem}`);
+    await testController.click(`#${ComponentIDs.navBarToCommunity}`);
+  }
+
+  /** BEGIN VISUALIZE TOOLSET SECTION */
+  async gotoModel(testController) {
+    await testController.click(`#${ComponentIDs.navBarVisualizeToolsetItem}`);
+    await testController.click(`#${ComponentIDs.navBarToModel}`);
+  }
+
+  async gotoDalle3(testController) {
+    await testController.click(`#${ComponentIDs.navBarVisualizeToolsetItem}`);
+    await testController.click(`#${ComponentIDs.navBarToDalle3}`);
+  }
+
+  async gotoMapping(testController) {
+    await testController.click(`#${ComponentIDs.navBarVisualizeToolsetItem}`);
+    await testController.click(`#${ComponentIDs.navBarToMapping}`);
+  }
+
+  async gotoExternal(testController) {
+    await testController.click(`#${ComponentIDs.navBarVisualizeToolsetItem}`);
+    await testController.click(`#${ComponentIDs.navBarToExternal}`);
   }
 }
 

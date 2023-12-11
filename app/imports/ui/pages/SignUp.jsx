@@ -8,6 +8,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import swal from 'sweetalert';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const SignUp = () => {
   const [error, setError] = useState('');
@@ -44,36 +45,38 @@ const SignUp = () => {
     return (<Navigate to="/" />);
   }
   return (
-    <Container id="signup-page" className="py-3">
-      <Row className="justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
-        <Col xs={4}>
-          <Col className="text-center" />
-          <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-            <Card style={{ backgroundColor: 'white', border: 'none' }}>
-              <Card.Body>
-                <Col className="text-center">
-                  <h2>Create Account</h2>
-                </Col>
-                <TextField inputClassName="border-dark" name="email" placeholder="" />
-                <TextField inputClassName="border-dark" name="username" placeholder="" />
-                <TextField inputClassName="border-dark" name="password" placeholder="" type="password" />
-                <ErrorsField />
-                <SubmitField inputClassName="p-2 bg-white border-1 rounded-1 mt-1" />
-              </Card.Body>
-              <p style={{ textAlign: 'center' }}>Already have an account? <Link style={{ color: 'black' }} to="/signin">Login</Link></p>
-            </Card>
-          </AutoForm>
-          {error === '' ? (
-            ''
-          ) : (
-            <Alert variant="danger">
-              <Alert.Heading>Registration was not successful</Alert.Heading>
-              {error}
-            </Alert>
-          )}
-        </Col>
-      </Row>
-    </Container>
+    <div id={PageIDs.signUp}>
+      <Container className="py-3">
+        <Row className="justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
+          <Col xs={4}>
+            <Col className="text-center" />
+            <AutoForm schema={bridge} onSubmit={data => submit(data)}>
+              <Card style={{ backgroundColor: 'white', border: 'none' }}>
+                <Card.Body>
+                  <Col className="text-center">
+                    <h2>Create Account</h2>
+                  </Col>
+                  <TextField id={ComponentIDs.signupEmail} inputClassName="border-dark" name="email" placeholder="" />
+                  <TextField id={ComponentIDs.signupUser} inputClassName="border-dark" name="username" placeholder="" />
+                  <TextField id={ComponentIDs.signupPass} inputClassName="border-dark" name="password" placeholder="" type="password" />
+                  <ErrorsField />
+                  <SubmitField id={ComponentIDs.signupSubmit} inputClassName="p-2 bg-white border-1 rounded-1 mt-1" />
+                </Card.Body>
+                <p style={{ textAlign: 'center' }}>Already have an account? <Link style={{ color: 'black' }} to="/signin">Login</Link></p>
+              </Card>
+            </AutoForm>
+            {error === '' ? (
+              ''
+            ) : (
+              <Alert variant="danger">
+                <Alert.Heading>Registration was not successful</Alert.Heading>
+                {error}
+              </Alert>
+            )}
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 };
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Col, Container, Image, Row } from 'react-bootstrap';
 import { EmojiSmile } from 'react-bootstrap-icons';
+import { PageIDs } from '../utilities/ids';
 
 const Landing = () => (
-  <div>
+  <div id={PageIDs.landing}>
     <div className="py-5 landing-white-background">
       <Container className="justify-content-center text-center">
         <Row md={1} lg={2} className="justify-content-center d-flex">

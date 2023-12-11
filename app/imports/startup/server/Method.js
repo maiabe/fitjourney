@@ -16,7 +16,7 @@ Meteor.methods({
         headers: {
           'Content-Type': 'application/json',
           // Authorization: `Bearer ${'YOUR-KEY-HERE'}`,
-          Authorization: `Bearer ${'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'}`,
+          Authorization: `Bearer ${'YOUR-KEY-HERE'}`,
         },
         data: {
           model: 'dall-e-3',

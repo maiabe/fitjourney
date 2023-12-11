@@ -7,6 +7,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Profiles } from '../../api/profile/profile';
 import FileField from '../components/FileField';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const bridge = new SimpleSchema2Bridge(Profiles.schema);
 
@@ -91,36 +92,38 @@ const EditProfile = () => {
   };
 
   return (
-    <Container className="py-3">
-      {ready ? (
-        <Row className="justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
-          <Col xs={5}>
-            <Col className="text-center"><h2>Edit Profile</h2></Col>
-            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)} model={doc}>
-              <Card style={{ backgroundColor: 'white', border: 'none' }}>
-                <Card.Body>
-                  <TextField inputClassName="border-dark" name="firstName" />
-                  <TextField inputClassName="border-dark" name="lastName" />
-                  <TextField inputClassName="border-dark" name="location" />
-                  <div className="mb-3">
-                    <FileField name="image" onChange={handleImageChange} />
-                  </div>
-                  <LongTextField inputClassName="border-dark" name="bio" />
-                  <ErrorsField />
-                  <SubmitField value="Submit" inputClassName="p-2 bg-white border-1 rounded-1 mt-1" />
-                  <HiddenField name="owner" value={Meteor.user()?.username} />
-                </Card.Body>
-              </Card>
-            </AutoForm>
-            <div className="mt-2 text-center">
-              <Button variant="danger" onClick={deleteProfile}>Delete Profile</Button>
-            </div>
-          </Col>
-        </Row>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </Container>
+    <div id={PageIDs.editProfile}>
+      <Container className="py-3">
+        {ready ? (
+          <Row className="justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
+            <Col xs={5}>
+              <Col className="text-center"><h2>Edit Profile</h2></Col>
+              <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)} model={doc}>
+                <Card style={{ backgroundColor: 'white', border: 'none' }}>
+                  <Card.Body>
+                    <TextField id={ComponentIDs.editFirstName} inputClassName="border-dark" name="firstName" />
+                    <TextField id={ComponentIDs.editLastName} inputClassName="border-dark" name="lastName" />
+                    <TextField id={ComponentIDs.editLocation} inputClassName="border-dark" name="location" />
+                    <div className="mb-3">
+                      <FileField name="image" onChange={handleImageChange} />
+                    </div>
+                    <LongTextField id={ComponentIDs.editBio} inputClassName="border-dark" name="bio" />
+                    <ErrorsField />
+                    <SubmitField id={ComponentIDs.submitEdit} value="Submit" inputClassName="p-2 bg-white border-1 rounded-1 mt-1" />
+                    <HiddenField name="owner" value={Meteor.user()?.username} />
+                  </Card.Body>
+                </Card>
+              </AutoForm>
+              <div className="mt-2 text-center">
+                <Button variant="danger" onClick={deleteProfile}>Delete Profile</Button>
+              </div>
+            </Col>
+          </Row>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </Container>
+    </div>
   );
 };
 

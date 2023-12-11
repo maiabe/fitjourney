@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Col, Nav, Row } from 'react-bootstrap';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const mapsData = [
   {
@@ -40,7 +41,7 @@ const Mapping = () => {
   };
 
   return (
-    <div className="p-3" style={{ width: '100%', height: '750px' }}>
+    <div id={PageIDs.mapping} className="p-3" style={{ width: '100%', height: '750px' }}>
       {isLoading ? (
         <LoadingSpinner />
       ) : (
@@ -55,6 +56,7 @@ const Mapping = () => {
           <p className="text-center"><Nav.Link href={mapsData[currentPage].url}>Link (Click To Redirect)</Nav.Link></p>
           {/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
           <iframe
+            id={ComponentIDs.iframe}
             src={mapsData[currentPage].url}
             width="100%"
             height="85%"

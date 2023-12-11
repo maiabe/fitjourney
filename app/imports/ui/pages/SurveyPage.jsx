@@ -7,6 +7,7 @@ import swal from 'sweetalert';
 import Survey from '../components/Survey';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Surveys } from '../../api/survey/survey';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const SurveyPage = () => {
   const [index, setIndex] = useState(0);
@@ -81,7 +82,7 @@ const SurveyPage = () => {
   }
 
   return ready ? (
-    <>
+    <div id={PageIDs.surveyPage}>
       <Carousel activeIndex={index} onSelect={handleSelect}>
         {currentSurveys.map((survey) => (
           <Carousel.Item key={survey._id} style={carouselItemStyle}>
@@ -111,14 +112,14 @@ const SurveyPage = () => {
       <Row className="justify-content-center">
         <Col xs={12} className="text-center p-3">
           <Nav.Link href="/addsurvey">
-            <PlusCircleFill style={{ fontSize: '2rem', color: 'black' }} />
+            <PlusCircleFill id={ComponentIDs.addSurvey} style={{ fontSize: '2rem', color: 'black' }} />
           </Nav.Link>
         </Col>
         <Col xs={12} className="p-3">
           <Pagination className="justify-content-center">{paginationItems}</Pagination>
         </Col>
       </Row>
-    </>
+    </div>
   ) : <LoadingSpinner />;
 };
 

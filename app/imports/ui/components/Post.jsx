@@ -4,9 +4,10 @@ import { Accordion, Image, ListGroup } from 'react-bootstrap';
 import AddComment from './AddComment';
 import Comment from './Comment';
 import DeletePost from './DeletePost';
+import { ComponentIDs } from '../utilities/ids';
 
 const Post = ({ post, comments, eventKey }) => (
-  <Accordion.Item eventKey={eventKey}>
+  <Accordion.Item id={ComponentIDs.post} eventKey={eventKey}>
     <Accordion.Header>{post.title}</Accordion.Header>
     <Accordion.Body>
       <p>{post.owner} @ {post.createdAt.toLocaleDateString('en-US')}</p>
@@ -18,7 +19,7 @@ const Post = ({ post, comments, eventKey }) => (
       </ListGroup>
       <Accordion>
         <Accordion.Item eventKey="0">
-          <Accordion.Header>Add Comment</Accordion.Header>
+          <Accordion.Header id={ComponentIDs.addComment}>Add Comment</Accordion.Header>
           <Accordion.Body>
             <AddComment postId={post._id} />
           </Accordion.Body>

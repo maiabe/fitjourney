@@ -5,6 +5,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Profiles } from '../../api/profile/profile';
 import Profile from '../components/Profile';
+import { PageIDs } from '../utilities/ids';
 
 const CommunityPage = () => {
   const profilesPerPage = 9;
@@ -35,27 +36,29 @@ const CommunityPage = () => {
   }
 
   return (ready ? (
-    <Container className="py-3">
-      <Row className="justify-content-center">
-        <Col md={10}>
-          <Col className="text-center">
-            <h1 style={{ marginBottom: '1em', marginTop: '1em', fontWeight: 'bold' }}>Meet Our Community.</h1>
+    <div id={PageIDs.communityPage}>
+      <Container className="py-3">
+        <Row className="justify-content-center">
+          <Col md={10}>
+            <Col className="text-center">
+              <h1 style={{ marginBottom: '1em', marginTop: '1em', fontWeight: 'bold' }}>Meet Our Community.</h1>
+            </Col>
+            <Row xs={1} md={2} lg={profilesPerRow} className="g-5">
+              {currentProfiles.map((profile) => <Col key={profile.owner}><Profile profile={profile} /></Col>)}
+            </Row>
+            {pageNumbers.length > 1 && (
+              <Pagination className="justify-content-center mt-3">
+                {pageNumbers.map(number => (
+                  <Pagination.Item key={number} active={number === activePage} onClick={() => handlePageChange(number)}>
+                    {number}
+                  </Pagination.Item>
+                ))}
+              </Pagination>
+            )}
           </Col>
-          <Row xs={1} md={2} lg={profilesPerRow} className="g-5">
-            {currentProfiles.map((profile) => <Col key={profile.owner}><Profile profile={profile} /></Col>)}
-          </Row>
-          {pageNumbers.length > 1 && (
-            <Pagination className="justify-content-center mt-3">
-              {pageNumbers.map(number => (
-                <Pagination.Item key={number} active={number === activePage} onClick={() => handlePageChange(number)}>
-                  {number}
-                </Pagination.Item>
-              ))}
-            </Pagination>
-          )}
-        </Col>
-      </Row>
-    </Container>
+        </Row>
+      </Container>
+    </div>
   ) : <LoadingSpinner />);
 };
 
