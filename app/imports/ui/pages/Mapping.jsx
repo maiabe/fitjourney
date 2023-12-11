@@ -47,9 +47,9 @@ const Mapping = () => {
         <>
           <Row className="justify-content-center mt-3">
             <Col xs={12} md={6} className="d-flex justify-content-around">
-              <Button style={{ background: 'white', color: 'black' }} onClick={handlePrevious}>Previous</Button>
-              <h2 className="text-center">{mapsData[currentPage].title}</h2>
-              <Button style={{ background: 'white', color: 'black' }} onClick={handleNext}>Next</Button>
+              <Button style={{ background: 'white', color: 'black', borderColor: 'black' }} onClick={handlePrevious}>Previous</Button>
+              <h2 style={{ fontWeight: 'bold' }} className="text-center">{mapsData[currentPage].title}</h2>
+              <Button style={{ background: 'white', color: 'black', borderColor: 'black' }} onClick={handleNext}>Next</Button>
             </Col>
           </Row>
           <p className="text-center"><Nav.Link href={mapsData[currentPage].url}>Link (Click To Redirect)</Nav.Link></p>

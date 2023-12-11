@@ -57,24 +57,24 @@ const Forum = () => {
     ready ? (
       <Container>
         <Row>
-          <Col xs={12} md={3}>
-            <h2 className="text-center p-3">Tools</h2>
+          <Col xs={12} md={3} className="mt-3">
+            <h2 style={{ fontWeight: 'bold' }} className="text-center p-3">Tools</h2>
             <Nav defaultActiveKey="/home" className="flex-column">
               <Nav.Link
                 className="p-3"
-                style={{ color: 'black' }}
+                style={{ color: 'black', fontSize: '20px' }}
                 onClick={() => setViewMyPosts(!viewMyPosts)} // Toggle the view
               >
                 My Posts
               </Nav.Link>
-              <Nav.Link style={{ color: 'black' }} href="/dalle3">Generate Image</Nav.Link>
+              <Nav.Link style={{ color: 'black', fontSize: '20px' }} href="/dalle3">Generate Image</Nav.Link>
               <Nav.Link className="p-3" href="/addpost">
                 <PlusCircleFill style={{ fontSize: '2rem', color: 'black' }} />
               </Nav.Link>
             </Nav>
           </Col>
-          <Col xs={12} md={9}>
-            <h1 className="text-center p-3">Forum</h1>
+          <Col xs={12} md={9} className="mt-3">
+            <h1 style={{ fontWeight: 'bold' }} className="text-center p-3">Forum</h1>
             <Form className="mb-3" onSubmit={handleSearchSubmit}>
               <Form.Group controlId="searchBar">
                 <Row>

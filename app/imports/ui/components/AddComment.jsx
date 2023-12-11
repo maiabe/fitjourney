@@ -71,7 +71,7 @@ const AddComment = ({ postId }) => {
                 </div>
                 <LongTextField name="comment" />
                 <ErrorsField />
-                <SubmitField value="Submit" />
+                <SubmitField inputClassName="p-2 bg-white border-1 rounded-1 mt-1" value="Submit" />
                 <HiddenField name="createdAt" value={new Date()} />
                 <HiddenField name="postId" value={postId} />
                 {user ? <HiddenField name="owner" value={user.username} /> : null}

@@ -108,13 +108,13 @@ const Model = () => {
           <img src={photoUrlToShow} alt="Location" style={{ width: '105%', height: '105%', objectFit: 'cover' }} />
         </div>
         <Accordion className="p-3" activeKey={activeAccordionKey}>
-          <Accordion.Item eventKey="0">
+          <Accordion.Item style={{ borderColor: 'white', marginTop: '1em' }} eventKey="0">
             <Accordion.Header onClick={() => handleAccordionToggle('0')}>Information</Accordion.Header>
             <Accordion.Body>
               <p>Address: {formattedAddress}</p>
             </Accordion.Body>
           </Accordion.Item>
-          <Accordion.Item eventKey="1">
+          <Accordion.Item style={{ borderColor: 'white', marginTop: '1em' }} eventKey="1">
             <Accordion.Header onClick={() => handleAccordionToggle('1')}>User Modeling</Accordion.Header>
             <Accordion.Body>
               <Row className="mt-3">

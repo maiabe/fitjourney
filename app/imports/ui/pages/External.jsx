@@ -51,9 +51,9 @@ const External = () => {
       <Table striped="columns">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Link</th>
-            <th>Description</th>
+            <th style={{ fontSize: '20px' }}>Name</th>
+            <th style={{ fontSize: '20px' }}>Link</th>
+            <th style={{ fontSize: '20px' }}>Description</th>
           </tr>
         </thead>
         <tbody>
