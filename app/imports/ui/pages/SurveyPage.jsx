@@ -48,17 +48,10 @@ const SurveyPage = () => {
     height: '350px',
   };
 
-  const dateMinusThirty = () => {
-    const currentDate = new Date();
-    const currentMonth = currentDate.getMonth();
-    currentDate.setMonth(currentMonth - 1);
-    return currentDate;
-  };
-
   const { ready, surveys } = useTracker(() => {
     const subscription = Meteor.subscribe(Surveys.userPublicationName);
     const rdy = subscription.ready();
-    const surveyItems = Surveys.collection.find({ createdAt: { $gt: dateMinusThirty() } }).fetch();
+    const surveyItems = Surveys.collection.find().fetch();
     return {
       surveys: surveyItems,
       ready: rdy,
@@ -87,11 +80,13 @@ const SurveyPage = () => {
         {currentSurveys.map((survey) => (
           <Carousel.Item key={survey._id} style={carouselItemStyle}>
             <Survey survey={survey} />
-            <Row className="m-auto">
+
+            {/* Button wrapper with flexbox centering */}
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
               <Button style={{ background: 'white', color: 'black' }} onClick={() => handleDelete(survey._id, survey.owner)}>
                 <TrashFill />
               </Button>
-            </Row>
+            </div>
           </Carousel.Item>
         ))}
       </Carousel>
