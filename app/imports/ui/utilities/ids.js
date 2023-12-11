@@ -59,6 +59,15 @@ export const ComponentIDs = {
   signInSubmit: 'signInSubmit',
   // Survey Page components
   profile: 'profile',
+  // Model Page
+  modelMap: 'modelMap',
+  userModButton: 'userModButton',
+  userModAddButton: 'userModAddButton',
+  // Model Add page
+  addModType: 'addModType',
+  addModCost: 'addModCost',
+  addModDetail: 'addModDetail',
+  addModSubmit: 'addModSubmit',
   // All survey component IDs
   survey: 'survey',
   addSurvey: 'addSurvey',

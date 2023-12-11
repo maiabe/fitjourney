@@ -19,6 +19,16 @@ const credentials = { username: 'john@foo.com', password: 'changeme' };
 fixture('meteor-application-template-react localhost test with default db')
   .page('http://localhost:3000');
 
+/**
+ *
+ *
+ * ENSURE THAT KEYS HAVE BEEN LOADED
+ *
+ * DO NOT COMMIT KEYS!!!
+ *
+ *
+ * */
+
 test('Test that landing page shows up', async (testController) => {
   await landingPage.isDisplayed(testController);
 });
@@ -89,11 +99,12 @@ test('Test that Model page works', async (testController) => {
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.gotoModel(testController);
   await modelPage.isDisplayed(testController);
-  /** Need to test actual function, idk what is supposed to happen on this page rn */
+  /** tests functionality of the google map implementation and add a mod card */
+  await modelPage.clickMapAndAddCard(testController);
 });
 
 /** REQUIRES WORKING KEY: Key is currently not working */
-test.skip('Test that Dalle3 page works', async (testController) => {
+test('Test that Dalle3 page works', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);

@@ -8,7 +8,7 @@ import { PlusCircleFill } from 'react-bootstrap-icons';
 import { ModCards } from '../../api/modcard/modcard';
 import ModCard from '../components/ModCard';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { PageIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const containerStyle = {
   width: '100%',
@@ -117,7 +117,7 @@ const Model = () => {
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="1">
-              <Accordion.Header onClick={() => handleAccordionToggle('1')}>User Modeling</Accordion.Header>
+              <Accordion.Header id={ComponentIDs.userModButton} onClick={() => handleAccordionToggle('1')}>User Modeling</Accordion.Header>
               <Accordion.Body>
                 <Row className="mt-3">
                   {currentModCards.map((modcard) => (
@@ -136,7 +136,7 @@ const Model = () => {
                 {formattedAddress && (
                   <div className="d-flex justify-content-end">
                     <Nav.Link onClick={navigateToAddModCard} style={{ textDecoration: 'none' }}>
-                      <PlusCircleFill style={{ fontSize: '2rem', color: 'black' }} />
+                      <PlusCircleFill id={ComponentIDs.userModAddButton} style={{ fontSize: '2rem', color: 'black' }} />
                     </Nav.Link>
                   </div>
                 )}
@@ -174,6 +174,7 @@ const Model = () => {
               </div>
             )}
             <GoogleMap
+              id={ComponentIDs.modelMap}
               mapContainerStyle={containerStyle}
               options={mapOptions}
               onClick={onMapClick}
