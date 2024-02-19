@@ -2,23 +2,22 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { PencilSquare, BoxArrowRight, PersonFill, PersonPlusFill, PlusSquare } from 'react-bootstrap-icons';
 import { ComponentIDs } from '../utilities/ids';
 
 const NavBar = () => {
-  const { currentUser, loggedIn } = useTracker(() => ({
+  const { currentUser } = useTracker(() => ({
     currentUser: Meteor.user() ? Meteor.user().username : '',
     loggedIn: !!Meteor.user(),
   }), []);
   const navStyle = { boxShadow: '0 6px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.2)' };
-  const navbarClassName = loggedIn ? 'bg-black' : 'bg-black';
 
   return (
     <Navbar expand="lg" style={navStyle}>
       <div className="navbar-wrapper">
         <Navbar.Brand as={NavLink} to="/" className="align-items-center">
-          <img src="/images/FitJourney_horizontal.png" />
+          <img src="/images/FitJourney_horizontal.png" alt="navbar logo" />
         </Navbar.Brand>
         <Navbar.Toggle id={ComponentIDs.navBar} />
         <Navbar.Collapse id={ComponentIDs.navBar}>
