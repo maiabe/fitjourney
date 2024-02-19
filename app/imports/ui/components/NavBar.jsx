@@ -11,13 +11,14 @@ const NavBar = () => {
     currentUser: Meteor.user() ? Meteor.user().username : '',
     loggedIn: !!Meteor.user(),
   }), []);
-  const menuStyle = { marginBottom: '0px' };
+  const navStyle = { boxShadow: '0 6px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.2)' };
   const navbarClassName = loggedIn ? 'bg-black' : 'bg-black';
+
   return (
-    <Navbar expand="lg" style={menuStyle} className={navbarClassName}>
-      <Container className="m-2 py-0">
+    <Navbar expand="lg" style={navStyle}>
+      <div className="navbar-wrapper">
         <Navbar.Brand as={NavLink} to="/" className="align-items-center">
-          <span style={{ fontWeight: 'bold', fontSize: '32px', color: 'white', fontFamily: 'Sarina' }}>Envision Lahaina </span>
+          <img src="/images/FitJourney_horizontal.png" />
         </Navbar.Brand>
         <Navbar.Toggle id={ComponentIDs.navBar} />
         <Navbar.Collapse id={ComponentIDs.navBar}>
@@ -91,7 +92,7 @@ const NavBar = () => {
             )}
           </Nav>
         </Navbar.Collapse>
-      </Container>
+      </div>
     </Navbar>
   );
 };

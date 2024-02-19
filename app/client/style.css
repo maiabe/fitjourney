@@ -1,17 +1,26 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700");
 @import url("https://fonts.googleapis.com/css?family=Sarina|Poppins");
 
-.white-text-dropdown .dropdown-toggle {
+/* .white-text-dropdown .dropdown-toggle {
   color: white !important;
+} */
+
+.navbar-wrapper {
+  margin: 0 2%;
+  display: flex;
+  width: 100%;
 }
 
-.landing-white-background img {
-  margin-bottom: 50px;
+
+
+.main-logo-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.main-logo-wrapper img {
+  width: 50%;
 }
 
-.make-it-red {
-
-}
 
 * {
   font-family: 'Poppins', serif;
