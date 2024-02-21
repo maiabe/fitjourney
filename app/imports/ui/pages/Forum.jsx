@@ -45,6 +45,8 @@ const Forum = () => {
     filteredPosts = filteredPosts.filter(post => post.owner === Meteor.user().username);
   }
 
+  filteredPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
   const startIndex = (activePage - 1) * postsPerPage;
   const paginatedPosts = filteredPosts.slice(startIndex, startIndex + postsPerPage);
 
