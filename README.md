@@ -13,19 +13,25 @@ What is complete so far?
 - Posts sorted by the newest ones
 
 Pending:
-- A graph that takes into account the amount of time spent exercising, and shows it to you to allow you to better monitor your fitness levels
-- 
+- For the user:
+  - Data entry for workouts
+  - A graph that takes into account the amount of time spent exercising, and shows it to you to allow you to better monitor your fitness levels
+  - Profile management
+- For the admin:
+  - User account management
+  - User access control management
+  - Informational content management
 
 Contributions:
 - John Galinato
-  - Contributions:
-  - Future Contributions: 
+  - Completed:
+  - Next: 
 - Loelle Lam
-  - Contributions:
-  - Future Contributions:
+  - Completed:
+  - Next:
 - Mai Abe
-  - Contributions:
-  - Future Contributions:
+  - Completed:
+  - Next:
 - Tiffany Ngo
-  - Contributions: Created a way to input how much time was spent on each activity whenever making a post, made it so that posts are sorted by the newest posts first by default, fixed minor errors.
-  - Future Contributions: Create a circle or bar graph that is unique to each account, that will show how much time that you've spent doing various activities and will thus allow the user to track their fitness levels better.
+  - Completed: Created a way to input how much time was spent on each activity whenever making a post, made it so that posts are sorted by the newest posts first by default, fixed minor errors.
+  - Next: Create a circle or bar graph that is unique to each account, that will show how much time that you've spent doing various activities and will thus allow the user to track their fitness levels better.
