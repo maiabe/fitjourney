@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { AutoForm, TextField, LongTextField, SubmitField, ErrorsField, HiddenField } from 'uniforms-bootstrap5';
+import { AutoForm, TextField, LongTextField, SubmitField, ErrorsField, HiddenField, NumField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Posts } from '../../api/post/post';
@@ -21,6 +21,14 @@ const AddPost = () => {
 
   const submit = (data) => {
     const { image, ...postData } = data;
+    const hours = parseInt(data.activityDurationHours, 10);
+    const minutes = parseInt(data.activityDurationMinutes, 10);
+
+    if (Number.isNaN(hours) || Number.isNaN(minutes) || hours < 0 || hours > 24 || minutes < 0 || minutes > 59) {
+      swal('Error', 'Please enter a valid input for hours and minutes.', 'error');
+      return;
+    }
+
     postData.createdAt = new Date();
     postData.owner = user ? user.username : 'Anonymous';
 
@@ -31,7 +39,9 @@ const AddPost = () => {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success', 'Post added successfully', 'success');
+          swal('Success', 'Post added successfully', 'success').then(() => {
+            window.location.href = '/forum';
+          });
           if (fRef) {
             fRef.reset();
           }
@@ -86,6 +96,8 @@ const AddPost = () => {
                     <FileField name="image" onChange={handleImageChange} />
                   </div>
                   <LongTextField id={ComponentIDs.addPostContent} inputClassName="border-dark" name="contents" />
+                  <NumField id={ComponentIDs.addPostActivityDurationHours} name="activityDurationHours" label="Hours Spent" min={0} max={24} />
+                  <NumField id={ComponentIDs.addPostActivityDurationMinutes} name="activityDurationMinutes" label="Minutes Spent" min={0} max={59} />
                   <ErrorsField />
                   <SubmitField id={ComponentIDs.addPostSubmit} inputClassName="p-2 bg-white border-1 rounded-1 mt-1" value="Submit" />
                   <HiddenField name="createdAt" value={new Date()} />
