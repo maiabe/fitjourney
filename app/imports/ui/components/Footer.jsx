@@ -7,12 +7,10 @@ const Footer = () => (
     <Container>
       <Row>
         <Col className="text-center" style={{ color: 'white' }}>
-          Envision Lahaina
           {' '}
           <br />
-          By Zhuocheng(Joe) Gan
+          Fit Journey
           <br />
-          Email: Envisionlahaina@gmail.com
           {' '}
           <br />
         </Col>

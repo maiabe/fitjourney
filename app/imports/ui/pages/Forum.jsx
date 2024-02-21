@@ -67,7 +67,6 @@ const Forum = () => {
               >
                 My Posts
               </Nav.Link>
-              <Nav.Link style={{ color: 'black', fontSize: '20px' }} href="/dalle3">Generate Image</Nav.Link>
               <Nav.Link className="p-3" href="/addpost">
                 <PlusCircleFill style={{ fontSize: '2rem', color: 'black' }} />
               </Nav.Link>
