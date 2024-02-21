@@ -15,7 +15,8 @@ What is complete so far?
 Pending:
 - For the user:
   - Data entry for workouts
-  - A graph that takes into account the amount of time spent exercising, and shows it to you to allow you to better monitor your fitness levels
+  - Dashboard
+    - A graph that takes into account the amount of time spent exercising, and shows it to you to allow you to better monitor your fitness levels
   - Profile management
 - For the admin:
   - User account management
