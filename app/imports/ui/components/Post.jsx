@@ -13,6 +13,7 @@ const Post = ({ post, comments, eventKey }) => (
       <p>{post.owner} @ {post.createdAt.toLocaleDateString('en-US')}</p>
       {post.image && <Image src={post.image} width={300} />}
       <p className="p-1">{post.contents}</p>
+      {post.activityDurationHours != null && post.activityDurationMinutes != null && (<p className="p-1">Duration: {post.activityDurationHours} hour(s) {post.activityDurationMinutes} minute(s)</p>)}
       <DeletePost postId={post._id} />
       <ListGroup variant="flush">
         {comments.map((comment, index) => <Comment key={index} comment={comment} />)}
@@ -38,6 +39,8 @@ Post.propTypes = {
     owner: PropTypes.string,
     _id: PropTypes.string,
     postId: PropTypes.string,
+    activityDurationHours: PropTypes.number,
+    activityDurationMinutes: PropTypes.number,
   }).isRequired,
   eventKey: PropTypes.string.isRequired,
   comments: PropTypes.arrayOf(PropTypes.shape({

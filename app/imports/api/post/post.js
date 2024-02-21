@@ -11,6 +11,18 @@ class PostsCollection {
       image: { type: String, optional: true },
       createdAt: Date,
       owner: String,
+      activityDurationHours: {
+        type: SimpleSchema.Integer,
+        optional: true,
+        min: 0,
+        max: 24,
+      },
+      activityDurationMinutes: {
+        type: SimpleSchema.Integer,
+        optional: true,
+        min: 0,
+        max: 59,
+      },
     });
     this.collection.attachSchema(this.schema);
     this.userPublicationName = `${this.name}.publication.user`;
