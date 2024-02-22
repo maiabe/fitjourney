@@ -5,14 +5,15 @@ What is complete so far?
 - Landing page that gives a brief overview of the purpose of the site and how to use it.
 - Ability to log in and register a new account, as well as modify the profile of the account
 - A way to make new posts about fitness-related activities that you've done in your day, with input fields for the title of the post, an image, a description of the activity, and how much time was spent doing it
+- Ability to edit and delete posts
 - A way to comment on posts
-- Ability to delete posts and comments
+- Ability to delete comments
 - Capability to search through posts to find a specific one
 - Posts sorted by the newest ones
 
 Pending:
 - For the user:
-  - Data entry for workouts
+  - Data entry and editing for workouts
   - Dashboard
     - A graph that takes into account the amount of time spent exercising, and shows it to you to allow you to better monitor your fitness levels
   - Profile management
@@ -26,8 +27,8 @@ Contributions:
   - Completed: Created Fit Journey sign-in, sign-up, landing page, home page, journal page, creating journal post, adding/deleting comments to a post, and chat moderation via AI. On Github, added test status badge.
   - Next: UI improvements and test code.
 - Loelle Lam
-  - Completed:
-  - Next:
+  - Completed: Implemented editing for user-created posts.
+  - Next: Improve usability of the editing function and add editing to other features
 - Mai Abe
   - Completed:
   - Next:
