@@ -1,8 +1,6 @@
 # envision-lahaina-app
 [![ci-meteor-application-template-react](https://github.com/envision-lahaina/envision-lahaina-app/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/envision-lahaina/envision-lahaina-app/actions/workflows/ci.yml)
 
-See https://envision-lahaina.github.io/envision-lahaina-/ for more details.
-
 What is complete so far?
 - Landing page that gives a brief overview of the purpose of the site and how to use it.
 - Ability to log in and register a new account, as well as modify the profile of the account
