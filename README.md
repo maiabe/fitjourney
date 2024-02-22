@@ -1,5 +1,5 @@
-# envision-lahaina-app
-[![ci-meteor-application-template-react](https://github.com/envision-lahaina/envision-lahaina-app/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/envision-lahaina/envision-lahaina-app/actions/workflows/ci.yml)
+# fit-journey
+[![fit-journey](https://github.com/JohnGalinato808/fitjourney/actions/workflows/ci.yml/badge.svg)](https://github.com/JohnGalinato808/fitjourney/actions/workflows/ci.yml)
 
 What is complete so far?
 - Landing page that gives a brief overview of the purpose of the site and how to use it.
