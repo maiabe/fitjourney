@@ -1,6 +1,5 @@
-# FitJourney
-
-![ci-badge](https://github.com/JohnGalinato808/fitjourney/actions/workflows/ci.yml/badge.svg)
+# fit-journey
+[![fit-journey](https://github.com/JohnGalinato808/fitjourney/actions/workflows/ci.yml/badge.svg)](https://github.com/JohnGalinato808/fitjourney/actions/workflows/ci.yml)
 
 What is complete so far?
 - Landing page that gives a brief overview of the purpose of the site and how to use it.
@@ -24,8 +23,8 @@ Pending:
 
 Contributions:
 - John Galinato
-  - Completed:
-  - Next: 
+  - Completed: Created Fit Journey sign-in, sign-up, landing page, home page, journal page, creating journal post, adding/deleting comments to a post, and chat moderation via AI. On Github, added test status badge.
+  - Next: UI improvements and test code.
 - Loelle Lam
   - Completed:
   - Next:
