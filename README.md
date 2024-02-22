@@ -1,4 +1,4 @@
-# fit-journey
+![image](https://github.com/JohnGalinato808/fitjourney/assets/31334240/6c976839-9d79-45da-adc9-6f67ebb172b3)# fit-journey
 [![fit-journey](https://github.com/JohnGalinato808/fitjourney/actions/workflows/ci.yml/badge.svg)](https://github.com/JohnGalinato808/fitjourney/actions/workflows/ci.yml)
 
 What is complete so far?
@@ -30,8 +30,8 @@ Contributions:
   - Completed: Implemented editing for user-created posts.
   - Next: Improve usability of the editing function and add editing to other features
 - Mai Abe
-  - Completed:
-  - Next:
+  - Completed: Created a logo, updated navbar, footer, and landing page. Updated some styling for the landing page.
+  - Next: Update a journal post page to reflect a workout entry log of a user.  
 - Tiffany Ngo
   - Completed: Created a way to input how much time was spent on each activity whenever making a post, made it so that posts are sorted by the newest posts first by default, fixed minor errors.
   - Next: Create a circle or bar graph that is unique to each account, that will show how much time that you've spent doing various activities and will thus allow the user to track their fitness levels better.
