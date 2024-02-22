@@ -23,8 +23,8 @@ Pending:
 
 Contributions:
 - John Galinato
-  - Completed:
-  - Next: 
+  - Completed: Created Fit Journey sign-in, sign-up, landing page, home page, journal page, creating journal post, adding/deleting comments to a post, and chat moderation via AI. On Github, added test status badge.
+  - Next: UI improvements and test code.
 - Loelle Lam
   - Completed:
   - Next:
