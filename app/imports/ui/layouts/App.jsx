@@ -25,6 +25,7 @@ import AddSurvey from '../pages/AddSurvey';
 import Mapping from '../pages/Mapping';
 import Model from '../pages/Model';
 import AddModCard from '../pages/AddModCard';
+import EditPost from '../pages/EditPost';
 
 const App = () => {
   const { ready } = useTracker(() => {
@@ -54,6 +55,7 @@ const App = () => {
           <Route path="/addsurvey" element={<ProtectedRoute><AddSurvey /></ProtectedRoute>} />
           <Route path="/addmodcard" element={<ProtectedRoute><AddModCard /></ProtectedRoute>} />
           <Route path="/model" element={<ProtectedRoute><Model /></ProtectedRoute>} />
+          <Route path="/editpost/:_id" element={<ProtectedRoute><EditPost /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><Landing /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />

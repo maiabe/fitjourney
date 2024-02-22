@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Accordion, Image, ListGroup } from 'react-bootstrap';
 import AddComment from './AddComment';
 import Comment from './Comment';
+import EditPostButton from './EditPostButton';
 import DeletePost from './DeletePost';
 import { ComponentIDs } from '../utilities/ids';
 
@@ -14,6 +15,7 @@ const Post = ({ post, comments, eventKey }) => (
       {post.image && <Image src={post.image} width={300} />}
       <p className="p-1">{post.contents}</p>
       {post.activityDurationHours != null && post.activityDurationMinutes != null && (<p className="p-1">Duration: {post.activityDurationHours} hour(s) {post.activityDurationMinutes} minute(s)</p>)}
+      <EditPostButton postId={post._id} />
       <DeletePost postId={post._id} />
       <ListGroup variant="flush">
         {comments.map((comment, index) => <Comment key={index} comment={comment} />)}
