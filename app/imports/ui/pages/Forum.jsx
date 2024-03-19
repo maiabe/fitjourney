@@ -45,6 +45,8 @@ const Forum = () => {
     filteredPosts = filteredPosts.filter(post => post.owner === Meteor.user().username);
   }
 
+  filteredPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
   const startIndex = (activePage - 1) * postsPerPage;
   const paginatedPosts = filteredPosts.slice(startIndex, startIndex + postsPerPage);
 
@@ -67,7 +69,6 @@ const Forum = () => {
               >
                 My Posts
               </Nav.Link>
-              <Nav.Link style={{ color: 'black', fontSize: '20px' }} href="/dalle3">Generate Image</Nav.Link>
               <Nav.Link className="p-3" href="/addpost">
                 <PlusCircleFill style={{ fontSize: '2rem', color: 'black' }} />
               </Nav.Link>

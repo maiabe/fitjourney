@@ -1,6 +1,7 @@
 export const ComponentIDs = {
   // Forum Page components
   addPost: 'addPost',
+  editPost: 'editPost',
   // AddPost Page components:
   addPostTitle: 'addPostTitle',
   addPostContent: 'addPostContent',
@@ -88,6 +89,7 @@ export const ComponentIDs = {
 export const PageIDs = {
   addModCard: 'addModCard',
   addPost: 'addPost',
+  editPost: 'editPost',
   addProfile: 'addProfile',
   addSurvey: 'addSurvey',
   communityPage: 'communityPage',

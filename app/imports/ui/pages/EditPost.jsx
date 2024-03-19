@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
-import { Meteor } from 'meteor/meteor';
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import { AutoForm, TextField, LongTextField, SubmitField, ErrorsField, HiddenField, NumField } from 'uniforms-bootstrap5';
+import { Card, Col, Container, Row } from 'react-bootstrap';
+import { AutoForm, ErrorsField, HiddenField, LongTextField, NumField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
+import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
+import { useTracker } from 'meteor/react-meteor-data';
+import { useParams } from 'react-router';
 import { Posts } from '../../api/post/post';
 import FileField from '../components/FileField';
 import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const bridge = new SimpleSchema2Bridge(Posts.schema);
 
-const AddPost = () => {
+/* Renders the EditContact page for editing a single document. */
+const EditPost = () => {
   const [imageFile, setImageFile] = useState(null);
+  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
+  const { _id } = useParams();
   let fRef = null;
   const user = Meteor.user();
 
@@ -19,6 +24,21 @@ const AddPost = () => {
     setImageFile(file);
   };
 
+  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
+  const { doc, ready } = useTracker(() => {
+    // Get access to Post documents.
+    const subscription = Meteor.subscribe(Posts.userPublicationName);
+    // Determine if the subscription is ready
+    const rdy = subscription.ready();
+    // Get the document
+    const document = Posts.collection.findOne(_id);
+    return {
+      doc: document,
+      ready: rdy,
+    };
+  }, [_id]);
+  // console.log('EditPost', doc, ready);
+  // On successful submit, insert the data.
   const submit = (data) => {
     const { image, ...postData } = data;
     const hours = parseInt(data.activityDurationHours, 10);
@@ -30,56 +50,10 @@ const AddPost = () => {
     }
 
     postData.createdAt = new Date();
-    postData.owner = user ? user.username : 'Anonymous';
 
-    // Insert post function
-    // eslint-disable-next-line no-shadow
-    const insertPost = (postData) => {
-      Posts.collection.insert(postData, (error) => {
-        if (error) {
-          swal('Error', error.message, 'error');
-        } else {
-          swal('Success', 'Post added successfully', 'success').then(() => {
-            window.location.href = '/forum';
-          });
-          if (fRef) {
-            fRef.reset();
-          }
-        }
-      });
-    };
-
-    Meteor.call('textCheck', postData.title, (error) => {
-      if (error) {
-        console.error(error);
-        swal('Error', 'Inappropriate Content in Title', 'error');
-        return;
-      }
-      Meteor.call('textCheck', postData.contents, (error1) => {
-        if (error1) {
-          swal('Error', 'Inappropriate Content in Post', 'error');
-          return;
-        }
-        if (imageFile) {
-          const reader = new FileReader();
-          reader.onloadend = function () {
-            const fileData = reader.result;
-
-            Meteor.call('uploadImage', fileData, (error2, imageUrl) => {
-              if (error2) {
-                swal('Error', 'Failed to upload image.', 'error');
-              } else {
-                postData.image = imageUrl;
-                insertPost(postData);
-              }
-            });
-          };
-          reader.readAsDataURL(imageFile);
-        } else {
-          insertPost(postData);
-        }
-      });
-    });
+    Posts.collection.update(_id, { $set: { image, ...postData } }, (error) => (error ?
+      swal('Error', error.message, 'error') :
+      swal('Success', 'Item updated successfully', 'success')));
   };
 
   return (
@@ -87,7 +61,7 @@ const AddPost = () => {
       <Container className="py-3">
         <Row className="justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
           <Col xs={5}>
-            <Col className="text-center"><h2>Add Post</h2></Col>
+            <Col className="text-center"><h2>Edit Post</h2></Col>
             <AutoForm ref={(ref) => { fRef = ref; }} schema={bridge} onSubmit={submit}>
               <Card style={{ backgroundColor: 'white', border: 'none' }}>
                 <Card.Body>
@@ -112,4 +86,4 @@ const AddPost = () => {
   );
 };
 
-export default AddPost;
+export default EditPost;
