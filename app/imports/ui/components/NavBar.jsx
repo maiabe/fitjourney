@@ -17,15 +17,15 @@ const NavBar = () => {
     <Navbar expand="lg" style={navStyle}>
       <div className="navbar-wrapper">
         <Navbar.Brand as={NavLink} to="/" className="align-items-center">
-          <img src="/images/FitJourney_horizontal.png" alt="navbar logo" />
+          <img src="/images/FitJourney_horizontal.png" alt="navbar logo" width="250" />
         </Navbar.Brand>
         <Navbar.Toggle id={ComponentIDs.navBar} />
         <Navbar.Collapse id={ComponentIDs.navBar}>
           <Nav className="me-auto">
             {currentUser ? (
-              <NavDropdown id={ComponentIDs.navBarCivicEngagementItem} title="Journey" style={{ marginRight: '1em' }} className="white-text-dropdown">
+              <NavDropdown id={ComponentIDs.navBarCivicEngagementItem} title="Workout Log" style={{ marginRight: '1em' }}>
                 <NavDropdown.Item as={NavLink} to="/forum">
-                  <Nav.Link id={ComponentIDs.navBarToForum} as={NavLink} to="/forum" key="forum" style={{ color: 'black' }}>Journal</Nav.Link>
+                  <Nav.Link id={ComponentIDs.navBarToForum} as={NavLink} to="/forum" key="forum" style={{ color: 'black' }}>Workout Log</Nav.Link>
                 </NavDropdown.Item>
               </NavDropdown>
             ) : ''}
