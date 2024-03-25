@@ -17,11 +17,23 @@
   display: flex;
   justify-content: center;
 }
-.main-logo-wrapper img {
-  width: 50%;
-}
 
 
 * {
   font-family: 'Poppins', serif;
 }
+
+
+
+.page-content {
+  margin-bottom: 5%;
+}
+
+/******************** WorkoutLog Page Styles *********************/
+.workoutlog-table {
+  text-align: center;
+}
+.workoutlog-table tbody tr td {
+  align-content: center;
+}
+
