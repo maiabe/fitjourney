@@ -22,3 +22,18 @@
 * {
   font-family: 'Poppins', serif;
 }
+
+
+
+.page-content {
+  margin-bottom: 5%;
+}
+
+/******************** WorkoutLog Page Styles *********************/
+.workoutlog-table {
+  text-align: center;
+}
+.workoutlog-table tbody tr td {
+  align-content: center;
+}
+

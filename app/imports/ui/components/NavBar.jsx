@@ -24,8 +24,8 @@ const NavBar = () => {
           <Nav className="me-auto">
             {currentUser ? (
               <NavDropdown id={ComponentIDs.navBarCivicEngagementItem} title="Workout Log" style={{ marginRight: '1em' }}>
-                <NavDropdown.Item as={NavLink} to="/forum">
-                  <Nav.Link id={ComponentIDs.navBarToForum} as={NavLink} to="/forum" key="forum" style={{ color: 'black' }}>Workout Log</Nav.Link>
+                <NavDropdown.Item as={NavLink} to="/workoutlog">
+                  <Nav.Link id={ComponentIDs.navBarToWorkoutLog} as={NavLink} to="/workoutlog" key="workoutlog" style={{ color: 'black' }}>Workout Log</Nav.Link>
                 </NavDropdown.Item>
               </NavDropdown>
             ) : ''}
