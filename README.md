@@ -91,5 +91,4 @@
     - Next: Update a journal post page to reflect a workout entry log of a user.
 - Tiffany Ngo
     - Completed: Fixed errors relating to the "Delete log" button not redirecting back to the Workout Log page, but instead to a blank page. Fixed issue when adding a new log, where an error would be thrown saying to "Input a valid number for hours and minutes" even with a valid input. Fixed error with Edit button, where it would again throw an error saying to "Input a valid number for hours and minutes" even with a valid input. 
-    - Next: Create a circle or bar graph that is unique to each account, that will show how much time that you've spent doing various activities and will thus allow the user to track their fitness levels better.
-
+    - Next: Create a circle graph for each account, that will show how much time that you've spent doing various activities and will thus allow the user to track their fitness levels better. Add an option to select type of fitness activity when creating logs to make this work.
