@@ -12,8 +12,6 @@
 - Profile management
 - A way to make new posts about fitness-related activities that you've done in your day, with input fields for the title of the post, an image, a description of the activity, and how much time was spent doing it
 - Ability to edit and delete posts
-- A way to comment on posts
-- Ability to delete comments
 - Capability to search through posts to find a specific one
 - Posts sorted by the newest ones
 
@@ -22,7 +20,8 @@
   - This is an update from the journal post (Forum) page we previously had. With the update, it reflects the actual workout activity log more instead of calling it a Forum page.
   - Ability to delete posts
   - Comment feature is removed since it is irrelevant for the workout log page
-  - Retrieval of Workout log sorted in order of date created 
+  - Retrieval of Workout log sorted in order of date created
+- Basic dashboard page 
 
 --- **Link** ---
 - Link of continuing work (https://github.com/JohnGalinato808/fitjourney/actions)
@@ -31,6 +30,7 @@
 - For the user:
   - Dashboard
     - A graph that takes into account the amount of time spent exercising, and shows it to you to allow you to better monitor your fitness levels
+    - Fitness goal setting and goal tracking capabilities
 - For the admin:
   - User account management
   - User access control management
@@ -41,8 +41,9 @@
   - Current: Removal of some identified unecessary lines of code to reduce amount of attackable surfaces. Began mapping component IDs to the 'Utilities/ids' directory to be used for testing. Started on Test code.
   - Next: Implementation of test code and verifying via testcafe.
 - Loelle Lam
-  - Current: Implemented editing for user-created posts.
-  - Next: Improve usability of the editing function and add editing to other features
+  - New Completions: Removed some unused data/components and updated miscellaneous incorrect values. Added basic user dashboard page.
+  - Current: Implement fitness goal setting.
+  - Next: Improve upon goal setting and tracking capabilities.
 - Mai Abe
   - New Completions:
       - Create a workout log page (updated the journal post page)
