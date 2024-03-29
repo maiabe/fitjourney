@@ -48,6 +48,10 @@
       - Create 'Delete' modals to delete a workout log for each row
       - Create 'Create log' button to point to creating a workout log
   - Current: debugging Edit page to maintain the current values for each field and properly update the record
+  - Next: Create admin role and access control management UI
+- Tiffany Ngo
+  - Current: Created a way to input how much time was spent on each activity whenever making a post, made it so that posts are sorted by the newest posts first by default, fixed minor errors.
+  - Next: Create a circle or bar graph that is unique to each account, that will show how much time that you've spent doing various activities and will thus allow the user to track their fitness levels better.
 
 ===== 2/21/24 Updates =====
 
@@ -88,8 +92,4 @@
 - Tiffany Ngo
     - Completed: Created a way to input how much time was spent on each activity whenever making a post, made it so that posts are sorted by the newest posts first by default, fixed minor errors.
     - Next: Create a circle or bar graph that is unique to each account, that will show how much time that you've spent doing various activities and will thus allow the user to track their fitness levels better.
- 
-  - Next: Create admin role and access control management UI
-- Tiffany Ngo
-  - Current: Created a way to input how much time was spent on each activity whenever making a post, made it so that posts are sorted by the newest posts first by default, fixed minor errors.
-  - Next: Create a circle or bar graph that is unique to each account, that will show how much time that you've spent doing various activities and will thus allow the user to track their fitness levels better.
+
