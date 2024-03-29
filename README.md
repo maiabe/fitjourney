@@ -23,7 +23,10 @@
   - Ability to delete posts
   - Comment feature is removed since it is irrelevant for the workout log page
   - Retrieval of Workout log sorted in order of date created 
-  
+
+--- **Link** ---
+- Link of continuing work (https://github.com/JohnGalinato808/fitjourney/actions)
+
 --- **Pending** ---
 - For the user:
   - Dashboard
