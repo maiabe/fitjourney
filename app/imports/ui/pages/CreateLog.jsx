@@ -29,7 +29,7 @@ const CreateLog = () => {
       return;
     }
 
-    logContent.createdAt = new Date();
+    logContent.date = new Date();
     logContent.owner = user ? user.username : 'Anonymous';
 
     // Insert post function
@@ -119,6 +119,7 @@ const CreateLog = () => {
                   <NumField id={ComponentIDs.addPostActivityDurationMinutes} name="activityDurationMinutes" label="Minutes Spent" min={0} max={59} />
                   <ErrorsField />
                   <SubmitField id={ComponentIDs.addPostSubmit} inputClassName="p-2 bg-white border-1 rounded-1 mt-1" value="Submit" />
+                  <HiddenField name="date" value={new Date()} />
                   <HiddenField name="createdAt" value={new Date()} />
                   {user ? <HiddenField name="owner" value={user.username} /> : null}
                 </Card.Body>
