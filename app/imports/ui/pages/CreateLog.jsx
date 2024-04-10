@@ -16,6 +16,23 @@ const CreateLog = () => {
   const user = Meteor.user();
 
   const handleImageChange = (file) => {
+    if (!file) {
+      swal('Error', 'File is null or undefined', 'error');
+      return;
+    }
+
+    const allowedTypes = ['image/jpeg', 'image/png'];
+    if (!allowedTypes.includes(file.type)) {
+      swal('Error', 'Please select a valid image file (JPEG or PNG)', 'error');
+      return;
+    }
+
+    const maxSizeInBytes = 10 * 1024 * 1024;
+    if (file.size > maxSizeInBytes) {
+      swal('Error', 'Please select an image file smaller than 10 MB', 'error');
+      return;
+    }
+
     setImageFile(file);
   };
 
