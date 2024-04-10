@@ -9,6 +9,7 @@ import Landing from '../pages/Landing';
 import NotFound from '../pages/NotFound';
 import SignUp from '../pages/SignUp';
 import SignOut from '../pages/SignOut';
+import AdminPanel from '../pages/AdminPanel';
 import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
+          <Route path="/adminpanel" element={<ProtectedRoute><AdminPanel /></ProtectedRoute>} />
           <Route path="/workoutlog" element={<ProtectedRoute><WorkoutLog /></ProtectedRoute>} />
           <Route path="/survey" element={<ProtectedRoute><Survey /></ProtectedRoute>} />
           <Route path="/community" element={<ProtectedRoute><CommunityPage /></ProtectedRoute>} />
