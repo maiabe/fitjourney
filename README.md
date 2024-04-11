@@ -41,8 +41,8 @@
   - Current: 
   - Next: 
 - Tiffany Ngo
-  - Current: Performed fuzz testing on the website to test for vulnerabilities and security issues, and added validation checks on the input fields for the description, title, and image upload for the fitness logs to prevent possible issues.
-  - Next: Create a circle graph for each account, that will show how much time that you've spent doing various activities and will thus allow the user to track their fitness levels better. Add an option to select type of fitness activity when creating logs to make this work.
+  - Current: Performed fuzz testing on the website to test for vulnerabilities and security issues, and added validation checks on the input fields for the description, title, and image upload for the fitness logs to prevent possible issues. Added graph to show overall fitness levels of the user on a weekly basis.
+  - Next: Add more features for the graph, like sorting based on activity type, or maybe changing it to a bar graph that shows every activity type you did that day and for how long.
 
 
 ========= 3/28/24 Updates ==========
