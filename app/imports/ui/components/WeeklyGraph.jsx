@@ -129,7 +129,7 @@ const WeeklyGraph = () => {
 
   return (
     <div>
-      <h2 style={{ textAlign: 'center', marginTop: '20px' }}>Your Weekly Fitness Activity</h2>
+      <h2 style={{ textAlign: 'center', marginTop: '20px' }}>Weekly Fitness Activity</h2>
       <div style={graphContainerStyle}>
         <Line data={chartData} options={options} />
       </div>
