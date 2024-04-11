@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, TimeScale, Title, Tooltip, Legend, } from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, TimeScale, Title, Tooltip, Legend } from 'chart.js';
 import { WorkoutLogs } from '../../api/workoutlog/workoutlog';
 import 'chartjs-adapter-date-fns';
 
@@ -110,14 +110,46 @@ const WeeklyGraph = () => {
     margin: 'auto',
   };
 
+  const buttonStyle = {
+    backgroundColor: '#007bff',
+    color: 'white',
+    padding: '10px 20px',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    marginRight: '10px',
+    transition: 'background-color 0.3s ease',
+  };
+
+  const disabledButtonStyle = {
+    ...buttonStyle,
+    backgroundColor: '#6c757d',
+    cursor: 'not-allowed',
+  };
+
   return (
     <div>
-      <h2 style={{ textAlign: 'center' }}>Your Weekly Fitness Activity</h2>
+      <h2 style={{ textAlign: 'center', marginTop: '20px' }}>Your Weekly Fitness Activity</h2>
       <div style={graphContainerStyle}>
         <Line data={chartData} options={options} />
       </div>
-      <button type="button" onClick={() => setWeekOffset(prevOffset => prevOffset + 1)}>Previous Week</button>
-      <button type="button" onClick={() => setWeekOffset(prevOffset => prevOffset - 1)} disabled={weekOffset <= -1}>Next Week</button>
+      <div style={{ textAlign: 'center', marginTop: '20px', marginBottom: '20px' }}>
+        <button
+          type="button"
+          style={buttonStyle}
+          onClick={() => setWeekOffset(prevOffset => prevOffset + 1)}
+        >
+          Previous Week
+        </button>
+        <button
+          type="button"
+          style={weekOffset <= -1 ? disabledButtonStyle : buttonStyle}
+          onClick={() => setWeekOffset(prevOffset => prevOffset - 1)}
+          disabled={weekOffset <= -1}
+        >
+          Next Week
+        </button>
+      </div>
     </div>
   );
 };
