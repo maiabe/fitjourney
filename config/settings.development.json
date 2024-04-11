@@ -66,6 +66,16 @@
       "owner": "admin@foo.com" }
   ],
   "defaultLogs": [
+    {
+      "date": "2024-04-10T00:00:00Z",
+      "title": "log #0",
+      "description": "Testing",
+      "image": "https://www.etestware.com/wp-content/uploads/2020/12/shutterstock_515285995-1200x580.jpg",
+      "createdAt": "2024-10-04T00:00:00Z",
+      "owner": "admin@foo.com",
+      "activityDurationHours": 6,
+      "activityDurationMinutes": 30
+    },
     { 
       "date": "2023-11-04T00:00:00Z",
       "title": "log #1",
