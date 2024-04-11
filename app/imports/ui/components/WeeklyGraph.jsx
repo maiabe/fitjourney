@@ -83,7 +83,7 @@ const WeeklyGraph = () => {
         },
         title: {
           display: true,
-          text: 'Day of the Week',
+          text: 'Date',
         },
       },
       y: {
