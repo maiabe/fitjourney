@@ -99,7 +99,7 @@ const WeeklyGraph = () => {
     },
     plugins: {
       legend: {
-        display: true,
+        display: false,
         position: 'top',
       },
     },
