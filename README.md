@@ -22,7 +22,6 @@
     - A graph that takes into account the amount of time spent exercising, and shows it to you to allow you to better monitor your fitness levels
     - Fitness goal setting and goal tracking capabilities
 - For the admin:
-  - User account management
   - User access control management
   - Informational content management
 - For Application
@@ -38,8 +37,8 @@
   - Current: 
   - Next: 
 - Mai Abe
-  - Current: 
-  - Next: 
+  - Current: Fixed the user insertion function issues on a user SignUp. Removed the textCheck function as it is not relevant and to make the function more simple - on signup, all users are assigned the 'user' role. Created a User role in addition to the Admin role. Created an Admin Panel page for listing all users in the db. (in progress) 
+  - Next: Create activation/deactivation functionality for users for access controlling. 
 - Tiffany Ngo
   - Current: Performed fuzz testing on the website to test for vulnerabilities and security issues, and added validation checks on the input fields for the description, title, and image upload for the fitness logs to prevent possible issues. Added graph to show overall fitness levels of the user on a weekly basis.
   - Next: Add more features for the graph, like sorting based on activity type, or maybe changing it to a bar graph that shows every activity type you did that day and for how long.
