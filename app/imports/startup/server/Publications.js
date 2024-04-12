@@ -56,6 +56,13 @@ Meteor.publish(null, function () {
   return this.ready();
 });
 
+Meteor.publish(WorkoutLogs.userPublicationName, function () {
+  if (!this.userId) {
+    return this.ready();
+  }
+  return WorkoutLogs.collection.find({ owner: Meteor.users.findOne(this.userId).username });
+});
+
 Meteor.publish('allUsersWithRoles', function () {
   if (!this.userId || !Roles.userIsInRole(this.userId, 'admin')) {
     // Only publish to logged-in admins

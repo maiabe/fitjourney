@@ -32,6 +32,9 @@ const NavBar = () => {
                 <NavDropdown.Item as={NavLink} to="/workoutlog">
                   <Nav.Link id={ComponentIDs.navBarToWorkoutLog} as={NavLink} to="/workoutlog" key="workoutlog" style={{ color: 'black' }}>Workout Log</Nav.Link>
                 </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/graphs">
+                  <Nav.Link id={ComponentIDs.navBarToGraphs} as={NavLink} to="/graphs" key="graphs" style={{ color: 'black' }}>Graphs</Nav.Link>
+                </NavDropdown.Item>
               </NavDropdown>
             ) : ''}
           </Nav>
