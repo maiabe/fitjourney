@@ -14,6 +14,7 @@ import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
 import LoadingSpinner from '../components/LoadingSpinner';
 import WorkoutLog from '../pages/WorkoutLog';
+import Graphs from '../pages/Graphs';
 import CommunityPage from '../pages/CommunityPage';
 import Dalle3 from '../pages/Dalle3';
 import External from '../pages/External';
@@ -44,6 +45,7 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/workoutlog" element={<ProtectedRoute><WorkoutLog /></ProtectedRoute>} />
+          <Route path="/graphs" element={<ProtectedRoute><Graphs /></ProtectedRoute>} />
           <Route path="/survey" element={<ProtectedRoute><Survey /></ProtectedRoute>} />
           <Route path="/community" element={<ProtectedRoute><CommunityPage /></ProtectedRoute>} />
           <Route path="/mapping" element={<ProtectedRoute><Mapping /></ProtectedRoute>} />

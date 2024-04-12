@@ -41,8 +41,8 @@
   - Current: 
   - Next: 
 - Tiffany Ngo
-  - Current: 
-  - Next: 
+  - Current: Performed fuzz testing on the website to test for vulnerabilities and security issues, and added validation checks on the input fields for the description, title, and image upload for the fitness logs to prevent possible issues. Added graph to show overall fitness levels of the user on a weekly basis.
+  - Next: Add more features for the graph, like sorting based on activity type, or maybe changing it to a bar graph that shows every activity type you did that day and for how long.
 
 
 ========= 3/28/24 Updates ==========
@@ -95,8 +95,8 @@
   - Current: debugging Edit page to maintain the current values for each field and properly update the record
   - Next: Create an admin role and access control management UI
 - Tiffany Ngo
-  - Current: Created a way to input how much time was spent on each activity whenever making a post, made it so that posts are sorted by the newest posts first by default, and fixed minor errors.
-  - Next: Create a circle or bar graph that is unique to each account, that will show how much time you've spent doing various activities and will thus allow the user to track their fitness levels better.
+    - Completed: Fixed errors relating to the "Delete log" button not redirecting back to the Workout Log page, but instead to a blank page. Fixed issue when adding a new log, where an error would be thrown saying to "Input a valid number for hours and minutes" even with a valid input. Fixed error with Edit button, where it would again throw an error saying to "Input a valid number for hours and minutes" even with a valid input.
+    - Next: Create a circle graph for each account, that will show how much time that you've spent doing various activities and will thus allow the user to track their fitness levels better. Add an option to select type of fitness activity when creating logs to make this work.
 
 ===== 2/21/24 Updates =====
 
@@ -135,5 +135,5 @@
     - Completed: Created a logo, updated navbar, footer, and landing page. Updated some styling for the landing page.
     - Next: Update a journal post page to reflect a workout entry log of a user.
 - Tiffany Ngo
-    - Completed: Fixed errors relating to the "Delete log" button not redirecting back to the Workout Log page, but instead to a blank page. Fixed issue when adding a new log, where an error would be thrown saying to "Input a valid number for hours and minutes" even with a valid input. Fixed error with Edit button, where it would again throw an error saying to "Input a valid number for hours and minutes" even with a valid input. 
-    - Next: Create a circle graph for each account, that will show how much time that you've spent doing various activities and will thus allow the user to track their fitness levels better. Add an option to select type of fitness activity when creating logs to make this work.
+    - Current: Created a way to input how much time was spent on each activity whenever making a post, made it so that posts are sorted by the newest posts first by default, and fixed minor errors.
+    - Next: Create a circle or bar graph that is unique to each account, that will show how much time you've spent doing various activities and will thus allow the user to track their fitness levels better.
