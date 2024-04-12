@@ -25,17 +25,18 @@
   - User access control management (in progress)
   - Informational content management
 - For Application
-  - Need to fix the implementation of text filtering via API Keys.
+  - Continue monitering and analysing code for any issues regarding codestyle and/or injection and security penetration.
 
 --- **Roles and responsibilities** ---
 - John Galinato
   - Completed: Complete cleanup of all unused files within the application. Updated IDs file to contain only used IDs post cleanup.
-  - Next: API Secret Keys implementation requires modification to allow chat filtering.
-      - This issue is also known to corrupt the ability to create new user accounts as the new user account would be flagged as inappropriate content.
-      - May need to work with and update cloudinary.config to fix this issue.
+  - Next: Focus on assistance with implementation of inserting a 'goal' feature.
+      - Code review of 'goal' implementation to include:
+          - Analysis of probable attack surfaces
+          - Vulnerabilities as a result of fuzz testing.
+          - Prevention of security penetrations.
 - Loelle Lam
-  - Completed: 
-  - Next: 
+  - In Progress: Began implementation of 'goal' feature, to be further developed, analyzed, and optimized. Timeline includes the completion of 'goal' feature and all related analysis by 20240502.
 - Mai Abe
   - Completed: Fixed the user insertion function issues on a user SignUp. Removed the textCheck function as it is not relevant and to make the function more simple - on signup, all users are assigned the 'user' role. Created a User role in addition to the Admin role. Created an Admin Panel page for listing all users in the db. (in progress) 
   - Next: Create activation/deactivation functionality for users for access controlling. 
