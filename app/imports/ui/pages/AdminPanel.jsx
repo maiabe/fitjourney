@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Col, Row, Table, Form, Button } from 'react-bootstrap';
+import { Container, Col, Row, Table, Form, ToggleButton } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 
@@ -14,7 +14,7 @@ const AdminPanel = () => {
     if (!Meteor.userId()) {
       return noDataAvailable;
     }
-    const handler = Meteor.subscribe('allUsers');
+    const handler = Meteor.subscribe('allUsersWithRoles');
     if (!handler.ready()) {
       return { ...noDataAvailable, isLoading: true };
     }
@@ -27,22 +27,30 @@ const AdminPanel = () => {
     return <LoadingSpinner />;
   }
 
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
+  // const handleSearchChange = (event) => {
+  //   setSearchTerm(event.target.value);
+  // };
 
-  const handleSearchSubmit = (event) => {
-    event.preventDefault();
-  };
+  // const handleSearchSubmit = (event) => {
+  //   event.preventDefault();
+  // };
 
-  let filteredUsers = users.filter(log => log.title.toLowerCase().includes(searchTerm.toLowerCase())
-    || log.description.toLowerCase().includes(searchTerm.toLowerCase()));
+  // let filteredUsers = users.filter(user => user.emails[0].toLowerCase().includes(searchTerm.toLowerCase())
+  //   || user.username.toLowerCase().includes(searchTerm.toLowerCase()));
 
-  if (viewUsers) {
-    filteredUsers = filteredUsers.filter(user => user.username === Meteor.user().username || user.emails === Meteor.user().emails);
-  }
+  // if (viewUsers) {
+  //   const currentUser = Meteor.user(); // Safely get the current user object once.
+  //   if (currentUser) {
+  //     const currentUsername = currentUser.username;
+  //     const currentEmail = currentUser.emails && currentUser.emails[0] && currentUser.emails[0].address;
+  //     filteredUsers = filteredUsers.filter(user => {
+  //       const userEmail = user.emails && user.emails[0] && user.emails[0].address;
+  //       return user.username === currentUsername || userEmail === currentEmail;
+  //     });
+  //   }
+  // }
 
-  filteredUsers.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  // filteredUsers.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
   return (
     <Container>
@@ -53,7 +61,7 @@ const AdminPanel = () => {
               <h2 style={{ fontWeight: 'bold' }} className="p-3">Admin Panel</h2>
             </Col>
           </Row>
-          <Form className="mb-3" onSubmit={handleSearchSubmit}>
+          {/* <Form className="mb-3" onSubmit={handleSearchSubmit}>
             <Form.Group controlId="searchBar">
               <Row style={{ margin: 0, padding: '2% 0' }}>
                 <Col xs={12}>
@@ -61,7 +69,7 @@ const AdminPanel = () => {
                 </Col>
               </Row>
             </Form.Group>
-          </Form>
+          </Form> */}
           <Table hover className="workoutlog-table">
             <thead>
               <tr>
@@ -72,7 +80,19 @@ const AdminPanel = () => {
               </tr>
             </thead>
             <tbody>
-
+              {users.map((user) => (
+                <tr key={user._id}>
+                  <td>{user.username}</td>
+                  <td>{user.emails[0].address}</td>
+                  <td>{user.roles ? user.roles.join(', ') : 'No role'}</td>
+                  <td>
+                    {/* <ToggleButton
+                      value={1}
+                      onChange={(e) => handleToggleActive(e, user._id)}
+                    /> */}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </Table>
         </Col>
