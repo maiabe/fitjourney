@@ -4,6 +4,26 @@
 [![fit-journey](https://github.com/JohnGalinato808/fitjourney/actions/workflows/ci.yml/badge.svg)](https://github.com/JohnGalinato808/fitjourney/actions/workflows/ci.yml)
 
 
+========= 5/04/24 Updates ==========
+
+--- **Completions in this update** ---
+- Added yearly fitness circle graph
+- 
+
+--- **Link** ---
+- Link of continuing work (https://github.com/JohnGalinato808/fitjourney/actions)
+
+--- **Roles and responsibilities** ---
+- John Galinato
+    - Completed:
+- Loelle Lam
+    - Completed:
+- Mai Abe
+    - Completed: 
+- Tiffany Ngo
+    - Completed: Implemented circle graph that shows how much fitness was done each month in a specified year, percentage-wise
+
+
 ========= 4/10/24 Updates ==========
 
 --- **Completions in this update** ---
