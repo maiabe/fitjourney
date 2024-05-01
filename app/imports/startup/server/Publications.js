@@ -1,4 +1,6 @@
 import { Meteor } from 'meteor/meteor';
+import { Roles } from 'meteor/alanning:roles';
+
 import { Profiles } from '../../api/profile/profile';
 import { WorkoutLogs } from '../../api/workoutlog/workoutlog';
 import { Comments } from '../../api/comment/comment';
@@ -59,4 +61,20 @@ Meteor.publish(WorkoutLogs.userPublicationName, function () {
     return this.ready();
   }
   return WorkoutLogs.collection.find({ owner: Meteor.users.findOne(this.userId).username });
+});
+
+Meteor.publish('allUsersWithRoles', function () {
+  if (!this.userId || !Roles.userIsInRole(this.userId, 'admin')) {
+    // Only publish to logged-in admins
+    return this.ready();
+  }
+
+  return Meteor.users.find({}, {
+    fields: {
+      username: 1,
+      emails: 1,
+      roles: 1, // Assuming you're using something like `alanning:roles`
+      createdAt: 1,
+    },
+  });
 });
