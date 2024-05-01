@@ -1,21 +1,16 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Roles } from 'meteor/alanning:roles';
 import { useTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { PencilSquare, BoxArrowRight, PersonFill, PersonPlusFill, ShieldLock } from 'react-bootstrap-icons';
+import { PencilSquare, BoxArrowRight, PersonFill, PersonPlusFill, PlusSquare } from 'react-bootstrap-icons';
 import { ComponentIDs } from '../utilities/ids';
 
 const NavBar = () => {
-  const { currentUser, isAdmin } = useTracker(() => {
-    const username = Meteor.user() ? Meteor.user().username : '';
-    const admin = username ? Roles.userIsInRole(Meteor.user()._id, 'admin') : false;
-    return {
-      currentUser: username,
-      isAdmin: admin,
-    };
-  }, []);
+  const { currentUser } = useTracker(() => ({
+    currentUser: Meteor.user() ? Meteor.user().username : '',
+    loggedIn: !!Meteor.user(),
+  }), []);
   const navStyle = { boxShadow: '0 6px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.2)' };
 
   return (
@@ -55,22 +50,23 @@ const NavBar = () => {
               </NavDropdown>
             ) : (
               <NavDropdown id={ComponentIDs.currentUserDropDown} title={currentUser} className="mx-1 white-text-dropdown">
-                {isAdmin ? (
-                  <NavDropdown.Item id={ComponentIDs.navBarAdminPanel} as={NavLink} to="/adminpanel">
-                    <ShieldLock />
-                    {' '}
-                    Admin Panel
-                  </NavDropdown.Item>
-                ) : null}
+                <NavDropdown.Item id={ComponentIDs.navBarAddProfile} as={NavLink} to="/addprofile">
+                  <PlusSquare />
+                  {' '}
+                  Add
+                  Profile
+                </NavDropdown.Item>
                 <NavDropdown.Item id={ComponentIDs.navBarEditProfile} as={NavLink} to="/editprofile">
                   <PencilSquare />
                   {' '}
-                  Edit Profile
+                  Edit
+                  Profile
                 </NavDropdown.Item>
                 <NavDropdown.Item id={ComponentIDs.navBarSignOut} as={NavLink} to="/signout">
                   <BoxArrowRight />
                   {' '}
-                  Signout
+                  Sign
+                  out
                 </NavDropdown.Item>
               </NavDropdown>
             )}
