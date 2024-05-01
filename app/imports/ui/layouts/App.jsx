@@ -9,7 +9,6 @@ import Landing from '../pages/Landing';
 import NotFound from '../pages/NotFound';
 import SignUp from '../pages/SignUp';
 import SignOut from '../pages/SignOut';
-import AdminPanel from '../pages/AdminPanel';
 import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
@@ -27,6 +26,7 @@ import AddSurvey from '../pages/AddSurvey';
 import Mapping from '../pages/Mapping';
 import Model from '../pages/Model';
 import AddModCard from '../pages/AddModCard';
+import EditLog from '../pages/EditLog';
 
 const App = () => {
   const { ready } = useTracker(() => {
@@ -44,7 +44,6 @@ const App = () => {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
-          <Route path="/adminpanel" element={<ProtectedRoute><AdminPanel /></ProtectedRoute>} />
           <Route path="/workoutlog" element={<ProtectedRoute><WorkoutLog /></ProtectedRoute>} />
           <Route path="/graphs" element={<ProtectedRoute><Graphs /></ProtectedRoute>} />
           <Route path="/survey" element={<ProtectedRoute><Survey /></ProtectedRoute>} />
@@ -58,6 +57,7 @@ const App = () => {
           <Route path="/addsurvey" element={<ProtectedRoute><AddSurvey /></ProtectedRoute>} />
           <Route path="/addmodcard" element={<ProtectedRoute><AddModCard /></ProtectedRoute>} />
           <Route path="/model" element={<ProtectedRoute><Model /></ProtectedRoute>} />
+          <Route path="/editlog/:_id" element={<ProtectedRoute><EditLog /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><Landing /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />

@@ -7,7 +7,6 @@ import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
-import { Roles } from 'meteor/alanning:roles';
 import swal from 'sweetalert';
 import { ComponentIDs, PageIDs } from '../utilities/ids';
 
@@ -25,15 +24,21 @@ const SignUp = () => {
   const submit = (doc) => {
     const { email, username, password } = doc;
     // eslint-disable-next-line no-shadow
-    const userID = Accounts.createUser({ email, username, password }, (err) => {
-      if (err) {
-        setError(err.reason);
-      } else {
-        setError('');
-        setRedirectToRef(true);
+    Meteor.call('textCheck', username, (error) => {
+      if (error) {
+        console.error(error);
+        swal('Error', 'Inappropriate Content in Username.', 'error');
+        return;
       }
+      Accounts.createUser({ email, username, password }, (err) => {
+        if (err) {
+          setError(err.reason);
+        } else {
+          setError('');
+          setRedirectToRef(true);
+        }
+      });
     });
-    Roles.addUsersToRoles(userID, 'user');
   };
 
   if (redirectToReferer) {
