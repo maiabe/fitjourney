@@ -11,6 +11,7 @@ import SignUp from '../pages/SignUp';
 import SignOut from '../pages/SignOut';
 import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
+import AdminPanel from '../pages/AdminPanel';
 import NotAuthorized from '../pages/NotAuthorized';
 import WorkoutLog from '../pages/WorkoutLog';
 import Graphs from '../pages/Graphs';

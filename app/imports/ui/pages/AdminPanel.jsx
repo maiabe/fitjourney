@@ -21,7 +21,7 @@ const AdminPanel = () => {
     const allUsers = Meteor.users.find({}, {
       fields: { username: 1, emails: 1, role: 1, isActive: 1 },
     }).fetch().map(user => {
-      console.log("check isActive value");
+      console.log('check isActive value');
       console.log(user.isActive);
       const rolesList = Roles.getRolesForUser(user._id);
       const roles = rolesList.join(', ');
