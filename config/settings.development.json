@@ -2,7 +2,24 @@
   "defaultAccounts": [
     { "email": "admin@foo.com",
       "username": "admin",
-      "password": "changeme", "role": "admin" }
+      "password": "changeme", "role": "admin" 
+    },
+    { "email": "user1@foo.com",
+      "username": "user1",
+      "password": "user1pass", "role": "admin" 
+    },
+    { "email": "user2@foo.com",
+      "username": "user2",
+      "password": "user2pass", "role": "user" 
+    },
+    { "email": "user3@foo.com",
+      "username": "user3",
+      "password": "user3pass", "role": "user" 
+    },
+    { "email": "user4@foo.com",
+      "username": "user4",
+      "password": "user4pass", "role": "user" 
+    }
   ],
   "defaultModCards": [
     { "type": "Single Family Home",

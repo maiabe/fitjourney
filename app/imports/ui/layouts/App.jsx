@@ -12,7 +12,6 @@ import SignOut from '../pages/SignOut';
 import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
-import LoadingSpinner from '../components/LoadingSpinner';
 import WorkoutLog from '../pages/WorkoutLog';
 import Graphs from '../pages/Graphs';
 import CommunityPage from '../pages/CommunityPage';
@@ -44,6 +43,7 @@ const App = () => {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
+          <Route path="/adminpanel" element={<AdminProtectedRoute ready={ready}><AdminPanel /></AdminProtectedRoute>} />
           <Route path="/workoutlog" element={<ProtectedRoute><WorkoutLog /></ProtectedRoute>} />
           <Route path="/graphs" element={<ProtectedRoute><Graphs /></ProtectedRoute>} />
           <Route path="/survey" element={<ProtectedRoute><Survey /></ProtectedRoute>} />
@@ -75,9 +75,6 @@ const AdminProtectedRoute = ({ ready, children }) => {
   const isLogged = Meteor.userId() !== null;
   if (!isLogged) {
     return <Navigate to="/signin" />;
-  }
-  if (!ready) {
-    return <LoadingSpinner />;
   }
   const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
   return (isLogged && isAdmin) ? children : <Navigate to="/notauthorized" />;
