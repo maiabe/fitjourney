@@ -72,7 +72,7 @@ const ProtectedRoute = ({ children }) => {
   const isLogged = Meteor.userId() !== null;
   return isLogged ? children : <Navigate to="/signin" />;
 };
-const AdminProtectedRoute = ({ ready, children }) => {
+const AdminProtectedRoute = ({ children }) => {
   const isLogged = Meteor.userId() !== null;
   if (!isLogged) {
     return <Navigate to="/signin" />;
@@ -89,6 +89,7 @@ ProtectedRoute.defaultProps = {
 };
 
 AdminProtectedRoute.propTypes = {
+  // eslint-disable-next-line react/no-unused-prop-types
   ready: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
 };

@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { Roles } from 'meteor/alanning:roles';
 import { Profiles } from '../../api/profile/profile';
 import { WorkoutLogs } from '../../api/workoutlog/workoutlog';
 import { Comments } from '../../api/comment/comment';

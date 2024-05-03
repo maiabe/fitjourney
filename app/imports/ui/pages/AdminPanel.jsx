@@ -21,8 +21,6 @@ const AdminPanel = () => {
     const allUsers = Meteor.users.find({}, {
       fields: { username: 1, emails: 1, role: 1, isActive: 1 },
     }).fetch().map(user => {
-      console.log('check isActive value');
-      console.log(user.isActive);
       const rolesList = Roles.getRolesForUser(user._id);
       const roles = rolesList.join(', ');
       return {
@@ -30,6 +28,7 @@ const AdminPanel = () => {
         roles,
       };
     });
+    // eslint-disable-next-line no-console
     console.log(allUsers);
     return { users: allUsers };
   }, []);
@@ -45,13 +44,17 @@ const AdminPanel = () => {
     Meteor.call('toggleUserActive', userId, isActive, (error) => {
       if (error) {
         e.target.checked = false;
-        alert('Error toggling user active status: ' + error.message);
+        // eslint-disable-next-line no-alert
+        alert(`Error toggling user active status: ${error.message}`);
+        // eslint-disable-next-line no-console
         console.log(e.target.checked);
       } else {
+        // eslint-disable-next-line no-console
         console.log(e.target.checked);
         e.target.checked = true;
         const status = isActive ? 'Active' : 'Inactive';
-        alert('User active status updated to ' + status);
+        // eslint-disable-next-line no-alert
+        alert(`User active status updated to ${status}`);
       }
     });
   };
