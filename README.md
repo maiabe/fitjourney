@@ -8,7 +8,7 @@
 
 --- **Completions in this update** ---
 - Added yearly fitness circle graph
-- 
+- Admin Panel page to control accessibility of users
 
 --- **Link** ---
 - Link of continuing work (https://github.com/JohnGalinato808/fitjourney/actions)
@@ -19,7 +19,7 @@
 - Loelle Lam
     - Completed:
 - Mai Abe
-    - Completed: 
+    - Completed: - Completed Admin Panel page. The page retrieves and displays corresponding roles and ability to toggle the accessibility for each user. Made the Admin Panel page accessible only to admin users. Created toggle button to control accessibility, where it would alert the admin user each time the active/inactive status of a user was changed. The active/inactive status of a user (accessibility) is only modifiable for users with 'user' role. Users with 'admin' role are always active. Once a user was limited accessibility, an error message, 'Your account has been disabled', will be displayed on an attempt to login. 
 - Tiffany Ngo
     - Completed: Implemented circle graph that shows how much fitness was done each month in a specified year, percentage-wise
 
@@ -58,7 +58,7 @@
 - Loelle Lam
   - In Progress: Began implementation of 'goal' feature, to be further developed, analyzed, and optimized. Timeline includes the completion of 'goal' feature and all related analysis by 20240502.
 - Mai Abe
-  - Completed: Fixed the user insertion function issues on a user SignUp. Removed the textCheck function as it is not relevant and to make the function more simple - on signup, all users are assigned the 'user' role. Created a User role in addition to the Admin role. Created an Admin Panel page for listing all users in the db. (in progress) 
+  - Completed: Fixed the user insertion function issues on a user SignUp. Removed the textCheck function as it is not relevant for our purpose to create and store user account information. On signup, all users are assigned the 'user' role. Created a User role in addition to the Admin role. Created an Admin Panel page for listing all users in the db. (in progress) 
   - Next: Create activation/deactivation functionality for users for access controlling. 
 - Tiffany Ngo
   - Completed: Performed fuzz testing on the website to test for vulnerabilities and security issues, and added validation checks on the input fields for the description, title, and image upload for the fitness logs to prevent possible issues. Added graph to show overall fitness levels of the user on a weekly basis.
