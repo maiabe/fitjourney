@@ -1,7 +1,56 @@
 # fit-journey
+Fit Journey is a web application developed for ICS 427 Software Quality Assurance course at University of Hawaii at Manoa. Our app aims to help users keep or enhance their fitness levels through managing any workout logs. Users are able to create, edit or delete workout logs, and to visualize their workout activities over time. This application was developed utilizing secure coding practices and aims to provide protected environment for our users. For a detailed explanation for our application features, please visit our [wiki page](https://github.com/JohnGalinato808/fitjourney/wiki).
+
 
 ![landing-page](https://github.com/JohnGalinato808/fitjourney/raw/main/doc/fitjourney_landingpage.png)
 [![fit-journey](https://github.com/JohnGalinato808/fitjourney/actions/workflows/ci.yml/badge.svg)](https://github.com/JohnGalinato808/fitjourney/actions/workflows/ci.yml)
+
+## Prerequisites
+Before you begin, please ensure you have met the following requirements.
+- Node.js: v14.21.3 or later
+- Meteor: v2.15 or later
+
+## Installation
+1. Clone the Repository
+   ```bash
+   # Clone the repository
+   git clone https://github.com/JohnGalinato808/fitjourney.git
+   
+   # Navigate to your repository
+   cd repository
+
+   # Navigate to app directory
+   cd app
+   
+2. Install dependencies
+   ```bash
+   # Install dependencies
+   meteor npm install
+
+3. Run the application
+   ```bash
+   # Run application
+   meteor npm run start
+
+## Developer Notes
+
+### Challenges and surprises
+
+### Achievements
+
+### Disappointments
+
+### Disclaimers/Caveats
+
+## Links
+
+FitJourney Repository (https://github.com/JohnGalinato808/fitjourney)
+
+Final Project Documentation ?
+
+Release Version 
+
+Wiki Page (https://github.com/JohnGalinato808/fitjourney/wiki)
 
 
 ========= 5/04/24 Updates ==========
