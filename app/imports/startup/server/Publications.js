@@ -49,9 +49,10 @@ Meteor.publish(Surveys.userPublicationName, function () {
   return this.ready();
 });
 
+// Server side: Publish roles for all users
 Meteor.publish(null, function () {
-  if (this.userId) {
-    return Meteor.roleAssignment.find({ 'user._id': this.userId });
+  if (this.userId && Roles.userIsInRole(this.userId, ['admin'])) {
+    return Meteor.roleAssignment.find({});
   }
   return this.ready();
 });
@@ -68,13 +69,16 @@ Meteor.publish('allUsersWithRoles', function () {
     // Only publish to logged-in admins
     return this.ready();
   }
+  console.log(Meteor.users.find({}, { fields: { roles: 1 } }).fetch());
 
-  return Meteor.users.find({}, {
+  const allUsers = Meteor.users.find({}, {
     fields: {
       username: 1,
       emails: 1,
-      roles: 1, // Assuming you're using something like `alanning:roles`
-      createdAt: 1,
+      role: 1,
+      isActive: 1,
     },
   });
+  console.log(allUsers);
+  return allUsers;
 });

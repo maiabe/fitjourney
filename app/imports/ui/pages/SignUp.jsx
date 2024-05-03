@@ -6,9 +6,7 @@ import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
-import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
-import swal from 'sweetalert';
 import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const SignUp = () => {

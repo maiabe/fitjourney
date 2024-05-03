@@ -6,7 +6,7 @@
     },
     { "email": "user1@foo.com",
       "username": "user1",
-      "password": "user1pass", "role": "user" 
+      "password": "user1pass", "role": "admin" 
     },
     { "email": "user2@foo.com",
       "username": "user2",
